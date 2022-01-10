@@ -1,1 +1,20 @@
-micropet-service-cats-config
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: cats
+  labels:carto.run/workload-name: cats
+    app.kubernetes.io/component: run
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: '1'
+    spec:
+      containers:
+        - name: workload
+          image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:7c23f63dff382380985b870e20b2dae06fdcd61651e40ad1c78616abdf3ee81f
+          securityContext:
+            runAsUser: 1000
+      imagePullSecrets:
+        - name: registry-credentials
+
