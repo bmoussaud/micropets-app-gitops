@@ -1,7 +1,7 @@
 #@data/values
 --
 application:
-  name: micro-pet2
+  name: micro-pet
 service:  
   name: cats
   port: 7002
