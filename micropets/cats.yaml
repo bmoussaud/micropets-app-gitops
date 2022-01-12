@@ -10,7 +10,7 @@ service:
   backend:
     observability: true
     mode: RANDOM_NUMBER
-    frequencyError: 17          
+    frequencyError: 18          
 environment:
   name: aws/europ
   ingress: contour
