@@ -1,0 +1,7 @@
+#@data/values
+---        
+service:  
+  name: cats
+  port: 7002
+  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:7c23f63dff382380985b870e20b2dae06fdcd61651e40ad1c78616abdf3ee81f          
+
