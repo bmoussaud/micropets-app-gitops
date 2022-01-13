@@ -3,5 +3,5 @@
 service:  
   name: cats
   port: 7002
-  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:7c23f63dff382380985b870e20b2dae06fdcd61651e40ad1c78616abdf3ee81f          
+  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:13e593c7228e233e2ba0f3e08956311ac84dcfb7fcfc462e9211a0eaac8dae50          
 
