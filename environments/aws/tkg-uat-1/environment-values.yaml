@@ -5,6 +5,6 @@ environment:
   ingress: istio
   domain:
     internal: .micropets-supplychain.svc.cluster.local
-    exposed: micropet.uat1.mytanzu.xyz
+    exposed: micropet.uat.mytanzu.xyz
 
 
