@@ -1,0 +1,10 @@
+#@data/values
+---
+environment:
+  name: aws/uat1
+  ingress: istio
+  domain:
+    internal: .micropets-supplychain.svc.cluster.local
+    exposed: micropet.uat1.mytanzu.xyz
+
+

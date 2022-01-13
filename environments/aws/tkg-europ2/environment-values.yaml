@@ -1,0 +1,10 @@
+#@data/values
+---
+environment:
+  name: aws/europ2
+  ingress: istio
+  domain:
+    internal: .micropets-supplychain.svc.cluster.local
+    exposed: micropet.europ2.mytanzu.xyz
+
+
