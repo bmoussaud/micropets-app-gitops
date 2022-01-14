@@ -1,7 +1,7 @@
 #@data/values
----
-service:
-  name: dogs  
+---        
+service:  
+  name: dogs
   port: 7003
-  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:6e4fe818f70bfd02335f1f803afa6b360008e14750ab760d726491d801597f54
-  
+  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:ce2286db9c106f950cfd40c223a49bd8c50f2e7c8325a13892e4d9498f69b19b          
+

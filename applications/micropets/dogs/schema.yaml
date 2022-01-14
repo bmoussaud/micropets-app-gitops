@@ -9,7 +9,7 @@ service:
   replicas: 1
   backend:
     observability: true
-    mode: "RANDOM_NUMBER"
+    mode: RANDOM_NUMBER
     frequencyError: 0
   gui:
     color: color
@@ -21,3 +21,4 @@ environment:
   domain:
     internal: internal
     exposed: exposed
+
