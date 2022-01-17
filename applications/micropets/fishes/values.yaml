@@ -3,5 +3,5 @@
 service:  
   name: fishes
   port: 7007
-  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:1877bfc24eaf184e08de739bc72d8e2efa9d1e4f4ce552bde615ef418c6a584c          
+  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:1877bfc24eaf184e08de739bc72d8e2efa9d1e4f4ce552bde615ef418c6a584c     
 
