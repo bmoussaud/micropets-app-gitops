@@ -3,5 +3,5 @@
 gui:            
   color: blue
   config_path: /workspace/dist/assets
-  broker_service: /benoit
+  broker_service: /
 
