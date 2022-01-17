@@ -5,6 +5,6 @@ environment:
   ingress: contour
   domain:
     internal: .micropets-supplychain.svc.cluster.local
-    exposed: front.mytanzu.xyz/
+    exposed: front.mytanzu.xyz
 
 
