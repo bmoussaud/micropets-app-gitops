@@ -3,5 +3,5 @@
 service:  
   name: pets
   port: 9000
-  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:ebb01447ce59f2728fc0d9dc03e975e630b07435914412e4df891abcd5c2b6dc          
+  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:ebb01447ce59f2728fc0d9dc03e975e630b07435914412e4df891abcd5c2b6dc     
 
