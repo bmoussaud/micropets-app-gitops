@@ -1,5 +1,7 @@
 #@data/values
----        
+---     
+application:
+  name: micro-pet   
 service:  
   name: pets
   port: 9000
