@@ -1,0 +1,10 @@
+#@data/values
+---
+environment:
+  name: aws/front
+  ingress: contour
+  domain:
+    internal: .micropets-supplychain.svc.cluster.local
+    exposed: front.mytanzu.xyz/
+
+
