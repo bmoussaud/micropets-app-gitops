@@ -1,7 +1,9 @@
 #@data/values
 ---
-gui:
-   broker_service: http://pets.hermes.avilab.top
+service:  
+  gui:
+    color: red
+    broker_service: http://pets.hermes.avilab.top
 environment:
   name: aws/europ2
   ingress: istio

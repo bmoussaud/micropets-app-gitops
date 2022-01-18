@@ -1,8 +1,9 @@
 #@data/values
 ---
-gui:
-   color: blue
-   broker_service: http://pets.hermes.avilab.top
+service:  
+  gui:
+    color: blue
+    broker_service: http://pets.hermes.avilab.top
 environment:
   name: aks/east1
   ingress: istio
