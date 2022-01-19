@@ -8,7 +8,7 @@ environment:
   name: aws/europ2
   ingress: istio
   domain:
-    internal: .bmoussaud.prod
-    exposed: micropet.europ2.mytanzu.xyz
+    internal: .micropets-supplychain.svc.cluster.local
+    exposed: micropet.europe.mytanzu.xyz
 
 
