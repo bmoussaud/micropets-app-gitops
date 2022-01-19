@@ -8,7 +8,8 @@ environment:
   name: aws/europe-3
   ingress: istio
   domain:
-    internal: .micropets-supplychain.svc.cluster.local
-    exposed: micropet.europe.mytanzu.xyz
+    #internal: .micropets-supplychain.svc.cluster.local
+    internal: .micropets.prod 
+    exposed: europe.micropet.mytanzu.xyz
 
 

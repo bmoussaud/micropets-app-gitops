@@ -8,7 +8,8 @@ environment:
   name: aks/east-2
   ingress: istio
   domain:
-    internal: .micropets-supplychain.svc.cluster.local
-    exposed: azu.hermes.avilab.top
+    #internal: .micropets-supplychain.svc.cluster.local
+    internal: .micropets.prod
+    exposed: east.micropet.mytanzu.xyz
 
 
