@@ -5,8 +5,9 @@ service:
     color: blue
     broker_service: http://pets.hermes.avilab.top
 environment:
-  name: aks/east1
+  name: aks/east-2
   ingress: istio
   domain:
     internal: .bmoussaud.prod
     exposed: azu.hermes.avilab.top
+
