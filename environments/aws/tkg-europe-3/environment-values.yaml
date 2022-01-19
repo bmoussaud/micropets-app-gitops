@@ -5,7 +5,7 @@ service:
     color: red
     broker_service: http://pets.hermes.avilab.top
 environment:
-  name: aws/europ2
+  name: aws/europe-3
   ingress: istio
   domain:
     internal: .micropets-supplychain.svc.cluster.local
