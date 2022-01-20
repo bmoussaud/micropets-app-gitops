@@ -4,7 +4,7 @@ service:
   gui:
     color: blue
     #broker_service: http://pets.hermes.avilab.top
-    broker_service: http://europe.micropet.mytanzu.xyz
+    broker_service: http://east.micropet.mytanzu.xyz
 environment:
   name: aks/east-2
   ingress: istio
