@@ -2,7 +2,7 @@
 ---
 service:  
   backend:    
-    frequencyError: 4
+    frequencyError: 10
   gui:
     color: red
     broker_service: http://pets.hermes.avilab.top
