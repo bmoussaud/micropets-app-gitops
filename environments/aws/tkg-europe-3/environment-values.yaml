@@ -3,8 +3,8 @@
 service:  
   gui:
     color: red
-    #broker_service: http://pets.hermes.avilab.top
-    broker_service: http://europe.micropet.mytanzu.xyz
+    broker_service: http://pets.hermes.avilab.top
+    #broker_service: http://europe.micropet.mytanzu.xyz
 environment:
   name: aws/europe-3
   ingress: istio
