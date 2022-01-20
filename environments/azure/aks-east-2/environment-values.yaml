@@ -1,6 +1,8 @@
 #@data/values
 ---
 service:  
+  backend:    
+    frequencyError: 4
   gui:
     color: blue
     broker_service: http://pets.hermes.avilab.top
