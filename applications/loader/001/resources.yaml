@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
 data:
-  targets.txt: "GET http://pets-service.micropets.prod:9000/pets"
+  targets.txt: "GET http://pets-service.micropets-supplychain.svc.cluster.local:9000/pets"
 ---
 apiVersion: batch/v1
 kind: Job
