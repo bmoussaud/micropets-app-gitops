@@ -11,6 +11,7 @@ service:
     observability: true
     mode: RANDOM_NUMBER
     frequencyError: 0
+    config_path: config_path
   gui:
     color: color
     config_path: config_path
