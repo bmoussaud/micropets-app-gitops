@@ -10,4 +10,5 @@ service:
     color: blue
     config_path: /workspace/dist/assets
     broker_service: /
+    config_filename: config.json    
 

@@ -11,11 +11,8 @@ service:
     observability: true
     mode: RANDOM_NUMBER
     frequencyError: 0
-    config_path: config_path
-  gui:
-    color: color
-    config_path: config_path
-    broker_service: broker_service
+    config_path: config_path    
+    config_filename: config_filename
 environment:
   name: name
   ingress: ingress
