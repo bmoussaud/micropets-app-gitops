@@ -7,8 +7,8 @@ service:
   port: 8080
   image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:a99cb9dacc42760e8149002eb001d1665bd23fa2f697f7ac097b5ef1d69dca47        
   gui:            
+    broker_service: /
     color: blue
     config_path: /workspace/dist/assets
-    broker_service: /
-    config_filename: config.json    
+    config_filename: config.json                   
 
