@@ -4,7 +4,7 @@ service:
   backend:    
     frequencyError: 25
   gui:
-    color: blue
+    color: orange
     #broker_service: http://pets.hermes.avilab.top
     broker_service: http://c1.xxxx.mytanzu.xyz
 environment:
