@@ -1,0 +1,14 @@
+#@data/values
+---       
+application:
+  name: micro-pet
+service:  
+  name: gui
+  port: 8080
+  image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:a99cb9dacc42760e8149002eb001d1665bd23fa2f697f7ac097b5ef1d69dca47    
+  config_path: /workspace/dist/assets
+  config_filename: config.json          
+  gui:            
+    broker_service: /
+    color: blue                               
+

@@ -1,0 +1,21 @@
+#@data/values-schema
+---
+application:
+  name: name
+service:
+  name: name
+  port: 0
+  image: image
+  replicas: 1
+  config_path: config_path
+  config_filename: config_filename                       
+  gui:
+    color: color
+    broker_service: broker_service
+environment:
+  name: name
+  ingress: ingress
+  domain:
+    internal: internal
+    exposed: exposed
+

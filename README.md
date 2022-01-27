@@ -42,3 +42,8 @@ The `Deliverables` refering `ClusterDeliveries` deployed on the target cluster p
     └── vsphere
 ````
 
+## Deploy Deliverable:
+
+````
+MICROPETS_environment=vsphere/c1 make namespace deliverables
+`````
