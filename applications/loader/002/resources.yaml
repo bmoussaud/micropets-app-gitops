@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -7,9 +9,9 @@ metadata:
   labels:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
-    app.kubernetes.io/version: 001
+    app.kubernetes.io/version: 002
 data:
-  targets.txt: "GET http://pets.micropets-supplychain.svc.cluster.local/pets"
+  targets.txt: #@ "GET http://pets{}/pets".format(data.values.environment.domain.internal)
 ---
 apiVersion: batch/v1
 kind: Job
@@ -18,7 +20,7 @@ metadata:
   labels:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
-    app.kubernetes.io/version: 001
+    app.kubernetes.io/version: 002
 spec:
   template:
     spec:
