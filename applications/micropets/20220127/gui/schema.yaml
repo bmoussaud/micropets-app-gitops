@@ -12,6 +12,10 @@ service:
   gui:
     color: color
     broker_service: broker_service
+  backend:
+    frequencyError: 0
+    observability: true
+    mode: RANDOM_NUMBER        
 environment:
   name: name
   ingress: ingress
