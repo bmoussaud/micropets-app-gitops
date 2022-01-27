@@ -11,7 +11,8 @@ metadata:
     app.kubernetes.io/part-of: vegeta
     app.kubernetes.io/version: 002
 data:
-  targets.txt: #@ "GET http://pets{}/pets".format(data.values.environment.domain.internal)
+  #http://pets-service.micropets-supplychain.svc.cluster.local.:9000/pets
+  targets.txt: #@ "GET http://pets-service{}:9000/pets".format(data.values.environment.domain.internal)
 ---
 apiVersion: batch/v1
 kind: Job
