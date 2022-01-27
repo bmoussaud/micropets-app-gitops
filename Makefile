@@ -6,7 +6,6 @@ namespace:
 	
 .PHONY: deliverables
 deliverables: 
-	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy --yes -c -a micropets-deliverables --into-ns $(NAMESPACE)  -f-
+	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy --yes -c -a micropet-deliverables --into-ns $(NAMESPACE)  -f-
 
-	
 
