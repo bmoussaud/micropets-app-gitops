@@ -1,0 +1,18 @@
+#@data/values
+---
+service:  
+  backend:    
+    frequencyError: 25
+  gui:
+    color: blue
+    #broker_service: http://pets.hermes.avilab.top
+    broker_service: http://c2.xxxx.mytanzu.xyz
+environment:
+  name: vsphere/C2
+  ingress: istio
+  domain:
+    internal: .micropets-supplychain.svc.cluster.local
+    #internal: .micropets.prod
+    exposed: c2.xxxx.avilab.top
+
+
