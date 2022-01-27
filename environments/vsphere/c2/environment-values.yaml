@@ -8,7 +8,7 @@ service:
     #broker_service: http://pets.hermes.avilab.top
     broker_service: http://c2.xxxx.mytanzu.xyz
 environment:
-  name: vsphere/C2
+  name: vsphere/c2
   ingress: istio
   domain:
     internal: .micropets-supplychain.svc.cluster.local
