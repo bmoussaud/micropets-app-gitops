@@ -8,10 +8,14 @@ service:
   image: image
   replicas: 1
   config_path: config_path
-  config_filename: config_filename                       
+  config_filename: config_filename
   gui:
     color: color
     broker_service: broker_service
+  backend:
+    frequencyError: 0
+    observability: true
+    mode: "RANDOM_NUMBER"  
 environment:
   name: name
   ingress: ingress
