@@ -45,5 +45,9 @@ The `Deliverables` refering `ClusterDeliveries` deployed on the target cluster p
 ## Deploy Deliverable:
 
 ````
-MICROPETS_environment=vsphere/c1 make namespace deliverables
+MICROPETS_environment=vsphere/c1 make namespace k-deliverables
+`````
+
+````
+MICROPETS_environment=vsphere/c1 make namespace kapp-deliverables
 `````
