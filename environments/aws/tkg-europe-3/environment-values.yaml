@@ -5,14 +5,14 @@ service:
     frequencyError: 10
   gui:
     color: red
-    broker_service: http://pets.hermes.avilab.top
-    #broker_service: http://europe.micropet.mytanzu.xyz
+    #broker_service: http://pets.hermes.avilab.top
+    broker_service: http://europe.micropet.mytanzu.xyz
 environment:
   name: aws/europe-3
   ingress: istio
   domain:
-    #internal: .micropets-supplychain.svc.cluster.local
-    internal: .micropets.prod 
+    internal: .micropets-supplychain.svc.cluster.local
+    #internal: .micropets.prod 
     exposed: europe.micropet.mytanzu.xyz
 
 
