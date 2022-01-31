@@ -12,7 +12,7 @@ environment:
   ingress: istio
   domain:
     #internal: .micropets-supplychain.svc.cluster.local
-    internal: .micropets.prod
+    internal: .micropet.prod
     exposed: east.micropet.mytanzu.xyz
 
 
