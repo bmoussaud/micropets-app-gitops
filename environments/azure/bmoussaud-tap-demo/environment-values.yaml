@@ -1,0 +1,13 @@
+#@data/values
+---
+service:    
+  gui:
+    color: red
+environment:
+  name: azure/front
+  ingress: contour
+  domain:
+    internal: .micropets-supplychain.svc.cluster.local
+    exposed: front.tap.aks.mytanzu.xyz
+
+
