@@ -5,7 +5,7 @@ application:
 service:  
   name: cats
   port: 7002
-  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:ee7ba02392b769ba626699a750a7916ac3cc12e5a2fc17ebbf737f217c6c3884    
+  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:f85342bb12dba5a519829e3e14d5d6a71cb28b510c7744fefceb6ad734afa398    
   config_path: /config
   config_filename: pets_config.json
 
