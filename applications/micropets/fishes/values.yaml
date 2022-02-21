@@ -5,7 +5,7 @@ application:
 service:  
   name: fishes
   port: 7007
-  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:7e894e2442fb522bc519f429d6f7682db260005356c5237451ca47345f3b8068    
+  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:b5b2b5180d2fafec02e6aeec83cd87b8df0e700e8259a0e85695dafc153f39aa    
   config_path: /config
   config_filename: pets_config.json
 
