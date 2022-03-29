@@ -1,0 +1,11 @@
+#@data/values
+---     
+application:
+  name: micro-pet   
+service:  
+  name: cats
+  port: 7002
+  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:221b4951ac658c0564b1b72297f9de4e7f80af3072102dbf6a5d65d28bad9a65    
+  config_path: /config
+  config_filename: pets_config.json
+

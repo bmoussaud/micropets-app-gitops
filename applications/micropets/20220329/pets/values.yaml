@@ -1,0 +1,11 @@
+#@data/values
+---     
+application:
+  name: micro-pet   
+service:  
+  name: pets
+  port: 9000
+  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:9252137303b90f72c574f80c3c6900c55cb98db314f059188d07e47301615540    
+  config_path: /config
+  config_filename: pets_config.json
+
