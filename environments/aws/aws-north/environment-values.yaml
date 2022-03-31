@@ -12,6 +12,6 @@ environment:
   domain:
     internal: .micropets-supplychain.svc.cluster.local
     #internal: .micropets.prod
-    exposed: north.micropet.mytanzu.xyz
+    exposed: micropet.north.mytanzu.xyz
 
 
