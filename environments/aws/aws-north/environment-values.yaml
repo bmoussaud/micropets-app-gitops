@@ -1,0 +1,17 @@
+#@data/values
+---
+service:  
+  backend:    
+    frequencyError: 10
+  gui:
+    color: red
+    broker_service: http://north.micropet.mytanzu.xyz
+environment:
+  name: aws/north
+  ingress: contour
+  domain:
+    internal: .micropets-supplychain.svc.cluster.local
+    #internal: .micropets.prod
+    exposed: north.micropet.mytanzu.xyz
+
+
