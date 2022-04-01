@@ -13,9 +13,9 @@ metadata:
     app.kubernetes.io/version: "003"
 data:  
   targets.txt: |
-    GET http://pets-service(@=  data.values.environment.domain.internal @):9000/pets
-    GET http://gui-service(@=  data.values.environment.domain.internal @):8080/
-    GET http://gui-service(@=  data.values.environment.domain.internal @):8080/assets/config.json
+    GET http://pets-service.(@=  data.values.environment.domain.internal @):9000/pets
+    GET http://gui-service.(@=  data.values.environment.domain.internal @):8080/
+    GET http://gui-service.(@=  data.values.environment.domain.internal @):8080/assets/config.json
 ---
 apiVersion: batch/v1
 kind: Job
