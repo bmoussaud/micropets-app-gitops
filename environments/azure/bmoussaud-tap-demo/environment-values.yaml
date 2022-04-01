@@ -5,7 +5,7 @@ service:
     color: green
 environment:
   name: azure/south
-  ingress: contour
+  ingress: istio
   domain:
     internal: .micropets-supplychain.svc.cluster.local
     exposed: front.tap.aks.mytanzu.xyz
