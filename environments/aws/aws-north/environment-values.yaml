@@ -10,8 +10,8 @@ environment:
   name: aws/north
   ingress: istio
   domain:
-    internal: .micropets-supplychain.svc.cluster.local
-    #internal: .micropets.prod
+    #internal: .micropets-supplychain.svc.cluster.local
+    internal: micropets.demo 
     exposed: micropet.north.mytanzu.xyz
 
 
