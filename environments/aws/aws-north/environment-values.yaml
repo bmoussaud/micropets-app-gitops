@@ -5,7 +5,7 @@ service:
     frequencyError: 10
   gui:
     color: red
-    broker_service: http://north.micropet.mytanzu.xyz
+    broker_service: http://micropet.north.mytanzu.xyz/pets
 environment:
   name: aws/north
   ingress: contour
