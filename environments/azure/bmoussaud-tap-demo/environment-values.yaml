@@ -2,9 +2,9 @@
 ---
 service:    
   gui:
-    color: red
+    color: green
 environment:
-  name: azure/front
+  name: azure/south
   ingress: contour
   domain:
     internal: .micropets-supplychain.svc.cluster.local
