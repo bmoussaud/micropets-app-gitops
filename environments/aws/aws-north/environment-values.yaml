@@ -8,7 +8,7 @@ service:
     broker_service: http://micropet.north.mytanzu.xyz
 environment:
   name: aws/north
-  ingress: contour
+  ingress: istio
   domain:
     internal: .micropets-supplychain.svc.cluster.local
     #internal: .micropets.prod
