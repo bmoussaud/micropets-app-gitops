@@ -55,3 +55,13 @@ MICROPETS_environment=vsphere/c1 make namespace kapp-deliverables
 ```shell
 MICROPETS_application=micropets/20220329 MICROPETS_environment=aws/aws-north make kapp-deliverables
 ```
+
+## Undeploy Deliverable:
+
+```shell
+make kapp-undeliverable
+```
+
+```shell
+make k-undeliverables
+```
