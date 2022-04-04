@@ -1,0 +1,51 @@
+#@ load("@ytt:data", "data")
+#@yaml/text-templated-strings
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    kapp.k14s.io/versioned: ""
+  name: vegeta-config
+  labels:
+    app.kubernetes.io/component: loader
+    app.kubernetes.io/part-of: vegeta
+    app.kubernetes.io/version: "005"
+data:  
+  targets.txt: |
+    GET http://pets-service(@=  data.values.environment.domain.internal @):9000/pets
+    GET http://gui-service(@=  data.values.environment.domain.internal @):8080/
+    GET http://gui-service(@=  data.values.environment.domain.internal @):8080/assets/config.json
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: vegeta
+  labels:
+    app.kubernetes.io/component: loader
+    app.kubernetes.io/part-of: vegeta
+    app.kubernetes.io/version: "005"
+spec:
+  template:
+    spec:
+      volumes:
+      - name: config-volume
+        configMap:
+          name: vegeta-config
+          items:
+          - key: targets.txt
+            path: targets.txt
+      containers:
+      - name: vegeta
+        image: peterevans/vegeta:6.9.1        
+        command: ["/bin/vegeta","attack","-targets=/config/targets.txt","-name=vegeta","-rate=${RATE}","-duration=${DURATION}"]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config/
+        env:
+        - name: RATE
+          value: "10"
+        - name: DURATION
+          value: "0"
+      restartPolicy: Never
+  backoffLimit: 4
