@@ -112,4 +112,4 @@ spec:
   - name: environment
     value: #@ data.values.environment
   - name: application
-    value: loader/004
+    value: loader/005

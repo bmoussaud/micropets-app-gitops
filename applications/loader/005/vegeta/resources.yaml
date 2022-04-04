@@ -38,14 +38,14 @@ spec:
       containers:
       - name: vegeta
         image: peterevans/vegeta:6.9.1        
-        command: ["/bin/vegeta","attack","-targets=/config/targets.txt","-name=vegeta","-rate=${RATE}","-duration=${DURATION}"]
+        command: ["/bin/vegeta","attack","-targets=/config/targets.txt","-name=vegeta","-rate=$(V_RATE),"-duration=$(V_DURATION)"]
         volumeMounts:
         - name: config-volume
           mountPath: /config/
         env:
-        - name: RATE
+        - name: V_RATE
           value: "10"
-        - name: DURATION
+        - name: V_DURATION
           value: "0"
       restartPolicy: Never
   backoffLimit: 4
