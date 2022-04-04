@@ -4,7 +4,7 @@ service:
   backend:    
     frequencyError: 13
   gui:
-    color: blue
+    color: red
     broker_service: http://front.tap.aks.mytanzu.xyz
 environment:
   name: azure/south
