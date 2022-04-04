@@ -1,8 +1,11 @@
 #@data/values
 ---
 service:    
+  backend:    
+    frequencyError: 13
   gui:
-    color: green
+    color: blue
+    broker_service: http://front.tap.aks.mytanzu.xyz
 environment:
   name: azure/south
   ingress: istio
