@@ -12,13 +12,15 @@ metadata:
     app.kubernetes.io/part-of: vegeta
     app.kubernetes.io/version: "005"
 data:  
+  rate: "10"
+  duration: "0"  
   targets.txt: |
     GET http://pets-service(@=  data.values.environment.domain.internal @):9000/pets
     GET http://gui-service(@=  data.values.environment.domain.internal @):8080/
     GET http://gui-service(@=  data.values.environment.domain.internal @):8080/assets/config.json
 ---
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: vegeta
   labels:
@@ -26,7 +28,14 @@ metadata:
     app.kubernetes.io/part-of: vegeta
     app.kubernetes.io/version: "005"
 spec:
+  replicas: 12
+  selector:
+    matchLabels:
+      app: vegeta
   template:
+    metadata:
+      labels:
+        app: vegeta
     spec:
       volumes:
       - name: config-volume
@@ -38,14 +47,20 @@ spec:
       containers:
       - name: vegeta
         image: peterevans/vegeta:6.9.1        
-        command: ["/bin/vegeta","attack","-targets=/config/targets.txt","-name=vegeta","-rate=$(V_RATE),"-duration=$(V_DURATION)"]
+        command: ["sh","-c","/bin/vegeta attack -targets=/config/targets.txt -name=vegeta -rate=$(V_RATE) -duration=$(V_DURATION) | tee results.bin | vegeta report"]
         volumeMounts:
         - name: config-volume
           mountPath: /config/
         env:
-        - name: V_RATE
-          value: "10"
-        - name: V_DURATION
-          value: "0"
-      restartPolicy: Never
-  backoffLimit: 4
+        - name: V_RATE          
+          valueFrom:
+            configMapKeyRef:              
+              name: vegeta-config              
+              key: rate
+        - name: V_DURATION          
+          valueFrom:
+            configMapKeyRef:              
+              name: vegeta-config              
+              key: duration
+      restartPolicy: Always
+
