@@ -28,7 +28,7 @@ metadata:
     app.kubernetes.io/part-of: vegeta
     app.kubernetes.io/version: "005"
 spec:
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels:
       app: vegeta
