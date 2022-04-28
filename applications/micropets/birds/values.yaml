@@ -1,0 +1,11 @@
+#@data/values
+---     
+application:
+  name: micro-pet   
+service:  
+  name: birds
+  port: 8080
+  image: harbor.mytanzu.xyz/library/micropet-tap-birds@sha256:3ff11b3cf3c3c0cdc110ac839d458f64e124da5f6a9e8400d8bf24f330396670    
+  config_path: /config
+  config_filename: pets_config.json
+
