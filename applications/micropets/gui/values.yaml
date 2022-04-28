@@ -5,9 +5,10 @@ application:
 service:  
   name: gui
   port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:7e1e8e8a0b5997e83ef0d0a7694cd39ad32cee9c33dbf0b77095fd097b62bb2f    
+  image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:b6d214db81ad6c52149f949ebf18629dfbdb28f97c084e86757acc6f0b594df8    
   config_path: /workspace/dist/assets
-  config_filename: config.json          
+  config_filename: config.json 
+  usedb: false          
   gui:            
     broker_service: /
     color: blue                               
