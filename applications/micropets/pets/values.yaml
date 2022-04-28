@@ -8,4 +8,5 @@ service:
   image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:e3eacb35d6aef52d0efd2fcaa6335ca14c39992b8ad79afbb66cd29cad4f403e    
   config_path: /config
   config_filename: pets_config.json
+  usedb: false          
 
