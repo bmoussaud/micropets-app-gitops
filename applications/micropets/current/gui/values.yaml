@@ -5,7 +5,7 @@ application:
 service:  
   name: gui
   port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:ee1dc7b6fa0f86a76c1b39cd717615269b8ec979a9b041df0b9300ee13ef1f5f    
+  image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:d13077046caeaa6926b0048a7d5a7c5c05315054b9b1275fbd655267a40b49c9    
   config_path: /workspace/dist/assets
   config_filename: config.json 
   usedb: false          
