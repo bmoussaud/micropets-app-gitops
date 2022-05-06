@@ -5,7 +5,7 @@ application:
 service:  
   name: pets
   port: 9000
-  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:e16998d04a3167bd4166b7743bb1bda048dcbf36910321d0a4b94eb48e705510    
+  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:4b1346c84f552d878a8757755b8f70c1b0a14b300a29b2d068ea2eecd3f2dc97    
   config_path: /config
   config_filename: pets_config.json
   usedb: false          
