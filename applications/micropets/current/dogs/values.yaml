@@ -5,7 +5,7 @@ application:
 service:  
   name: dogs
   port: 7003
-  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:c6dd3bceac1bc7f3fa3c598c9f9c1c1dc39055b25b9c0a1c44ad73b2dddb01a5    
+  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:cc0151e3975e16fe706dfa6b4d88cd806d2d4ee0d51e0adaa99cb5f970bff756    
   config_path: /config
   config_filename: pets_config.json
   usedb: false          
