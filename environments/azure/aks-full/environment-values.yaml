@@ -8,7 +8,7 @@ service:
     broker_service: http://micropets.apps.full.aks.mytanzu.xyz
 environment:
   name: aks/full-tap
-  ingress: contour
+  ingress: envoy
   domain:
     internal: .micropets-supplychain.svc.cluster.local
     exposed: micropets.apps.full.aks.mytanzu.xyz
