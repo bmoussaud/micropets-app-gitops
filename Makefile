@@ -10,7 +10,7 @@ kapp-deliverables:
 kapp-undeliverables: 
 	kapp delete --yes -c -a micropet-deliverables 
 
-k-deliverables: 
+	: 
 	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kubectl apply -n $(NAMESPACE) -f-
 
 k-undeliverables: 
