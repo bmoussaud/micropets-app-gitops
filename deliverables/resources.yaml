@@ -5,7 +5,7 @@ kind: Deliverable
 metadata:
   name: dogs
   labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery
+    app.tanzu.vmware.com/workload-type: #@ data.values.delivery
 spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
@@ -24,7 +24,7 @@ kind: Deliverable
 metadata:
   name: fishes
   labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery
+    app.tanzu.vmware.com/workload-type: #@ data.values.delivery
 spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
@@ -43,7 +43,7 @@ kind: Deliverable
 metadata:
   name: cats
   labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery
+    app.tanzu.vmware.com/workload-type: #@ data.values.delivery
 spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
@@ -62,7 +62,7 @@ kind: Deliverable
 metadata:
   name: pets
   labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery
+    app.tanzu.vmware.com/workload-type: #@ data.values.delivery
 spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
