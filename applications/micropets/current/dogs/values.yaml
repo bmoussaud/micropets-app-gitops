@@ -4,6 +4,7 @@ application:
   name: micro-pet   
 service:  
   name: dogs
+  component: backend
   port: 7003
   image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:e94f3ea33b6f2cfb5a946b802f86afff03878632d8e4e3b416a0cf388dcf239a    
   config_path: /config
