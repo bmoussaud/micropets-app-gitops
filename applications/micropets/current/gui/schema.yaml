@@ -4,6 +4,7 @@ application:
   name: name
 service:
   name: name
+  component: component
   port: 0
   image: image
   replicas: 1
