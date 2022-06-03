@@ -5,7 +5,7 @@ service:
     frequencyError: 20
   gui:
     color: blue
-    broker_service: http://pets-service.dev-tap.apps.full.aks.mytanzu.xyz
+    broker_service: http://pets.dev-tap.apps.full.aks.mytanzu.xyz
 environment:
   name: aks/full-tap
   ingress: none
