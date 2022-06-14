@@ -7,7 +7,7 @@ service:
     color: red
     broker_service: http://pets.dev-tap.apps.eu.aks.mytanzu.xyz
 environment:
-  name: aks/tap-europe-2
+  name: aks/europe-2
   ingress: none
   domain:
     internal: .dev-tap.svc.cluster.local
