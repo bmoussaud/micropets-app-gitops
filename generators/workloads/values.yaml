@@ -1,0 +1,10 @@
+#@data/values
+---
+service_account_name: tap-default
+git_writer:
+  server: github.com
+  repository: bmoussaud/micropets-app-gitops.git
+  branch: main
+environment: azure/aks-full
+application: micropets/current
+delivery: micropets-delivery-native

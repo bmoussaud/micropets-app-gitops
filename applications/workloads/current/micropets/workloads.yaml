@@ -1,0 +1,84 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: cats
+  labels:
+    app.tanzu.vmware.com/workload-type: micropet-service-git
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: https://github.com/bmoussaud/micropets-app/
+      ref:
+        branch: master
+  params:
+    - name: mode
+      value: "RANDOM_NUMBER"
+    - name: port
+      value: 7002
+    - name: observability
+      value: true
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: dogs
+  labels:
+    app.tanzu.vmware.com/workload-type: micropet-service-git
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: https://github.com/bmoussaud/micropets-app/
+      ref:
+        branch: master
+  params:
+    - name: mode
+      value: "RANDOM_NUMBER"
+    - name: port
+      value: 7003
+    - name: observability
+      value: true
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: fishes
+  labels:
+    app.tanzu.vmware.com/workload-type: micropet-service-git
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: https://github.com/bmoussaud/micropets-app/
+      ref:
+        branch: master
+  params:
+    - name: mode
+      value: "RANDOM_NUMBER"
+    - name: port
+      value: 7007
+    - name: observability
+      value: true
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: pets
+  labels:
+    app.tanzu.vmware.com/workload-type: micropet-service-git
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: https://github.com/bmoussaud/micropets-app/
+      ref:
+        branch: master
+  params:    
+    - name: port
+      value: 9000
+    - name: observability
+      value: false
+    - name: component
+      value: broker
+    

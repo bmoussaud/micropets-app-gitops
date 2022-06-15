@@ -1,0 +1,20 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: micropets
+  labels:
+    app.tanzu.vmware.com/workload-type: simple-delivery
+spec:
+  serviceAccountName: #@ data.values.service_account_name
+  source:
+    git:
+      url: #@ "http://" + data.values.git_writer.server + "/" + data.values.git_writer.repository
+      ref:
+        branch: #@ data.values.git_writer.branch
+  params:
+  - name: environment
+    value: #@ data.values.environment
+  - name: application
+    value: workloads/current
