@@ -4,6 +4,7 @@ metadata:
   name: dogs
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: tap-default
   source:
@@ -23,6 +24,7 @@ metadata:
   name: fishes
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: tap-default
   source:
@@ -42,6 +44,7 @@ metadata:
   name: cats
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: tap-default
   source:
@@ -61,6 +64,7 @@ metadata:
   name: pets
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: tap-default
   source:
@@ -80,6 +84,7 @@ metadata:
   name: gui
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: tap-default
   source:
