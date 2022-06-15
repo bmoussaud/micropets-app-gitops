@@ -1,6 +1,6 @@
 #@data/values
 ---
-service_account_name: tap-default
+service_account_name: cartographer-workload-sa
 git_writer:
   server: github.com
   repository: bmoussaud/micropets-app-gitops.git
