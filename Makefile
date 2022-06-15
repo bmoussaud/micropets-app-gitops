@@ -5,7 +5,7 @@ namespace:
 	kubectl get namespace $(NAMESPACE) 
 	
 kapp-deliverables: namespace
-	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy --yes -c -a micropet-deliverables --into-ns $(NAMESPACE)  -f-
+	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy -y -c -a micropet-deliverables --into-ns $(NAMESPACE)  -f-
 
 kapp-undeliverables: 
 	kapp delete --yes -c -a micropet-deliverables 

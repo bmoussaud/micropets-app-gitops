@@ -1,7 +1,7 @@
 #@data/values
 ---
 #service_account_name: cartographer-deliverable-sa
-service_account_name: default
+service_account_name: tap-default
 git_writer:
   server: github.com
   repository: bmoussaud/micropets-app-gitops.git
