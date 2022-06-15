@@ -4,6 +4,7 @@ metadata:
   name: cats
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: cartographer-workload-sa
   source:
@@ -25,6 +26,7 @@ metadata:
   name: dogs
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: cartographer-workload-sa
   source:
@@ -46,6 +48,7 @@ metadata:
   name: fishes
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: cartographer-workload-sa
   source:
@@ -67,6 +70,7 @@ metadata:
   name: pets
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
+    app.kubernetes.io/part-of: micropets-app
 spec:
   serviceAccountName: cartographer-workload-sa
   source:
