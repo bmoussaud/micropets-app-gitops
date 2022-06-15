@@ -1,0 +1,94 @@
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: dogs
+  labels:
+    app.tanzu.vmware.com/workload-type: micropets-delivery-native
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: http://github.com/bmoussaud/micropets-app-gitops.git
+      ref:
+        branch: main
+  params:
+  - name: environment
+    value: azure/aks-eu-tap-2
+  - name: application
+    value: micropets/current
+---
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: fishes
+  labels:
+    app.tanzu.vmware.com/workload-type: micropets-delivery-native
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: http://github.com/bmoussaud/micropets-app-gitops.git
+      ref:
+        branch: main
+  params:
+  - name: environment
+    value: azure/aks-eu-tap-2
+  - name: application
+    value: micropets/current
+---
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: cats
+  labels:
+    app.tanzu.vmware.com/workload-type: micropets-delivery-native
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: http://github.com/bmoussaud/micropets-app-gitops.git
+      ref:
+        branch: main
+  params:
+  - name: environment
+    value: azure/aks-eu-tap-2
+  - name: application
+    value: micropets/current
+---
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: pets
+  labels:
+    app.tanzu.vmware.com/workload-type: micropets-delivery-native
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: http://github.com/bmoussaud/micropets-app-gitops.git
+      ref:
+        branch: main
+  params:
+  - name: environment
+    value: azure/aks-eu-tap-2
+  - name: application
+    value: micropets/current
+---
+apiVersion: carto.run/v1alpha1
+kind: Deliverable
+metadata:
+  name: gui
+  labels:
+    app.tanzu.vmware.com/workload-type: micropets-delivery
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: http://github.com/bmoussaud/micropets-app-gitops.git
+      ref:
+        branch: main
+  params:
+  - name: environment
+    value: azure/aks-eu-tap-2
+  - name: application
+    value: micropets/20220329
