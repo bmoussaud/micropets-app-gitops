@@ -5,7 +5,8 @@ kind: Deliverable
 metadata:
   name: micropets
   labels:
-    app.tanzu.vmware.com/workload-type: simple-delivery    
+    app.tanzu.vmware.com/workload-type: simple-delivery   
+    app.kubernetes.io/part-of: micropets-delivery 
 spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
