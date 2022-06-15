@@ -5,7 +5,7 @@ metadata:
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
 spec:
-  serviceAccountName: tap-default
+  serviceAccountName: cartographer-workload-sa
   source:
     git:
       url: https://github.com/bmoussaud/micropets-app/
@@ -26,7 +26,7 @@ metadata:
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
 spec:
-  serviceAccountName: tap-default
+  serviceAccountName: cartographer-workload-sa
   source:
     git:
       url: https://github.com/bmoussaud/micropets-app/
@@ -47,7 +47,7 @@ metadata:
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
 spec:
-  serviceAccountName: tap-default
+  serviceAccountName: cartographer-workload-sa
   source:
     git:
       url: https://github.com/bmoussaud/micropets-app/
@@ -68,7 +68,7 @@ metadata:
   labels:
     app.tanzu.vmware.com/workload-type: micropet-service-git
 spec:
-  serviceAccountName: tap-default
+  serviceAccountName: cartographer-workload-sa
   source:
     git:
       url: https://github.com/bmoussaud/micropets-app/

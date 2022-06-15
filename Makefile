@@ -4,6 +4,9 @@ namespace:
 	kubectl create namespace $(NAMESPACE) --dry-run=client -o yaml | kubectl apply -f -
 	kubectl get namespace $(NAMESPACE) 
 	
+workloads:
+	kapp deploy --into-ns micropets-supplychain -c -a workloads -f <(ytt -f generators/workloads --data-value environment=azure/aks-eu-tap-2)
+
 deliverables:
 	kapp deploy --into-ns dev-tap -c -a deliverables -f <(ytt -f generators/deliverables --data-value environment=azure/aks-eu-tap-2)
 
