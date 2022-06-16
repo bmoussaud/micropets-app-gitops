@@ -6,7 +6,7 @@ service:
   name: fishes
   component: backend     
   port: 7007
-  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:071c07dbfd756df0bcee3f365610254b43e9dc6d503ad9335eac79c6ba056671    
+  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:cd3f088b4f6b9d442053a21012e0efbba50bd7cf4d5664328bf953bae0a95c3d    
   config_path: /config
   config_filename: pets_config.json
   usedb: false          
