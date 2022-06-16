@@ -6,7 +6,7 @@ metadata:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
     carto.run/workload-name: dogs
-    carto.run/supply-chain-name: dogs
+    carto.run/supply-chain-name: micropet-service-supply-chain-git
 spec:
   serviceAccountName: tap-default
   source:
@@ -28,7 +28,7 @@ metadata:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
     carto.run/workload-name: fishes
-    carto.run/supply-chain-name: fishes
+    carto.run/supply-chain-name: micropet-service-supply-chain-git
 spec:
   serviceAccountName: tap-default
   source:
@@ -50,7 +50,7 @@ metadata:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
     carto.run/workload-name: cats
-    carto.run/supply-chain-name: cats
+    carto.run/supply-chain-name: micropet-service-supply-chain-git
 spec:
   serviceAccountName: tap-default
   source:
@@ -72,7 +72,7 @@ metadata:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
     carto.run/workload-name: pets
-    carto.run/supply-chain-name: pets
+    carto.run/supply-chain-name: micropet-service-supply-chain-git
 spec:
   serviceAccountName: tap-default
   source:
