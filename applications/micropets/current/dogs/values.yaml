@@ -1,13 +1,11 @@
-#@data/values
----     
 application:
-  name: micro-pet   
-service:  
+  name: micro-pet
+service:
   name: dogs
-  component: backend     
+  component: backend
   port: 7003
-  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:0f494e517d6bb87d1ead50cbe6689abb842dd7fca020efb9ac24ec0c20848d7d    
+  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:0f494e517d6bb87d1ead50cbe6689abb842dd7fca020efb9ac24ec0c20848d7d
   config_path: /config
   config_filename: pets_config.json
-  usedb: false          
+  usedb: false
 
