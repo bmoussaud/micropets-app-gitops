@@ -1,13 +1,11 @@
-#@data/values
----     
 application:
-  name: micro-pet   
-service:  
+  name: micro-pet
+service:
   name: birds
-  component: backend     
+  component: backend
   port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-birds@sha256:5db098b21a6951022eab8d33d9d5cdd13b012fce3ea00544f45ff95dd822768c    
+  image: harbor.mytanzu.xyz/library/micropet-tap-birds@sha256:eb68cc73442718e978fae15b998295a0eecd7a14d83bac8fcebef0fb5636f46b
   config_path: /config
   config_filename: pets_config.json
-  usedb: true          
+  usedb: false
 
