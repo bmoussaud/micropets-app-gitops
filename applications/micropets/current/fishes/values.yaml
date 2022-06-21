@@ -1,11 +1,1 @@
-application:
-  name: micro-pet
-service:
-  name: fishes
-  component: backend
-  port: 7007
-  image: harbor.mytanzu.xyz/library/micropet-tap-fishes@sha256:8da05230a6b1aa9203c82625b4038bd481df5b09f3efbf4fbbb19769dfcd747c
-  config_path: /config
-  config_filename: pets_config.json
-  usedb: false
-
+ImFwcGxpY2F0aW9uOlxuICBuYW1lOiBtaWNyby1wZXRcbnNlcnZpY2U6XG4gIG5hbWU6IGZpc2hlc1xuICBjb21wb25lbnQ6IGJhY2tlbmRcbiAgcG9ydDogNzAwN1xuICBpbWFnZTogaGFyYm9yLm15dGFuenUueHl6L2xpYnJhcnkvbWljcm9wZXQtdGFwLWZpc2hlc0BzaGEyNTY6OGRhMDUyMzBhNmIxYWE5MjAzYzgyNjI1YjQwMzhiZDQ4MWRmNWIwOWYzZWZiZjRmYmJiMTk3NjlkZmNkNzQ3Y1xuICBjb25maWdfcGF0aDogL2NvbmZpZ1xuICBjb25maWdfZmlsZW5hbWU6IHBldHNfY29uZmlnLmpzb25cbiAgdXNlZGI6IGZhbHNlXG4i
