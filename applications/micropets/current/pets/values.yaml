@@ -1,1 +1,11 @@
-ImFwcGxpY2F0aW9uOlxuICBuYW1lOiBtaWNyby1wZXRcbnNlcnZpY2U6XG4gIG5hbWU6IHBldHNcbiAgY29tcG9uZW50OiBicm9rZXJcbiAgcG9ydDogOTAwMFxuICBpbWFnZTogaGFyYm9yLm15dGFuenUueHl6L2xpYnJhcnkvbWljcm9wZXQtdGFwLXBldHNAc2hhMjU2OmVmNDA1Y2NlOTgxNDNlNTNlMjRlZDNkNjcyZDgxYTdiOTE0MDJkMGVlNjFhODczNDhiZDRlOTRlNzA1NDNiZjlcbiAgY29uZmlnX3BhdGg6IC9jb25maWdcbiAgY29uZmlnX2ZpbGVuYW1lOiBwZXRzX2NvbmZpZy5qc29uXG4gIHVzZWRiOiBmYWxzZVxuIg==
+application:
+  name: micro-pet
+service:
+  name: pets
+  component: broker
+  port: 9000
+  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:ef405cce98143e53e24ed3d672d81a7b91402d0ee61a87348bd4e94e70543bf9
+  config_path: /config
+  config_filename: pets_config.json
+  usedb: false
+
