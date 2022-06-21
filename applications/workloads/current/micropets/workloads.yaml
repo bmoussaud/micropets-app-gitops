@@ -12,6 +12,7 @@ spec:
       url: https://github.com/bmoussaud/micropets-app/
       ref:
         branch: master
+    subPath: cats       
   params:
     - name: mode
       value: "RANDOM_NUMBER"
@@ -34,6 +35,7 @@ spec:
       url: https://github.com/bmoussaud/micropets-app/
       ref:
         branch: master
+    subPath: dogs
   params:
     - name: mode
       value: "RANDOM_NUMBER"
@@ -56,6 +58,7 @@ spec:
       url: https://github.com/bmoussaud/micropets-app/
       ref:
         branch: master
+    subPath: fishes    
   params:
     - name: mode
       value: "RANDOM_NUMBER"
@@ -78,6 +81,7 @@ spec:
       url: https://github.com/bmoussaud/micropets-app/
       ref:
         branch: master
+    subPath: pets        
   params:    
     - name: port
       value: 9000
