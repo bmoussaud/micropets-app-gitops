@@ -1,11 +1,1 @@
-application:
-  name: micro-pet
-service:
-  name: birds
-  component: backend
-  port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-birds@sha256:eb68cc73442718e978fae15b998295a0eecd7a14d83bac8fcebef0fb5636f46b
-  config_path: /config
-  config_filename: pets_config.json
-  usedb: false
-
+ImFwcGxpY2F0aW9uOlxuICBuYW1lOiBtaWNyby1wZXRcbnNlcnZpY2U6XG4gIG5hbWU6IGJpcmRzXG4gIGNvbXBvbmVudDogYmFja2VuZFxuICBwb3J0OiA4MDgwXG4gIGltYWdlOiBoYXJib3IubXl0YW56dS54eXovbGlicmFyeS9taWNyb3BldC10YXAtYmlyZHNAc2hhMjU2OmViNjhjYzczNDQyNzE4ZTk3OGZhZTE1Yjk5ODI5NWEwZWVjZDdhMTRkODNiYWM4ZmNlYmVmMGZiNTYzNmY0NmJcbiAgY29uZmlnX3BhdGg6IC9jb25maWdcbiAgY29uZmlnX2ZpbGVuYW1lOiBwZXRzX2NvbmZpZy5qc29uXG4gIHVzZWRiOiBmYWxzZVxuIg==
