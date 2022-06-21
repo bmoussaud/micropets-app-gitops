@@ -1,11 +1,1 @@
-application:
-  name: micro-pet
-service:
-  name: cats
-  component: backend
-  port: 7002
-  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:73639b0dc527e32993f250950db902827397178beb18a139196202ca2fceb78b
-  config_path: /config
-  config_filename: pets_config.json
-  usedb: false
-
+ImFwcGxpY2F0aW9uOlxuICBuYW1lOiBtaWNyby1wZXRcbnNlcnZpY2U6XG4gIG5hbWU6IGNhdHNcbiAgY29tcG9uZW50OiBiYWNrZW5kXG4gIHBvcnQ6IDcwMDJcbiAgaW1hZ2U6IGhhcmJvci5teXRhbnp1Lnh5ei9saWJyYXJ5L21pY3JvcGV0LXRhcC1jYXRzQHNoYTI1Njo3MzYzOWIwZGM1MjdlMzI5OTNmMjUwOTUwZGI5MDI4MjczOTcxNzhiZWIxOGExMzkxOTYyMDJjYTJmY2ViNzhiXG4gIGNvbmZpZ19wYXRoOiAvY29uZmlnXG4gIGNvbmZpZ19maWxlbmFtZTogcGV0c19jb25maWcuanNvblxuICB1c2VkYjogZmFsc2VcbiI=
