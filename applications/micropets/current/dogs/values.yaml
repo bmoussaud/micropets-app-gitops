@@ -1,11 +1,1 @@
-application:
-  name: micro-pet
-service:
-  name: dogs
-  component: backend
-  port: 7003
-  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:0f494e517d6bb87d1ead50cbe6689abb842dd7fca020efb9ac24ec0c20848d7d
-  config_path: /config
-  config_filename: pets_config.json
-  usedb: false
-
+ImFwcGxpY2F0aW9uOlxuICBuYW1lOiBtaWNyby1wZXRcbnNlcnZpY2U6XG4gIG5hbWU6IGRvZ3NcbiAgY29tcG9uZW50OiBiYWNrZW5kXG4gIHBvcnQ6IDcwMDNcbiAgaW1hZ2U6IGhhcmJvci5teXRhbnp1Lnh5ei9saWJyYXJ5L21pY3JvcGV0LXRhcC1kb2dzQHNoYTI1NjowZjQ5NGU1MTdkNmJiODdkMWVhZDUwY2JlNjY4OWFiYjg0MmRkN2ZjYTAyMGVmYjlhYzI0ZWMwYzIwODQ4ZDdkXG4gIGNvbmZpZ19wYXRoOiAvY29uZmlnXG4gIGNvbmZpZ19maWxlbmFtZTogcGV0c19jb25maWcuanNvblxuICB1c2VkYjogZmFsc2VcbiI=
