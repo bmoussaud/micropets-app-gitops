@@ -6,7 +6,7 @@ service:
   name: birds
   component: backend
   port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-birds@sha256:f5616ca976754cf45212a2e1f74494dcb741f4cf7ea47820f5cac2cb26c6e964
+  image: harbor.mytanzu.xyz/library/micropet-tap-birds@sha256:6c4c8de911a35bc8010c52de44dbb02ac4519a0484736c8a358fbe57cbec81b9
   config_path: /config
   config_filename: pets_config.json
   usedb: false
