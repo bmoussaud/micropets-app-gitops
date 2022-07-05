@@ -1,0 +1,13 @@
+#@data/values
+---
+application:
+  name: micro-pet
+service:
+  name: snake
+  component: backend
+  port: 8080
+  image: harbor.mytanzu.xyz/library/micropet-tap-snake@sha256:ee43b40da46b69ea5802de5eb6d17ce1aa48c37ee8b41af85ea59c6325a7c502
+  config_path: /config
+  config_filename: pets_config.json
+  usedb: false
+
