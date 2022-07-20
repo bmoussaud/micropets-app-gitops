@@ -1,7 +1,7 @@
 apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
-  name: dogs
+  name: dogs-cd
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
@@ -23,7 +23,7 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
-  name: fishes
+  name: fishes-cd
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
@@ -45,7 +45,7 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
-  name: cats
+  name: cats-cd
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
@@ -67,7 +67,7 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
-  name: pets
+  name: pets-cd
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery-native
     app.kubernetes.io/part-of: micropets-app
@@ -89,7 +89,7 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
-  name: gui
+  name: gui-cd
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery
     app.kubernetes.io/part-of: micropets-app
