@@ -3,6 +3,7 @@
 service:  
   backend:    
     frequencyError: 20
+    observability: false
   gui:
     color: red
     broker_service: http://pets.dev-tap.apps.eu.aks.mytanzu.xyz
