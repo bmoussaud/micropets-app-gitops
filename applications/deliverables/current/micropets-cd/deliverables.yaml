@@ -1,95 +1,7 @@
 apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
-  name: dogs-cd
-  labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery-native
-    app.kubernetes.io/part-of: micropets-app
-    carto.run/workload-name: dogs
-    carto.run/supply-chain-name: micropet-service-supply-chain-git
-spec:
-  serviceAccountName: tap-default
-  source:
-    git:
-      url: http://github.com/bmoussaud/micropets-app-gitops.git
-      ref:
-        branch: main
-  params:
-  - name: environment
-    value: azure/aks-eu-tap-2
-  - name: application
-    value: micropets/current
----
-apiVersion: carto.run/v1alpha1
-kind: Deliverable
-metadata:
-  name: fishes-cd
-  labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery-native
-    app.kubernetes.io/part-of: micropets-app
-    carto.run/workload-name: fishes
-    carto.run/supply-chain-name: micropet-service-supply-chain-git
-spec:
-  serviceAccountName: tap-default
-  source:
-    git:
-      url: http://github.com/bmoussaud/micropets-app-gitops.git
-      ref:
-        branch: main
-  params:
-  - name: environment
-    value: azure/aks-eu-tap-2
-  - name: application
-    value: micropets/current
----
-apiVersion: carto.run/v1alpha1
-kind: Deliverable
-metadata:
-  name: cats-cd
-  labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery-native
-    app.kubernetes.io/part-of: micropets-app
-    carto.run/workload-name: cats
-    carto.run/supply-chain-name: micropet-service-supply-chain-git
-spec:
-  serviceAccountName: tap-default
-  source:
-    git:
-      url: http://github.com/bmoussaud/micropets-app-gitops.git
-      ref:
-        branch: main
-  params:
-  - name: environment
-    value: azure/aks-eu-tap-2
-  - name: application
-    value: micropets/current
----
-apiVersion: carto.run/v1alpha1
-kind: Deliverable
-metadata:
-  name: pets-cd
-  labels:
-    app.tanzu.vmware.com/workload-type: micropets-delivery-native
-    app.kubernetes.io/part-of: micropets-app
-    carto.run/workload-name: pets
-    carto.run/supply-chain-name: micropet-service-supply-chain-git
-spec:
-  serviceAccountName: tap-default
-  source:
-    git:
-      url: http://github.com/bmoussaud/micropets-app-gitops.git
-      ref:
-        branch: main
-  params:
-  - name: environment
-    value: azure/aks-eu-tap-2
-  - name: application
-    value: micropets/current
----
-apiVersion: carto.run/v1alpha1
-kind: Deliverable
-metadata:
-  name: gui-cd
+  name: gui
   labels:
     app.tanzu.vmware.com/workload-type: micropets-delivery
     app.kubernetes.io/part-of: micropets-app
@@ -103,7 +15,7 @@ spec:
       ref:
         branch: main
   params:
-  - name: environment
-    value: azure/aks-eu-tap-2
-  - name: application
-    value: micropets/20220329
+    - name: environment
+      value: azure/aks-eu-tap-2
+    - name: application
+      value: micropets/20220329
