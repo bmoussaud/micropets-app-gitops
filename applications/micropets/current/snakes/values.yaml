@@ -6,7 +6,7 @@ service:
   name: snakes
   component: backend
   port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-snakes@sha256:3b0dee2fd5154312196497505c7c9c5d522ac538d2523a9ed3abf5f04b520545
+  image: harbor.mytanzu.xyz/library/micropet-tap-snakes@sha256:3cf1e22070b57d7f25e4f3ddaee3b56e1818bc0c2ad5b1635533056f0f537b65
   config_path: /config
   config_filename: pets_config.json
   usedb: false
