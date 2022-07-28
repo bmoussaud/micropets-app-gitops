@@ -6,7 +6,7 @@ service:
   name: dogs
   component: backend
   port: 7003
-  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:b7fb8767bf215a4100e5fac4e648f4b8279e9a435b763634b4b9433ab08afb28
+  image: harbor.mytanzu.xyz/library/micropet-tap-dogs@sha256:23f93a73df7dca489a02a65e63fda758ff36869b42cd8cd7d3bf59c6bd0de57c
   config_path: /config
   config_filename: pets_config.json
   usedb: false
