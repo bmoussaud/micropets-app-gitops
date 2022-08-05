@@ -6,7 +6,7 @@ service:
   name: cats
   component: backend
   port: 7002
-  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:eb10987b2c77fb0946ab7c01735d5ad02264c0306d8628d9bd87f0e1ac240ab0
+  image: harbor.mytanzu.xyz/library/micropet-tap-cats@sha256:0d47882b79efd4fb48ea6a5cf01ca0d30bfab96484e16005b00839f81410ccc6
   config_path: /config
   config_filename: pets_config.json
   usedb: false
