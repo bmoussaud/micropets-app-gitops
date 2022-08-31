@@ -6,7 +6,7 @@ service:
   name: pets
   component: broker
   port: 9000
-  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:8fef7640b5d74fd82bb896ae37e40148a06a37d89681552795d527c4847b6dca
+  image: harbor.mytanzu.xyz/library/micropet-tap-pets@sha256:ad275ed90f7c989ca2c5018289c4b0994a2203b996ff57b78ce72b228e479e5b
   config_path: /config
   config_filename: pets_config.json
   usedb: false
