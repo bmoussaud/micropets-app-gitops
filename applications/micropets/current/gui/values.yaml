@@ -1,16 +1,16 @@
 #@data/values
----       
+---
 application:
   name: micro-pet
-service:  
+service:
   name: gui
   component: gui
-  port: 8080
-  image: harbor.mytanzu.xyz/library/micropet-tap-gui@sha256:0163f5b72a3a7842a4c64100145dfa85816c3854d4a377c13ec7e2638f9952f5    
+  port: 9000
+  image: akseutap2registry.azurecr.io/library/micropet-tap-gui@sha256:132d13c73ca63fe1155b77518fef5ac38b586f447608fae1bcf776e974e82512
   config_path: /workspace/dist/assets
-  config_filename: config.json 
-  usedb: false          
-  gui:            
-    broker_service: /
-    color: blue                               
+  config_filename: config.json
+  usedb: false
+  gui:
+    broker_service: http://not_set/pets/v1/default
+    color: green
 
