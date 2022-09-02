@@ -5,12 +5,12 @@ application:
 service:
   name: gui
   component: gui
-  port: 9000
+  port: 8080
   image: akseutap2registry.azurecr.io/library/micropet-tap-gui@sha256:132d13c73ca63fe1155b77518fef5ac38b586f447608fae1bcf776e974e82512
   config_path: /workspace/dist/assets
   config_filename: config.json
   usedb: false
   gui:
     broker_service: /
-    color: black
+    color: blue
 
