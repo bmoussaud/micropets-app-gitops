@@ -106,10 +106,8 @@ spec:
         branch: master
     subPath: gui        
   params:    
-    - name: port
-      value: 9000
-    - name: observability
-      value: false
+    - name: color
+      value: blue
     - name: component
-      value: broker
+      value: gui
     
