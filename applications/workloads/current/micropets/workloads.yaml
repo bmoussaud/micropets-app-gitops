@@ -89,4 +89,27 @@ spec:
       value: false
     - name: component
       value: broker
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: gui
+  labels:
+    app.tanzu.vmware.com/workload-type: micropet-service-git-gui
+    app.kubernetes.io/part-of: micropets-app
+spec:
+  serviceAccountName: tap-default
+  source:
+    git:
+      url: https://github.com/bmoussaud/micropets-app/
+      ref:
+        branch: master
+    subPath: gui        
+  params:    
+    - name: port
+      value: 9000
+    - name: observability
+      value: false
+    - name: component
+      value: broker
     
