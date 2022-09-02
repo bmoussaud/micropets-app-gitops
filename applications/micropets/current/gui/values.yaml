@@ -11,6 +11,6 @@ service:
   config_filename: config.json
   usedb: false
   gui:
-    broker_service: not_provided
+    broker_service: /
     color: black
 
