@@ -11,6 +11,6 @@ service:
   config_filename: config.json
   usedb: false
   gui:
-    broker_service: http://not_set/pets/v1/default
+    broker_service: not_provided
     color: black
 
