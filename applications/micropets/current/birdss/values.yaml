@@ -1,0 +1,13 @@
+#@data/values
+---
+application:
+  name: micro-pet
+service:
+  name: birdss
+  component: backend
+  port: 8080
+  image: akseutap2registry.azurecr.io/library/micropet-tap-birdss@sha256:47fbbce258778c64b2b636d9df575b98950114042b7fcf0cf543e35b35634e09
+  config_path: /config
+  config_filename: pets_config.json
+  usedb: false
+
