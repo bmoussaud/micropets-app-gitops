@@ -6,7 +6,7 @@ service:
   name: cats
   component: backend
   port: 7002
-  image: akseutap2registry.azurecr.io/library/micropet-tap-cats@sha256:332cca0cd556a291c6f3b3470593148a0c7ff088003c9d56dc5609c82a9c8b9b
+  image: akseutap2registry.azurecr.io/library/micropet-tap-cats@sha256:53eed6a5a100968bc82dbc23c7e8839339aa0414ad9b4aa60632a95af6b5685d
   config_path: /config
   config_filename: pets_config.json
   usedb: false
