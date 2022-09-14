@@ -3,7 +3,7 @@ kind: Workload
 metadata:
   name: cats
   labels:
-    app.tanzu.vmware.com/workload-type: micropet-service-git
+    apps.tanzu.vmware.com/workload-type: micropet-service-git
     app.kubernetes.io/part-of: micropets-app
     app.kubernetes.io/name: cats    
 spec:
@@ -27,7 +27,7 @@ kind: Workload
 metadata:
   name: dogs
   labels:
-    app.tanzu.vmware.com/workload-type: micropet-service-git
+    apps.tanzu.vmware.com/workload-type: micropet-service-git
     app.kubernetes.io/part-of: micropets-app
     app.kubernetes.io/name: dogs
 spec:
@@ -51,7 +51,7 @@ kind: Workload
 metadata:
   name: fishes
   labels:
-    app.tanzu.vmware.com/workload-type: micropet-service-git
+    apps.tanzu.vmware.com/workload-type: micropet-service-git
     app.kubernetes.io/part-of: micropets-app
     app.kubernetes.io/name: fishes    
 spec:
@@ -75,7 +75,7 @@ kind: Workload
 metadata:
   name: pets
   labels:
-    app.tanzu.vmware.com/workload-type: micropet-service-git
+    apps.tanzu.vmware.com/workload-type: micropet-service-git
     app.kubernetes.io/part-of: micropets-app
     app.kubernetes.io/name: pets
 spec:
@@ -99,7 +99,7 @@ kind: Workload
 metadata:
   name: gui
   labels:
-    app.tanzu.vmware.com/workload-type: micropet-service-git-gui
+    apps.tanzu.vmware.com/workload-type: micropet-service-git-gui
     app.kubernetes.io/part-of: micropets-app
     app.kubernetes.io/name: gui
 spec:
