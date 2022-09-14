@@ -4,8 +4,7 @@ service:
   backend:    
     frequencyError: 20
     observability: false
-  gui:
-    color: red
+  gui:    
     broker_service: http://pets.dev-tap.apps.eu.aks.mytanzu.xyz
 environment:
   name: aks/europe-2
