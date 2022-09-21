@@ -1,7 +1,7 @@
 #@data/values
 ---
 application:
-  name: micro-pet
+  name: micropets-app
 service:
   name: cats
   component: backend
