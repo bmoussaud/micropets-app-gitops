@@ -1,12 +1,12 @@
 #@data/values
 ---
 application:
-  name: micro-pet
+  name: micropets-app
 service:
   name: gui
   component: gui
   port: 8080
-  image: akseutap2registry.azurecr.io/library/micropet-tap-gui@sha256:f75771fb94287fab1a9ec322cc05f41183d3cd0b4f3896ab0afce772a0e1828c
+  image: akseutap2registry.azurecr.io/library/micropet-tap-gui@sha256:40fed0bd6e16ec112835bc9aeac28741636d710998b3a2870d18f02c040d4a5c
   config_path: /workspace/dist/assets
   config_filename: config.json
   usedb: false
