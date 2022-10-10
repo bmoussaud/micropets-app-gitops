@@ -6,7 +6,7 @@ service:
   name: gui
   component: gui
   port: 8080
-  image: akseutap2registry.azurecr.io/library/micropet-tap-gui@sha256:019bead6e68abdabbc973cd78b26ea4ff99752728680f4e23b6608da761b2b2e
+  image: akseutap2registry.azurecr.io/library/micropet-tap-gui@sha256:c0d863ad64ce51b53e2a182ba59e9f296cb056fcb4c94a996024f32c0fa8b6af
   config_path: /workspace/dist/assets
   config_filename: config.json
   usedb: false
