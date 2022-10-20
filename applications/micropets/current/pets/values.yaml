@@ -6,7 +6,7 @@ service:
   name: pets
   component: broker
   port: 9000
-  image: akseutap3registry.azurecr.io/library/micropet-tap-pets@sha256:fbdbbc82cf738f07108d294f885146e923c4ae66ae04fe402a43d94104b99f19
+  image: akseutap3registry.azurecr.io/library/micropet-tap-pets@sha256:62d713aecf792ecd6b5a4f768e5217fc39709388b9686b8847f704299c907589
   config_path: /config
   config_filename: pets_config.json
   usedb: false
