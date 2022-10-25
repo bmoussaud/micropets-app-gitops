@@ -15,9 +15,9 @@ metadata:
 spec:
   name: birds-database
   service:
-    apiVersion: sql.tanzu.vmware.com/v1
-    kind: Postgres
-    name: birds-database
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: aso-psql-claim
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
