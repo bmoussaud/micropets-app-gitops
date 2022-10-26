@@ -34,7 +34,7 @@ spec:
           appliveview-sample/app-live-view-connector-boot
           appliveview-sample/app-live-view-appflavours-boot
           appliveview-sample/app-live-view-systemproperties
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/micropet-tap-birds-sources:latest@sha256:28313941e6b817a739b419dd2df5717ac7ece0e3e1d41199372f8a036fc2f9ce
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/micropet-tap-birds-sources:latest@sha256:1053cad87581509aa4d4afbdc4e1332dcd76a07983ddfbfa4f6041610a45d662
         developer.conventions/target-containers: workload
         services.conventions.apps.tanzu.vmware.com/postgres: postgresql/42.2.25
       labels:
@@ -58,7 +58,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:c4e2be37246ca24716eacd72a250dd831d8276114b36f0a0c9b70cb2531d2f91
+        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:1b758b997954b6d5171c7c09308c2698855784de2454b41a9acd00501d68a90e
         name: workload
         ports:
         - containerPort: 8080
