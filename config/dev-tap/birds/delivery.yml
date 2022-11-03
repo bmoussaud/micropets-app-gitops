@@ -32,7 +32,7 @@ spec:
           appliveview-sample/app-live-view-systemproperties
         developer.conventions/target-containers: workload
         kubectl.kubernetes.io/last-applied-configuration: |
-          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"birds","app.kubernetes.io/part-of":"micropets-app","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"birds","namespace":"dev-tap"},"spec":{"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"gitops_server_address","value":"https://github.com/"},{"name":"gitops_repository_owner","value":"bmoussaud"},{"name":"gitops_repository_name","value":"micropets-app-gitops"},{"name":"xxxx_gitops_repository","value":"https://github.com/bmoussaud/micropets-app-gitops"},{"name":"port","value":8080},{"name":"observability","value":false},{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}}],"serviceAccountName":"tap-default","serviceClaims":[{"name":"birds-database","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"bmoussaud-micropetstore-psql-bindable"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/my-birds-svc"}}}}
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"birds","app.kubernetes.io/part-of":"micropets-app","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"birds","namespace":"dev-tap"},"spec":{"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"gitops_server_address","value":"https://github.com/"},{"name":"gitops_repository_owner","value":"bmoussaud"},{"name":"gitops_repository_name","value":"micropets-app-gitops"},{"name":"xxxx_gitops_repository","value":"https://github.com/bmoussaud/micropets-app-gitops"},{"name":"port","value":8080},{"name":"observability","value":false},{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}}],"serviceAccountName":"tap-default","serviceClaims":[{"name":"birds-database","ref":{"apiVersion":"sql.tanzu.vmware.com/v1","kind":"Postgres","name":"birds-database"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/my-birds-svc"}}}}
         services.conventions.apps.tanzu.vmware.com/postgres: postgresql/42.2.25
       labels:
         app.kubernetes.io/component: run
@@ -55,7 +55,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:3737c94aec584fc02b0732df777386383a31f8db1a1d99b1bf1c94b88fc07cbe
+        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:c7cb7ce362afb3abd209bacf72d9412d47668d767f1cd1e447ab97e877ff84fe
         name: workload
         ports:
         - containerPort: 8080
