@@ -55,7 +55,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:9ec14d70699e8a35780e5954241bc705802c7ba3a3d947bb4264c0146fe6656a
+        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:3737c94aec584fc02b0732df777386383a31f8db1a1d99b1bf1c94b88fc07cbe
         name: workload
         ports:
         - containerPort: 8080
