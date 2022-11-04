@@ -17,10 +17,12 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.5.14
         conventions.carto.run/applied-conventions: |-
+          developer-conventions/add-source-image-label
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
@@ -30,6 +32,7 @@ spec:
           appliveview-sample/app-live-view-connector-boot
           appliveview-sample/app-live-view-appflavours-boot
           appliveview-sample/app-live-view-systemproperties
+        developer.apps.tanzu.vmware.com/image-source-digest: main/77c195f7ef942cd5b7c786aa409ffc3680fb3079
         developer.conventions/target-containers: workload
         kubectl.kubernetes.io/last-applied-configuration: |
           {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"birds","app.kubernetes.io/part-of":"micropets-app","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"birds","namespace":"dev-tap"},"spec":{"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"}],"params":[{"name":"gitops_server_address","value":"https://github.com/"},{"name":"gitops_repository_owner","value":"bmoussaud"},{"name":"gitops_repository_name","value":"micropets-app-gitops"},{"name":"xxxx_gitops_repository","value":"https://github.com/bmoussaud/micropets-app-gitops"},{"name":"port","value":8080},{"name":"observability","value":false},{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}}],"serviceAccountName":"tap-default","serviceClaims":[{"name":"birds-database","ref":{"apiVersion":"sql.tanzu.vmware.com/v1","kind":"Postgres","name":"birds-database"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/my-birds-svc"}}}}
