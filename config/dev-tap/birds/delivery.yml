@@ -18,10 +18,12 @@ spec:
     metadata:
       annotations:
         apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.5.14
         conventions.carto.run/applied-conventions: |-
+          developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
@@ -58,7 +60,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:c7cb7ce362afb3abd209bacf72d9412d47668d767f1cd1e447ab97e877ff84fe
+        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/birds-dev-tap@sha256:b408690b190ec88777a560c28749ca7e9520896d272f56f00c957cf6ce79fc18
         name: workload
         ports:
         - containerPort: 8080
