@@ -16,6 +16,6 @@ spec:
         branch: main
   params:
     - name: environment
-      value: azure/aks-eu-tap-2
+      value: azure/aks-eu-tap-3
     - name: application
       value: micropets/20220329
