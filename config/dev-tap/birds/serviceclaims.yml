@@ -1,7 +1,7 @@
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
-  name: birds-ref-tanzu-database
+  name: birds-birds-database
   annotations:
     autoscaling.knative.dev/minScale: "1"
   labels:
@@ -13,11 +13,11 @@ metadata:
     app.kubernetes.io/component: run
     carto.run/workload-name: birds
 spec:
-  name: ref-tanzu-database
+  name: birds-database
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ResourceClaim
-    name: birds-tanzu-database
+    name: birds-azure-postgresql-database
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
