@@ -17,7 +17,7 @@ spec:
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ResourceClaim
-    name: birds-azure-postgresql-database
+    name: birds-tanzu-postgresql-database
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
