@@ -3,6 +3,7 @@ kind: ServiceBinding
 metadata:
   name: birds-birds-database
   annotations:
+    autoscaling.knative.dev/maxScale: "2"
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/name: birds
