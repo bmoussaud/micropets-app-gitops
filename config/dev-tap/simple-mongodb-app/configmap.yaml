@@ -2,6 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: autfw-ui-config
+  labels:
+    app.kubernetes.io/part-of: simple-mongodb-app
+    apps.tanzu.vmware.com/workload-type: server
+    app.kubernetes.io/component: run
+    carto.run/workload-name: simple-mongodb-app
 data:
   # property-like keys; each key maps to a simple value
   ADMIN_ACCOUNTS: "benoit@vmware.com"  
