@@ -1,0 +1,31 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  annotations:
+    projectcontour.io/ingress.class: contour
+  labels:
+    projectcontour.io/ingress.class: contour
+  name: simple-mongodb-app.server.dev-tap.tap3.eu.aks.mytanzu.xyz
+spec:
+  routes:
+  - enableWebsockets: true
+    permitInsecure: true
+    requestHeadersPolicy: {}
+    retryPolicy:
+      count: 2
+      retryOn:
+      - cancelled
+      - connect-failure
+      - refused-stream
+      - resource-exhausted
+      - retriable-status-codes
+      - reset
+    services:
+    - name: simple-mongodb-app
+      port: 8080
+      weight: 100
+    timeoutPolicy:
+      idle: infinity
+      response: infinity
+  virtualhost:
+    fqdn: simple-mongodb-app.server.dev-tap.tap3.eu.aks.mytanzu.xyz
