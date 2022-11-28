@@ -6,7 +6,7 @@ service:
   name: fishes
   component: backend
   port: 7007
-  image: akseutap3registry.azurecr.io/library/micropet-tap-fishes@sha256:667a770e6fbc46d53f3750fb86ee07064a7f049d959ebf13e13aff4d709428f1
+  image: akseutap3registry.azurecr.io/library/micropet-tap-fishes@sha256:6d28e016ee0b387f9ace5ff233ab7b03a68ffd7ab682ed03ee481002e33ecf4e
   config_path: /config
   config_filename: pets_config.json
   usedb: false
