@@ -69,6 +69,11 @@ spec:
             configMapKeyRef:
               key: MONGODB_ADDON_URI
               name: autfw-ui-config
+        - name: DB_NAME_WORKLOAD
+          valueFrom:
+            configMapKeyRef:
+              key: DB_NAME
+              name: autfw-ui-config
         image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:d363c80fd4b149dc81b247981426a5793d2fcbd626dc0309974d7482f7c69ea7
         name: workload
         resources: {}
