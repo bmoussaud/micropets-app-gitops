@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: autfw-ui-config
+  labels:
+    app.kubernetes.io/part-of: simple-mongodb-app
+    apps.tanzu.vmware.com/workload-type: server
+    app.kubernetes.io/component: run
+    carto.run/workload-name: simple-mongodb-app
+data:
+  # property-like keys; each key maps to a simple value
+  ADMIN_ACCOUNTS: "benoit@vmware.com"  
+  ADMIN_ORGCODE: "abcde"  
+  COOKIE_SECRET: "kjdjmkjfqmljfmlqjdfmljqlmkfjldmjmqjflmjfljqslmjlfj=="
+  DB_CONNECTION_STRING: "mongodb://sample-mongodb-account-beta:dkslqjdlkqjsdlkqskldjqslkjd==@sample-mongodb-account-beta.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@sample-mongodb-account-beta@"
+  DB_NAME: "bigdevdatabase"
+  MONGODB_ADDON_URI: mongodb://sample-mongodb-account-beta:mMmWOSsEMniWDo9Uha1hrUMWae4g3Zzk3fzO2DBoMRHbtfeBWxsxCrcN4xRBJcHIwhfHNhN4Oj8oACDbNpNgdQ==@sample-mongodb-account-beta.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@sample-mongodb-account-beta@
+  

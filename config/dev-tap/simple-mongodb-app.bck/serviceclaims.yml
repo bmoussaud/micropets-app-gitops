@@ -1,0 +1,65 @@
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: simple-mongodb-app-mongodb-database
+  annotations:
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"my-mongodb-database":{"namespace":"mongodb-instances-fr"}}}}'
+    autoscaling.knative.dev/minScale: "1"
+  labels:
+    app.kubernetes.io/part-of: simple-mongodb-app
+    apps.tanzu.vmware.com/workload-type: server
+    app.kubernetes.io/component: run
+    carto.run/workload-name: simple-mongodb-app
+spec:
+  name: mongodb-database
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: mongodb-database-remote
+  workload:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: simple-mongodb-app
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaim
+metadata:
+  name: simple-mongodb-app-my-mongodb-database
+  annotations:
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"my-mongodb-database":{"namespace":"mongodb-instances-fr"}}}}'
+    autoscaling.knative.dev/minScale: "1"
+  labels:
+    app.kubernetes.io/part-of: simple-mongodb-app
+    apps.tanzu.vmware.com/workload-type: server
+    app.kubernetes.io/component: run
+    carto.run/workload-name: simple-mongodb-app
+spec:
+  ref:
+    namespace: mongodb-instances-fr
+    apiVersion: v1
+    kind: Secret
+    name: mongodb-credentials-azure-exposed
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: simple-mongodb-app-my-mongodb-database
+  annotations:
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"my-mongodb-database":{"namespace":"mongodb-instances-fr"}}}}'
+    autoscaling.knative.dev/minScale: "1"
+  labels:
+    app.kubernetes.io/part-of: simple-mongodb-app
+    apps.tanzu.vmware.com/workload-type: server
+    app.kubernetes.io/component: run
+    carto.run/workload-name: simple-mongodb-app
+spec:
+  name: my-mongodb-database
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: simple-mongodb-app-my-mongodb-database
+  workload:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: simple-mongodb-app
+
