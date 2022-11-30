@@ -3,6 +3,7 @@ kind: ServiceBinding
 metadata:
   name: simple-mongodb-app-mongodb-database
   annotations:
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"direct":{"namespace":"acceptance-services-0aa1470e"}}}}'
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
