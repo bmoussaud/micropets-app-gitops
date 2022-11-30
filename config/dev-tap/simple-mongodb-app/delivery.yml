@@ -25,9 +25,9 @@ spec:
         conventions.carto.run/applied-conventions: |-
           developer-conventions/add-source-image-label
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/expressjs-mongodb-statsd-example:latest@sha256:b9efebf7b0d16382367097c2e51cc44e9d35a7e4f74d7b5e7db2e1c3abd58ef7
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/expressjs-mongodb-statsd-example:latest@sha256:840dd05e730ab07b9ed93b7b6d6c91e695480c5bc9ffbe5e36ce55342d08e0a8
         developer.conventions/target-containers: workload
-        serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"my-mongodb-database":{"namespace":"mongodb-instances-fr"}}}}'
+        serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database":{"namespace":"mongodb-instances-fr"}}}}'
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: simple-mongodb-app
@@ -38,7 +38,7 @@ spec:
       - env:
         - name: env
           value: development
-        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:08974cbb7eb3101b2b327dc51fa0977166bbbeb62165736a7a8bc3a71746f2a4
+        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:1bdfd1f365c2613d377d1c0410a699aa817d541e344bbeb7a1ee6367761197d4
         name: workload
         resources: {}
         securityContext:
