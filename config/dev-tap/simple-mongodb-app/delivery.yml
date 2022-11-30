@@ -38,37 +38,15 @@ spec:
       - env:
         - name: env
           value: development
-        - name: MONGODB_ADDON_URI_X
-          value: mongodb://sample-mongodb-account-beta:mMmWOSsEMniWDo9Uha1hrUMWae4g3Zzk3fzO2DBoMRHbtfeBWxsxCrcN4xRBJcHIwhfHNhN4Oj8oACDbNpNgdQ==@sample-mongodb-account-beta.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@sample-mongodb-account-beta@
-        - name: ADMIN_ACCOUNTS
+        - name: MONGODB_ADDON_URI
           valueFrom:
             configMapKeyRef:
-              key: ADMIN_ACCOUNTS
-              name: autfw-ui-config
-        - name: ADMIN_ORGCODE
-          valueFrom:
-            configMapKeyRef:
-              key: ADMIN_ORGCODE
-              name: autfw-ui-config
-        - name: COOKIE_SECRET
-          valueFrom:
-            configMapKeyRef:
-              key: COOKIE_SECRET
+              key: MONGODB_ADDON_URI
               name: autfw-ui-config
         - name: DB_CONNECTION_STRING
           valueFrom:
             configMapKeyRef:
               key: DB_CONNECTION_STRING
-              name: autfw-ui-config
-        - name: DB_NAME
-          valueFrom:
-            configMapKeyRef:
-              key: DB_NAME
-              name: autfw-ui-config
-        - name: MONGODB_ADDON_URI
-          valueFrom:
-            configMapKeyRef:
-              key: MONGODB_ADDON_URI
               name: autfw-ui-config
         - name: DB_NAME_WORKLOAD
           valueFrom:
