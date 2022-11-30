@@ -27,6 +27,7 @@ spec:
           appliveview-sample/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/expressjs-mongodb-statsd-example:latest@sha256:4b04da30f3b126613c1e73cde33c6ec6866c6b32a8e380da75b0036b8d47ae29
         developer.conventions/target-containers: workload
+        serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"direct":{"namespace":"acceptance-services-0aa1470e"}}}}'
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: simple-mongodb-app
