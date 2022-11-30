@@ -1,22 +1,16 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: serving.knative.dev/v1
+kind: Service
 metadata:
   name: simple-mongodb-app
   annotations:
-    kapp.k14s.io/update-strategy: fallback-on-replace
     ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: server
+    apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/component: run
-      app.kubernetes.io/part-of: simple-mongodb-app
-      apps.tanzu.vmware.com/workload-type: server
-      carto.run/workload-name: simple-mongodb-app
   template:
     metadata:
       annotations:
@@ -25,43 +19,23 @@ spec:
         conventions.carto.run/applied-conventions: |-
           developer-conventions/add-source-image-label
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/expressjs-mongodb-statsd-example:latest@sha256:aafa30bf2f29fbeeababca8a537d1737a73dc8ff973209b07946ec1854e43f74
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/expressjs-mongodb-statsd-example:latest@sha256:16fcff49160939cee337e18f5d9008356a42a12ffefad2370000010fa1f5008c
         developer.conventions/target-containers: workload
         serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database":{"namespace":"mongodb-instances-fr"}}}}'
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: simple-mongodb-app
-        apps.tanzu.vmware.com/workload-type: server
+        apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: simple-mongodb-app
     spec:
       containers:
       - env:
         - name: env
           value: development
-        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:1e5fdcfb008a821ca06e29bf84fa0ead4a8eb946fdda9767c00350b12e6a55a8
+        image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:e25afe5febfa583acb9c15d1cbfebe6ff6670d6dabfa5ed33411ac141f31ec58
         name: workload
         resources: {}
         securityContext:
           runAsUser: 1000
       serviceAccountName: default
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: simple-mongodb-app
-  labels:
-    app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: server
-    app.kubernetes.io/component: run
-    carto.run/workload-name: simple-mongodb-app
-spec:
-  selector:
-    app.kubernetes.io/component: run
-    app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: server
-    carto.run/workload-name: simple-mongodb-app
-  ports:
-  - targetPort: 8080
-    port: 8080
-    name: http
 
