@@ -15,7 +15,7 @@ spec:
     matchLabels:
       app.kubernetes.io/component: run
       app.kubernetes.io/part-of: simple-mongodb-app
-      apps.tanzu.vmware.com/workload-type: web
+      apps.tanzu.vmware.com/workload-type: server
       carto.run/workload-name: simple-mongodb-app
   template:
     metadata:
@@ -31,7 +31,7 @@ spec:
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: simple-mongodb-app
-        apps.tanzu.vmware.com/workload-type: web
+        apps.tanzu.vmware.com/workload-type: server
         carto.run/workload-name: simple-mongodb-app
     spec:
       containers:
@@ -58,7 +58,7 @@ spec:
   selector:
     app.kubernetes.io/component: run
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type: server
     carto.run/workload-name: simple-mongodb-app
   ports:
   - targetPort: 8080
