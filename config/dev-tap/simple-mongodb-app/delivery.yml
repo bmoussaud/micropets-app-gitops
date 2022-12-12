@@ -77,10 +77,10 @@ metadata:
 spec:
   routes:
   - conditions:
-    - prefix: null
+    - prefix: /simple-mongodb-app
     pathRewritePolicy:
       replacePrefix:
-      - prefix: null
+      - prefix: /simple-mongodb-app
         replacement: /
     services:
     - name: simple-mongodb-app
