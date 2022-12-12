@@ -86,5 +86,5 @@ spec:
     - name: simple-mongodb-app
       port: 8080
   virtualhost:
-    fqdn: notprovided.aramco.co
+    fqdn: www.dev-tap.tap3.eu.aks.mytanzu.xyz
 
