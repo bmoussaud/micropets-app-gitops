@@ -7,7 +7,7 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: server
+    apps.tanzu.vmware.com/workload-type: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -30,7 +30,7 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: server
+    apps.tanzu.vmware.com/workload-type: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -49,7 +49,7 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: server
+    apps.tanzu.vmware.com/workload-type: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
