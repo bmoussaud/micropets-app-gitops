@@ -84,7 +84,7 @@ spec:
         replacement: /
     services:
     - name: simple-mongodb-app
-      port: 8080
+      port: 80
   virtualhost:
     fqdn: www.dev-tap.tap3.eu.aks.mytanzu.xyz
 
