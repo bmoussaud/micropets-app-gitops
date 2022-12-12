@@ -62,7 +62,7 @@ spec:
     carto.run/workload-name: simple-mongodb-app
   ports:
   - targetPort: 8080
-    port: 80
+    port: 8080
     name: http
 ---
 apiVersion: projectcontour.io/v1
