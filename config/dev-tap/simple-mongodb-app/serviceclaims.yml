@@ -7,7 +7,8 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type-x: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -17,8 +18,8 @@ spec:
     kind: Secret
     name: secured-autfw-ui-config
   workload:
-    apiVersion: apps/v1
-    kind: Deployment
+    apiVersion: serving.knative.dev/v1
+    kind: Service
     name: simple-mongodb-app
 ---
 apiVersion: services.apps.tanzu.vmware.com/v1alpha1
@@ -30,7 +31,8 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type-x: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -49,7 +51,8 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type-x: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -59,7 +62,7 @@ spec:
     kind: ResourceClaim
     name: simple-mongodb-app-mongodb-database
   workload:
-    apiVersion: apps/v1
-    kind: Deployment
+    apiVersion: serving.knative.dev/v1
+    kind: Service
     name: simple-mongodb-app
 

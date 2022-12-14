@@ -1,22 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: serving.knative.dev/v1
+kind: Service
 metadata:
   name: simple-mongodb-app
   annotations:
-    kapp.k14s.io/update-strategy: fallback-on-replace
     ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
   labels:
     app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type-x: custom-server
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/component: run
-      app.kubernetes.io/part-of: simple-mongodb-app
-      apps.tanzu.vmware.com/workload-type: custom-server
-      carto.run/workload-name: simple-mongodb-app
   template:
     metadata:
       annotations:
@@ -44,47 +39,4 @@ spec:
         securityContext:
           runAsUser: 1000
       serviceAccountName: default
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: simple-mongodb-app
-  labels:
-    app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
-    app.kubernetes.io/component: run
-    carto.run/workload-name: simple-mongodb-app
-spec:
-  selector:
-    app.kubernetes.io/component: run
-    app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
-    carto.run/workload-name: simple-mongodb-app
-  ports:
-  - targetPort: 8080
-    port: 8080
-    name: http
----
-apiVersion: projectcontour.io/v1
-kind: HTTPProxy
-metadata:
-  name: simple-mongodb-app-httpproxy
-  labels:
-    app.kubernetes.io/part-of: simple-mongodb-app
-    apps.tanzu.vmware.com/workload-type: custom-server
-    app.kubernetes.io/component: run
-    carto.run/workload-name: simple-mongodb-app
-spec:
-  routes:
-  - conditions:
-    - prefix: /my-custom-prefix
-    pathRewritePolicy:
-      replacePrefix:
-      - prefix: /my-custom-prefix
-        replacement: /
-    services:
-    - name: simple-mongodb-app
-      port: 8080
-  virtualhost:
-    fqdn: www.dev-tap.tap3.eu.aks.mytanzu.xyz
 
