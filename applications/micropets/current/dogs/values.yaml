@@ -6,7 +6,7 @@ service:
   name: dogs
   component: backend
   port: 7003
-  image: akseutap3registry.azurecr.io/library/micropet-tap-dogs@sha256:19f8cc5db7757c835b3809034943367742bfbb98b06a6ae27cb267becf52501b
+  image: akseutap3registry.azurecr.io/library/micropet-tap-dogs@sha256:d84ad775de8ef9c0ce56b05122ed38634d51a299514c13a3094d80cfcf33c025
   config_path: /config
   config_filename: pets_config.json
   usedb: false
