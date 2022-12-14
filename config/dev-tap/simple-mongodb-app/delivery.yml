@@ -26,7 +26,8 @@ spec:
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: simple-mongodb-app
-        apps.tanzu.vmware.com/workload-type: custom-server
+        apps.tanzu.vmware.com/workload-type: web
+        apps.tanzu.vmware.com/workload-type-x: custom-server
         carto.run/workload-name: simple-mongodb-app
     spec:
       containers:
