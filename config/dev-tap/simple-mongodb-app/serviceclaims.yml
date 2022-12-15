@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/part-of: simple-mongodb-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
+    micropets/kind: backend
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -33,6 +34,7 @@ metadata:
     app.kubernetes.io/part-of: simple-mongodb-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
+    micropets/kind: backend
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -53,6 +55,7 @@ metadata:
     app.kubernetes.io/part-of: simple-mongodb-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
+    micropets/kind: backend
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:

@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/part-of: simple-mongodb-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
+    micropets/kind: backend
     app.kubernetes.io/component: run
     carto.run/workload-name: simple-mongodb-app
 spec:
@@ -20,7 +21,7 @@ spec:
         conventions.carto.run/applied-conventions: |-
           developer-conventions/add-source-image-label
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/library/vs-extension-sources:latest@sha256:2a75981a8efb4a76b37ea6b7d17a39214b2c37f410c27e3545afb1a1caa20ad6
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/library/vs-extension-sources:latest@sha256:c3720cf2949e52329292b89eddaec824cd18794870a70f96d549a41b2b6f3cad
         developer.conventions/target-containers: workload
         serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database":{"namespace":"mongodb"}}}}'
       labels:
@@ -29,9 +30,10 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         apps.tanzu.vmware.com/workload-type-x: custom-server
         carto.run/workload-name: simple-mongodb-app
+        micropets/kind: backend
     spec:
       containers:
-      - image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:9af4ac954e894062d1fed94ac8d93cd63b8be69a1acb5b3bb52768031af5bad4
+      - image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/simple-mongodb-app-dev-tap@sha256:dfafe38db0b3ac308497c53bfd7bdeab24df9111930bbd1c8b37e390a8ee2cca
         name: workload
         resources: {}
         securityContext:
