@@ -41,8 +41,8 @@ spec:
   name: mongodb-database
   service:
     apiVersion: v1
-    kind: ResourceClaim
-    name: elephants-azure-mongodb-database
+    kind: Secret
+    name: micropets-mongodb-azure-credentials
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
