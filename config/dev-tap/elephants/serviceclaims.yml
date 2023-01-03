@@ -3,7 +3,7 @@ kind: ServiceBinding
 metadata:
   name: elephants-my-fwui-config
   annotations:
-    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database":{"namespace":"mongodb"}}}}'
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: elephants
@@ -23,33 +23,12 @@ spec:
     kind: Service
     name: elephants
 ---
-apiVersion: services.apps.tanzu.vmware.com/v1alpha1
-kind: ResourceClaim
-metadata:
-  name: elephants-mongodb-database
-  annotations:
-    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database":{"namespace":"mongodb"}}}}'
-    autoscaling.knative.dev/minScale: "1"
-  labels:
-    app.kubernetes.io/part-of: elephants
-    apps.tanzu.vmware.com/workload-type: web
-    apps.tanzu.vmware.com/workload-type-x: custom-server
-    micropets/kind: backend
-    app.kubernetes.io/component: run
-    carto.run/workload-name: elephants
-spec:
-  ref:
-    namespace: mongodb
-    apiVersion: v1
-    kind: Secret
-    name: todo-mongodb-credentials-exposed
----
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
   name: elephants-mongodb-database
   annotations:
-    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database":{"namespace":"mongodb"}}}}'
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     autoscaling.knative.dev/minScale: "1"
   labels:
     app.kubernetes.io/part-of: elephants
@@ -61,9 +40,9 @@ metadata:
 spec:
   name: mongodb-database
   service:
-    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    apiVersion: v1
     kind: ResourceClaim
-    name: elephants-mongodb-database
+    name: elephants-azure-mongodb-database
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
