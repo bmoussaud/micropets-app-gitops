@@ -42,7 +42,7 @@ spec:
   service:
     apiVersion: v1
     kind: Secret
-    name: micropets-mongodb-k8s-credentials
+    name: micropets-mongodb-azure-credentials
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
