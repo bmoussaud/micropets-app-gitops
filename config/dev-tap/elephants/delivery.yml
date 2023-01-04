@@ -21,7 +21,7 @@ spec:
         conventions.carto.run/applied-conventions: |-
           developer-conventions/add-source-image-label
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/library/vs-extension-sources:latest@sha256:b17e870ba7a3e857190cd3b817e6a1547fd7a4b550708151a596fff9f2d01019
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/elephants:latest@sha256:7ac2a10f462a42bd8adf45771adc6c28920a094df9b7088f9a47c9be3bbc2c9e
         developer.conventions/target-containers: workload
         serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
@@ -33,7 +33,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/elephants-dev-tap@sha256:ce0ce70cd0c47f9787ec22af0e0ec7f61ab196e65dd81a4c091ba8baf6f3afeb
+      - image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/elephants-dev-tap@sha256:0bdf78caea212c99f1b9a66e5287f7084fc0b0665858bb4a5e2ed5d801262068
         name: workload
         resources: {}
         securityContext:
