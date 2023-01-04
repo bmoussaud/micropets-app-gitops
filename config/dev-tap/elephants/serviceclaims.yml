@@ -1,7 +1,7 @@
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
-  name: elephants-my-fwui-config
+  name: elephants-app-config
   annotations:
     serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     autoscaling.knative.dev/minScale: "1"
@@ -13,11 +13,11 @@ metadata:
     app.kubernetes.io/component: run
     carto.run/workload-name: elephants
 spec:
-  name: my-fwui-config
+  name: app-config
   service:
     apiVersion: v1
     kind: Secret
-    name: secured-autfw-ui-config
+    name: elephants-configuration
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
