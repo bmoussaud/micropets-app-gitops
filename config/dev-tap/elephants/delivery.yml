@@ -27,7 +27,8 @@ spec:
         serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
         app.kubernetes.io/component: run
-        app.kubernetes.io/part-of: elephants
+        app.kubernetes.io/name: elephants
+        app.kubernetes.io/part-of: micropets-app
         apps.tanzu.vmware.com/workload-type: web
         apps.tanzu.vmware.com/workload-type-x: custom-server
         carto.run/workload-name: elephants
