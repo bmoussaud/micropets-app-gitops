@@ -42,7 +42,7 @@ spec:
   service:
     apiVersion: v1
     kind: Secret
-    name: todo-mongodb-credentials-exposed
+    name: elephants-mongodb-credentials
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
