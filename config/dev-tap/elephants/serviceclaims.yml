@@ -6,7 +6,8 @@ metadata:
     serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     autoscaling.knative.dev/minScale: "1"
   labels:
-    app.kubernetes.io/part-of: elephants
+    app.kubernetes.io/name: elephants
+    app.kubernetes.io/part-of: micropets-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
     micropets/kind: backend
@@ -31,7 +32,8 @@ metadata:
     serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     autoscaling.knative.dev/minScale: "1"
   labels:
-    app.kubernetes.io/part-of: elephants
+    app.kubernetes.io/name: elephants
+    app.kubernetes.io/part-of: micropets-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
     micropets/kind: backend

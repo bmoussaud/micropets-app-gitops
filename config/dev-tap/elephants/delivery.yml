@@ -6,7 +6,8 @@ metadata:
     ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
     ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
   labels:
-    app.kubernetes.io/part-of: elephants
+    app.kubernetes.io/name: elephants
+    app.kubernetes.io/part-of: micropets-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/workload-type-x: custom-server
     micropets/kind: backend
