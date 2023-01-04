@@ -17,13 +17,11 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
-        conventions.carto.run/applied-conventions: |-
-          developer-conventions/add-source-image-label
-          appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap3registry.azurecr.io/elephants:latest@sha256:94b15d6dda765f42414fbcf21a2a0df31470f0b891d4d39d1cc0c215f56b5ec4
+        conventions.carto.run/applied-conventions: appliveview-sample/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions":"{\"kind\":\"ServiceClaimsExtension\",\"apiVersion\":\"supplychain.apps.x-tanzu.vmware.com/v1alpha1\",\"spec\":{\"serviceClaims\":{\"mongodb-database-not-used\":{\"namespace\":\"mongodb\"}}}}"},"labels":{"app.kubernetes.io/name":"elephants","app.kubernetes.io/part-of":"micropets-app","apps.tanzu.vmware.com/workload-type":"web","apps.tanzu.vmware.com/workload-type-x":"custom-server","micropets/kind":"backend"},"name":"elephants","namespace":"dev-tap"},"spec":{"params":[{"name":"fqdn","value":"www.dev-tap.tap3.eu.aks.mytanzu.xyz"},{"name":"prefix","value":"my-custom-prefix"},{"name":"gitops_server_address","value":"https://github.com/"},{"name":"gitops_repository_owner","value":"bmoussaud"},{"name":"gitops_repository_name","value":"micropets-app-gitops"},{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}}],"serviceAccountName":"tap-default","serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"elephants-configuration"}},{"name":"mongodb-database","ref":{"apiVersion":"v1","kind":"Secret","name":"micropets-mongodb-k8s-credentials"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-elephants"}}}}
         serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
         app.kubernetes.io/component: run
@@ -35,7 +33,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/elephants-dev-tap@sha256:decf153c935668ca77cb4904a9bae66ab1e5e5ebfffc37b02e7fe09ffd004054
+      - image: akseutap3registry.azurecr.io/library/tanzu-supply-chain/elephants-dev-tap@sha256:3bf67b7b5013b18a13aadabf94aab2f4b0561f6983fb117d0a565eedcf5a26a5
         name: workload
         resources: {}
         securityContext:
