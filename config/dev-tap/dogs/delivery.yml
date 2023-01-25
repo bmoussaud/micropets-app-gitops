@@ -35,7 +35,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/dogs-dev-tap@sha256:5a372101b039ec6171f6a1e5136e4c27ab7ce6a22b8daec6cd43f3f95bfbfa0d
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/dogs-dev-tap@sha256:009f0a744c718636c0a9c6cb93b06abac936124dd8c26d85512dcc7c8f10d3de
         name: workload
         resources: {}
         securityContext:
