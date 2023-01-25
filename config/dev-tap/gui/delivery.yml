@@ -22,7 +22,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/gui:latest@sha256:cd37ea9e4a43c2521ae881ee8fd6fc778a49b33c396f97023614bdeec124a6a3
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/gui:latest@sha256:e450c919dac50d029fa92171c790469cc3f4e4d985ad2a44f6b8787fd32a682d
         developer.conventions/target-containers: workload
         kubectl.kubernetes.io/last-applied-configuration: |
           {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/part-of":"gui","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web"},"name":"gui","namespace":"dev-tap"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"micropets-skip-test"}}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"gui-config"}}],"source":{"git":{"ref":{"branch":"master"},"url":"https://github.com/bmoussaud/micropets-app/"},"subPath":"gui"}}}
@@ -37,7 +37,7 @@ spec:
       - env:
         - name: SERVICE_BINDING_ROOT
           value: /workspace/dist/assets
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-dev-tap@sha256:36419a1831bd3686eea68f34b3b44d2dc3b6d738fc7d820487c0c1ac02ce98fb
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-dev-tap@sha256:575feec59c55d24469889b4006025fe8236193e950aa90d0101142ee2214a240
         name: workload
         resources: {}
         securityContext:
