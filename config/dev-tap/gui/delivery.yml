@@ -36,7 +36,7 @@ spec:
       - env:
         - name: SERVICE_BINDING_ROOT
           value: /workspace/dist/assets
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-dev-tap@sha256:03fb12f0aa5e4d89514141a5a51a022eea01e5d45cf99f77937eddc37703327c
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-dev-tap@sha256:079707524cb0faf029f613355d566976c8c6ae2ea8b5cdd774fb9c64279e30a6
         name: workload
         resources: {}
         securityContext:
