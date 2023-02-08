@@ -23,7 +23,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: master/2667c641969915463c07dd8c82e17c52ab2787a2
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/pets:latest@sha256:6df8f204d21fcd8f767ddc83928d7d64c535125911c0df46794d56fbfa162271
         developer.conventions/target-containers: workload
         kubectl.kubernetes.io/last-applied-configuration: |
           {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"pets","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web"},"name":"pets-golang","namespace":"dev-tap"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"micropets-test-go"}}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"pets-config"}}],"source":{"git":{"ref":{"branch":"master"},"url":"https://github.com/bmoussaud/micropets-app/"},"subPath":"pets"}}}
@@ -36,7 +36,7 @@ spec:
         carto.run/workload-name: pets-golang
     spec:
       containers:
-      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/pets-golang-dev-tap@sha256:ba3dac73ab464219d149b38e38ad9ba7a2b058a07d2bd14c65b3485271e08d00
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/pets-golang-dev-tap@sha256:67f4636c86ddb5ea69c594e6598bcb446fe60c003b14f8fdbe96195f54e28ecc
         name: workload
         resources: {}
         securityContext:
