@@ -23,7 +23,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/gui:latest@sha256:7cbb326e1d71cbf7bc46c513e887df88b6ce302efeefe20b1e8f8f59d0715c7b
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/gui:latest@sha256:f50a64b9bc05f8496c78a71a8e112b06b8fad8d947aaf3a9b67fc3a59b185144
         developer.conventions/target-containers: workload
         kubectl.kubernetes.io/last-applied-configuration: |
           {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"gui","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web"},"name":"gui-angular-js","namespace":"dev-tap"},"spec":{"env":[{"name":"SERVICE_BINDING_ROOT","value":"/workspace/dist/assets"}],"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"micropets-skip-test"}}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"gui-config"}}],"source":{"git":{"ref":{"branch":"master"},"url":"https://github.com/bmoussaud/micropets-app/"},"subPath":"gui"}}}
@@ -41,7 +41,7 @@ spec:
           value: /workspace/dist/assets
         - name: PETS_SERVICE
           value: pets-golang.dev22222-tap.svc.cluster.local
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-dev-tap@sha256:3bea5e29a93c561b5f55839ac7cc9665a05d98f60eef09910135d04051e63103
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-dev-tap@sha256:f4ccb71aac12570da974fb0985f93ea9caeb1cde9aedfc1388a24a0dfe2e1f9c
         name: workload
         resources: {}
         securityContext:
