@@ -1,0 +1,23 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: micropets-app-operator-for-aks-eu-tap-4-repository
+  namespace: dev-tap
+spec:
+  interval: 10s
+  ref:
+    branch: master
+  url: https://github.com/bmoussaud/micropets-app-operator
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: aks-eu-tap-4 
+spec:
+  interval: 1m0s
+  path: ./environments/azure/aks-eu-tap-4/gitops
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: micropets-app-operator-for-aks-eu-tap-4-repository
+  targetNamespace: dev-tap

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: micropets-dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: micropets-int
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: desired-namespaces
+  namespace: tap-namespace-provisioning
+  annotations:
+    kapp.k14s.io/create-strategy: fallback-on-update
+    namespace-provisioner.apps.tanzu.vmware.com/no-overwrite: ""
+data:
+  namespaces.yaml: |
+    #@data/values
+    ---
+    namespaces:
+    - name: micropets-int
+      language: java
+      database: postgres
+    - name: micropets-dev
+      language: java
+      database: postgres

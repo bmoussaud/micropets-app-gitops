@@ -7,7 +7,7 @@ service:
   gui:    
     broker_service: http://pets.dev-tap.tap3.eu.aks.mytanzu.xyz
 environment:
-  name: aks/europe-3
+  name: aks/europe-4
   ingress: none
   domain:
     internal: .dev-tap.svc.cluster.local
