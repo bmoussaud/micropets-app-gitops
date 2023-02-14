@@ -1,8 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tap-gitops
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: micropets-app-operator-for-aks-eu-tap-4-repository
-  namespace: dev-tap
+  namespace: tap-gitops
 spec:
   interval: 10s
   ref:
@@ -13,6 +18,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: aks-eu-tap-4 
+  namespace: tap-gitops
 spec:
   interval: 1m0s
   path: ./environments/azure/aks-eu-tap-4/gitops
