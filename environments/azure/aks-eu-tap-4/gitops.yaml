@@ -14,6 +14,37 @@ spec:
     branch: master
   url: https://github.com/bmoussaud/micropets-app-operator
 ---
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: tap-gitops
+  namespace: tap-gitops
+  annotations:
+    kapp.k14s.io/change-group: tap-gitops/app
+    kapp.k14s.io/change-rule: "upsert after upserting tap-gitops/rbac"
+spec:
+  serviceAccountName: tap-gitops-sa
+  syncPeriod: 30s
+  fetch:
+  - git:
+      url: #@ data.values.repository
+      ref: origin/main
+      secretRef:
+        name: tap-gitops-github
+  template:
+  - ytt:
+      paths:
+      - environments/azure/aks-eu-tap-4/gitops
+      - config-full
+      valuesFrom:
+      - configMapRef:
+          name: tap-gitops
+      - secretRef:
+          name: tap-gitops
+  deploy:
+  - kapp: {}
+
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
