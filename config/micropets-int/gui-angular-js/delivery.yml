@@ -36,7 +36,7 @@ spec:
       - env:
         - name: SERVICE_BINDING_ROOT
           value: /workspace/dist/assets
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-int@sha256:88422105a4fcaca8d59fe85f0a5d34fbb9df03a4d4132e297d665525a931137e
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-int@sha256:923e238cc9510757dd64bb9f92435d0935976570851269523f662b260242c13c
         name: workload
         resources: {}
         securityContext:
