@@ -33,7 +33,7 @@ data:
       databases: 
       - postgres
     - name: micropets-dev
-      language: 
+      languages: 
       - java
       - golang
       databases: 
