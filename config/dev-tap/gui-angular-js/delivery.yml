@@ -40,7 +40,7 @@ spec:
         - name: SERVICE_BINDING_ROOT
           value: /workspace/dist/assets
         - name: PETS_SERVICE
-          value: pets-golang.dev22222-tap.svc.cluster.local
+          value: http://pets-golang.dev-tap/pets
         image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-dev-tap@sha256:f4ccb71aac12570da974fb0985f93ea9caeb1cde9aedfc1388a24a0dfe2e1f9c
         name: workload
         resources: {}
