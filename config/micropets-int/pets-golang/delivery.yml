@@ -33,7 +33,7 @@ spec:
         carto.run/workload-name: pets-golang
     spec:
       containers:
-      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-int@sha256:f8783fa733dd014cd2f00e77d50bbf177ba519ef1d0d8a463f7972eb2daa82e7
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-int@sha256:ccd783af57c75b4d69a7b98cf16f9a95c33446cdc6548b6eb12c5ab5978dcd36
         name: workload
         resources: {}
         securityContext:
