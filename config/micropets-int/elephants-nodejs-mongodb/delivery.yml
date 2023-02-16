@@ -1,0 +1,44 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: elephants-nodejs-mongodb
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+  labels:
+    app.kubernetes.io/name: elephants
+    app.kubernetes.io/part-of: micropets-app
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: elephants-nodejs-mongodb
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+          appliveview-sample/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"elephants","app.kubernetes.io/part-of":"micropets-app","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"elephants-nodejs-mongodb","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"skip-test"}}],"serviceAccountName":"tap-default","serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"elephants-configuration"}},{"name":"mongodb-database","ref":{"apiVersion":"v1","kind":"Secret","name":"micropets-int-mongodb-k8s-credentials"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-elephants"}}}}
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: elephants
+        app.kubernetes.io/part-of: micropets-app
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: elephants-nodejs-mongodb
+        micropets/kind: backend
+    spec:
+      containers:
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-int@sha256:7c8881ac65e71dc2b258a5b1eca9fc340d4e33cf11cbfa3bf6fa7a334ed76c3a
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
