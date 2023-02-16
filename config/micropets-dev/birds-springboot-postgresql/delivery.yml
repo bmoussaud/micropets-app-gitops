@@ -1,0 +1,72 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: birds-springboot-postgresql
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+  labels:
+    app.kubernetes.io/name: birds
+    app.kubernetes.io/part-of: micropets-app
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: birds-springboot-postgresql
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
+        autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/version: 2.5.14
+        conventions.carto.run/applied-conventions: |-
+          developer-conventions/live-update-convention
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-graceful-shutdown
+          spring-boot-convention/spring-boot-web
+          spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/app-live-view-appflavour-check
+          spring-boot-convention/app-live-view-connector-boot
+          spring-boot-convention/app-live-view-appflavours-boot
+          spring-boot-convention/service-intent-postgres
+          appliveview-sample/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/micropet-tap-birds-sources:latest@sha256:e4fc79851948ff3508b7d612cc4ac8449127fadd6bc511b66b5d25afa85ffdf5
+        developer.conventions/target-containers: workload
+        services.conventions.carto.run/postgres: postgresql/42.2.25
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: birds
+        app.kubernetes.io/part-of: micropets-app
+        apps.tanzu.vmware.com/auto-configure-actuators: "false"
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: birds-springboot-postgresql
+        conventions.carto.run/framework: spring-boot
+        micropets/kind: backend
+        services.conventions.carto.run/postgres: workload
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.actuator.path: actuator
+        tanzu.app.live.view.application.actuator.port: "8080"
+        tanzu.app.live.view.application.flavours: spring-boot
+        tanzu.app.live.view.application.name: birds-springboot-postgresql
+    spec:
+      containers:
+      - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: postgres
+        - name: JAVA_TOOL_OPTIONS
+          value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/birds-springboot-postgresql-micropets-dev@sha256:b1ef906b91557a3c9b4389473ad84c061724b4039dc42904995b5e668f1b2515
+        name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
