@@ -1,0 +1,69 @@
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+waitRules:
+- conditionMatchers:
+  - type: ServiceAvailable
+    status: "False"
+    failure: true
+  - type: ServiceAvailable
+    status: "True"
+    success: true
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: servicebinding.io/v1alpha3
+      kind: ServiceBinding
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: elephants-nodejs-mongodb-app-config
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
+  labels:
+    app.kubernetes.io/name: elephants
+    app.kubernetes.io/part-of: micropets-app
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type-x: custom-server
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: elephants-nodejs-mongodb
+spec:
+  name: app-config
+  service:
+    apiVersion: v1
+    kind: Secret
+    name: elephants-configuration
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: elephants-nodejs-mongodb
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: elephants-nodejs-mongodb-mongodb-database
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
+  labels:
+    app.kubernetes.io/name: elephants
+    app.kubernetes.io/part-of: micropets-app
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type-x: custom-server
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: elephants-nodejs-mongodb
+spec:
+  name: mongodb-database
+  service:
+    apiVersion: v1
+    kind: Secret
+    name: micropets-mongodb-k8s-credentials
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: elephants-nodejs-mongodb
+
