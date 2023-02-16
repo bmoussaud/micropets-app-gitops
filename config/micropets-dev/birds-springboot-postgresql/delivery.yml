@@ -60,7 +60,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/birds-springboot-postgresql-micropets-dev@sha256:b1ef906b91557a3c9b4389473ad84c061724b4039dc42904995b5e668f1b2515
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/birds-springboot-postgresql-micropets-dev@sha256:12046bf88026f6e933f1eec4c16504450212eac0e69f89c185d46e4d289cdebc
         name: workload
         ports:
         - containerPort: 8080
