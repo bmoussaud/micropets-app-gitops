@@ -22,7 +22,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/front-secret-agent-nodejs:latest@sha256:f595545bd177abd60afafcde9c1bc8cfeaa4a881e2f445fdf6045c9137bd7d2e
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/front-secret-agent-nodejs:latest@sha256:709b278285e637b70fa274e53b2231af8bb93dcaed6d362d9873cf6206a1520b
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -32,7 +32,7 @@ spec:
         carto.run/workload-name: secret-agent-front
     spec:
       containers:
-      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/secret-agent-front-kcd-fr-23@sha256:f212076cc273a1c612a7d5a7244b3a01b6f686d9af13e04351cffc1a298276ad
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/secret-agent-front-kcd-fr-23@sha256:f766ca9b6c1dbce77171ea45a7a9bcbf44f5d2d4c37f3b6370ef8cea2e02338e
         name: workload
         resources: {}
         securityContext:
