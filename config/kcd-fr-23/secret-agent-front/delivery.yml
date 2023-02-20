@@ -1,0 +1,41 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: secret-agent-front
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+  labels:
+    app.kubernetes.io/part-of: secret-agent-front
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: secret-agent-front
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+          appliveview-sample/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/project/front-secret-agent-nodejs:latest@sha256:e1f1c818f22f5e3ede4745505058c6273dad4b47b6c6009e8d2619faadb14ee6
+        developer.conventions/target-containers: workload
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: secret-agent-front
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: secret-agent-front
+    spec:
+      containers:
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/secret-agent-front-kcd-fr-23@sha256:eb943fca6d762ea0e245c35aa50604f0e27d38b23a07e78a4d694ef6702541a1
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
