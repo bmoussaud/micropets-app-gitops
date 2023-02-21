@@ -23,7 +23,7 @@ spec:
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/sb-nodejs-demo:latest@sha256:64089281a5c951c147e2a8b2414dabe4a57ff730eab06b986d1bd1eba023f697
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/sb-nodejs-demo:latest@sha256:6915b9eb6dc2edb56327a06e4cf49bdb4d85c1bd9fda5836d7fffb8c96a414df
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -34,7 +34,7 @@ spec:
         carto.run/workload-name: sb-nodejs-demo
     spec:
       containers:
-      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/sb-nodejs-demo-kcd-fr-23@sha256:e91880ced0170a8ddbc920994673a679edcbbaf0063cb11080f407beb7f5c558
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/sb-nodejs-demo-kcd-fr-23@sha256:ae391442545e3c8811ed4e0fe8fae019c8dbcbd0eb9e1065ef68d354b68af689
         name: workload
         resources: {}
         securityContext:
