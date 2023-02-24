@@ -37,7 +37,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/secret-agent-source:latest@sha256:9d42a93fd94a878a43f6bb9c56c60707ea1f05f64b2e2005136c9a40fde4e91c
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/secret-agent-source:latest@sha256:62c0154f4210b8c6b335c9f06de0d95989c5bd1b07df73b9f479682e43bf75f7
         developer.conventions/target-containers: workload
         services.conventions.carto.run/postgres: postgresql/42.3.7
       labels:
@@ -65,7 +65,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/secret-agent-java-kcd-fr-23@sha256:36bc2d9a909bc09b9907b700c3ac5f5eab03cd563ff967ac3a706378581f9d3f
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/secret-agent-java-kcd-fr-23@sha256:816dd8654b06db9addd077ae5eb133b6e8a38420370eefd0be332709b55eb87c
         livenessProbe:
           httpGet:
             path: /livez
