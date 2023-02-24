@@ -57,6 +57,8 @@ spec:
     spec:
       containers:
       - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: postgres
         - name: BPL_DEBUG_ENABLED
           value: "true"
         - name: BPL_DEBUG_PORT
