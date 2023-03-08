@@ -19,6 +19,7 @@ metadata:
   name: pets-golang-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: pets
     app.kubernetes.io/part-of: micropets
