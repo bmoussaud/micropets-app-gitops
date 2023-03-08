@@ -19,6 +19,7 @@ metadata:
   name: birds-springboot-postgresql-birds-database
   annotations:
     autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: birds
     app.kubernetes.io/part-of: micropets-app
