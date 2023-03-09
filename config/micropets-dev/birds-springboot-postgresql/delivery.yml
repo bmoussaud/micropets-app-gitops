@@ -21,7 +21,7 @@ spec:
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 2.5.14
+        boot.spring.io/version: 3.0.4
         conventions.carto.run/applied-conventions: |-
           developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
@@ -30,14 +30,15 @@ spec:
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/spring-boot-actuator-probes
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
           appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/library/vs-extension-sources:latest@sha256:e410a5466121cd85542776d40275a9ad1faa25c8e59fd459bb1969c4919998dc
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/micropet-tap-birds-sources:latest@sha256:a4addac0ae3adbe4870f3fd0545f13ebf016348e40557fd6ffc231315b372780
         developer.conventions/target-containers: workload
-        services.conventions.carto.run/postgres: postgresql/42.2.25
+        services.conventions.carto.run/postgres: postgresql/42.5.4
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: birds
@@ -60,12 +61,22 @@ spec:
         - name: SPRING_PROFILES_ACTIVE
           value: postgres
         - name: JAVA_TOOL_OPTIONS
-          value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/birds-springboot-postgresql-micropets-dev@sha256:b8a7c45d93f274de0f14de21f1ff08f2cc3757385e826eaa84901139ee68e99b
+          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/birds-springboot-postgresql-micropets-dev@sha256:0068847ca742977021ee2e5438a554d2047f204dbaed0b9e18edbab90cd54e83
+        livenessProbe:
+          httpGet:
+            path: /livez
+            port: 8080
+            scheme: HTTP
         name: workload
         ports:
         - containerPort: 8080
           protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
         resources: {}
         securityContext:
           runAsUser: 1000
