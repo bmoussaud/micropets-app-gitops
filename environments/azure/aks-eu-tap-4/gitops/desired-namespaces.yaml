@@ -30,12 +30,14 @@ data:
       languages: 
       - java
       - golang
+      - angular
       databases: 
       - postgres
     - name: micropets-dev
       languages: 
       - java
       - golang
+      - angular
       databases: 
       - postgres
     - name: kcd-fr-23
