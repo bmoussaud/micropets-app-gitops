@@ -2,12 +2,12 @@ apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
   name: tap-config-extras
-  namespace: tap-config
+  namespace: tap-config-extras
   annotations:
     kapp.k14s.io/change-group: tap-config/app
     kapp.k14s.io/change-rule: "upsert after upserting tap-config/rbac"
 spec:
-  serviceAccountName: tap-config-sa
+  serviceAccountName: tap-config-extras-sa
   syncPeriod: 30s
   fetch:
     - git:
