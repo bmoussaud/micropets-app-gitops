@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tap-config-sa
+  namespace: tap-config
+  annotations:
+    kapp.k14s.io/change-group: tap-config/rbac
+    kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tap-config-cluster-role
+  annotations:
+    kapp.k14s.io/change-group: tap-config/rbac
+    kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cluster-admin-cluster-role-binding
+  annotations:
+    kapp.k14s.io/change-group: tap-config/rbac
+    kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
+subjects:
+- kind: ServiceAccount
+  name: tap-config-sa
+  namespace: tap-config
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: tap-config-cluster-role

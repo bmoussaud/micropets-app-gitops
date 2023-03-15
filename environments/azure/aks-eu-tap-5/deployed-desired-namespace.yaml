@@ -2,15 +2,16 @@ apiVersion: carto.run/v1alpha1
 kind: Deliverable
 metadata:
   name: desired-namespaces
+  namespace: tap-config
   labels:
     app.kubernetes.io/part-of: tap-extra-config
     app.kubernetes.io/component: deliverable
     app.tanzu.vmware.com/deliverable-type: web
 spec:
-  serviceAccountName: default
+  serviceAccountName: tap-config-sa
   source:
     git:
       url: http://github.com/bmoussaud/micropets-app-gitops.git
       ref:
         branch: main
-    subpath: applications/namespaces/current
+    subPath: applications/namespaces/current
