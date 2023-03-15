@@ -1,51 +1,25 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: micropets-dev
+#@data/values
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: micropets-int
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: devoxx-fr-23
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: desired-namespaces
-  namespace: tap-namespace-provisioning
-  annotations:
-    kapp.k14s.io/create-strategy: fallback-on-update
-    kapp.k14s.io/exists: ""
-    namespace-provisioner.apps.tanzu.vmware.com/no-overwrite: ""
-data:
-  namespaces.yaml: |
-    #@data/values
-    ---
-    namespaces:
-    - name: micropets-int
-      languages: 
-      - java
-      - golang
-      - angular
-      - nodejs
-      databases: 
-      - postgres
-    - name: micropets-dev
-      languages: 
-      - java
-      - golang
-      - angular
-      - nodejs
-      databases: 
-      - postgres
-    - name: devoxx-fr-23
-      languages: 
-      - angular
-      - java
-      databases: 
-      - postgres
+namespaces:
+- name: micropets-int
+  languages:
+    - java
+    - golang
+    - angular
+    - nodejs
+  databases:
+    - postgres
+- name: micropets-dev
+  languages:
+    - java
+    - golang
+    - angular
+    - nodejs
+  databases:
+    - postgres
+- name: devoxx-fr-23
+  languages:
+    - angular
+    - java
+  databases:
+    - postgres
