@@ -22,7 +22,7 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: cluster-admin-cluster-role-binding
+  name: tap-config-cluster-admin-cluster-role-binding
   annotations:
     kapp.k14s.io/change-group: tap-config/rbac
     kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
