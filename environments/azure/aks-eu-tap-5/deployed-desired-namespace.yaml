@@ -1,17 +1,23 @@
-apiVersion: carto.run/v1alpha1
-kind: Deliverable
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
 metadata:
-  name: desired-namespaces
+  name: tap-config-app
   namespace: tap-config
-  labels:
-    app.kubernetes.io/part-of: tap-extra-config
-    app.kubernetes.io/component: deliverable
-    app.tanzu.vmware.com/deliverable-type: web
+  annotations:
+    kapp.k14s.io/change-group: tap-config/app
+    kapp.k14s.io/change-rule: "upsert after upserting tap-config/rbac"
 spec:
   serviceAccountName: tap-config-sa
-  source:
-    git:
-      url: http://github.com/bmoussaud/micropets-app-gitops.git
-      ref:
-        branch: main
-    subPath: applications/namespaces/current
+  syncPeriod: 30s
+  fetch:
+    - git:
+        url: http://github.com/bmoussaud/micropets-app-gitops.git
+        ref: origin/main
+  template:
+    - ytt:
+        paths:
+          - applications/namespaces/current
+          - applications/supplychains/current
+  deploy:
+    - kapp:
+        rawOptions: ["--dangerous-override-ownership-of-existing-resources=true"]
