@@ -17,5 +17,6 @@ spec:
     - ytt:
         paths:
           - applications/supplychains/current
+          - applications/workloads/main/micropets
   deploy:
     - kapp: {}
