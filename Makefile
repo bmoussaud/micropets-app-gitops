@@ -8,7 +8,7 @@ workloads:
 	kapp deploy --into-ns dev-tap -c -a workloads -f <(ytt -f generators/workloads --data-value environment=azure/aks-eu-tap-2)
 
 deploy-deliverables:
-	kapp deploy --into-ns dev-tap -c -a deliverables -f <(ytt -f generators/deliverables --data-value environment=azure/aks-eu-tap-2)
+	kapp deploy -n dev-tap -c -a deliverables -f environments/azure/aks-eu-tap-5
 
 kapp-deliverables: namespace
 	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy -y -c -a micropet-deliverables --into-ns $(NAMESPACE)  -f-
@@ -25,3 +25,5 @@ store-deliverables:
 k-undeliverables: 
 	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kubectl delete -n $(NAMESPACE) -f-
 
+deploy-delivrables:
+	kapp deploy -c -a tap-extra-config -f environments/azure/aks-eu-tap-5
