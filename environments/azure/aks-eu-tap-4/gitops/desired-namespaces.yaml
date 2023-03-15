@@ -31,6 +31,7 @@ data:
       - java
       - golang
       - angular
+      - nodejs
       databases: 
       - postgres
     - name: micropets-dev
@@ -38,6 +39,7 @@ data:
       - java
       - golang
       - angular
+      - nodejs
       databases: 
       - postgres
     - name: devoxx-fr-23
