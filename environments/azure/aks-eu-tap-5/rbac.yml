@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: tap-config-sa
-  namespace: tap-config
+  name: tap-config-extras-sa
+  namespace: tap-config-extras
   annotations:
-    kapp.k14s.io/change-group: tap-config/rbac
-    kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
+    kapp.k14s.io/change-group: tap-config-extras/rbac
+    kapp.k14s.io/change-rule: "delete after deleting tap-config-extras/app"
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: tap-config-cluster-role
+  name: tap-config-extras-cluster-role
   annotations:
-    kapp.k14s.io/change-group: tap-config/rbac
-    kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
+    kapp.k14s.io/change-group: tap-config-extras/rbac
+    kapp.k14s.io/change-rule: "delete after deleting tap-config-extras/app"
 rules:
 - apiGroups: ["*"]
   resources: ["*"]
@@ -22,15 +22,15 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: tap-config-cluster-admin-cluster-role-binding
+  name: tapcluster-admin-cluster-role-binding
   annotations:
-    kapp.k14s.io/change-group: tap-config/rbac
-    kapp.k14s.io/change-rule: "delete after deleting tap-config/app"
+    kapp.k14s.io/change-group: tap-config-extras/rbac
+    kapp.k14s.io/change-rule: "delete after deleting tap-config-extras/app"
 subjects:
 - kind: ServiceAccount
-  name: tap-config-sa
-  namespace: tap-config
+  name: tap-config-extras-sa
+  namespace: tap-config-extras
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: tap-config-cluster-role
+  name: tap-config-extras-cluster-role
