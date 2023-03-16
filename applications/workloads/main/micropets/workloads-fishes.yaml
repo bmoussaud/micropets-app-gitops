@@ -1,0 +1,29 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: fishes-golang
+  namespace: micropets-int
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/has-tests: "true"
+    app.kubernetes.io/part-of: micropets
+    app.kubernetes.io/name: fishes
+    micropets/kind: backend
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+spec:
+  source:
+    git:
+      url: https://github.com/bmoussaud/micropets-fishes-golang/
+      ref:
+        branch: main
+  serviceClaims:
+    - name: app-config
+      ref:
+        apiVersion: v1
+        kind: Secret
+        name: fishes-config
+  params:
+    - name: testing_pipeline_matching_labels
+      value:
+        apps.tanzu.vmware.com/pipeline: test-golang
