@@ -7,7 +7,7 @@ namespace:
 workloads:
 	kapp deploy --into-ns dev-tap -c -a workloads -f <(ytt -f generators/workloads --data-value environment=azure/aks-eu-tap-2)
 
-deploy-deliverables:
+deploy-tap-config-extras:
 	kapp deploy -n dev-tap -c -a tap-config-extras -f environments/azure/aks-eu-tap-5
 
 kapp-deliverables: namespace
