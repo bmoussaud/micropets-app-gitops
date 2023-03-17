@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1678891769056412488"
+    kapp.k14s.io/app: "1679037856281320846"
     kapp.k14s.io/association: v1.548c88a6d9ced2cdcb32d8dd8662ac7c
     micropets/kind: backend
     app.kubernetes.io/component: run
@@ -22,12 +22,12 @@ spec:
       annotations:
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
+          appliveview-sample/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;micropets-int/carto.run/Workload/cats-golang;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"cats","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1678891769056412488","kapp.k14s.io/association":"v1.548c88a6d9ced2cdcb32d8dd8662ac7c","micropets/kind":"backend"},"name":"cats-golang","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"cats-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-cats-golang"}}}}'
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"cats","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1679037856281320846","kapp.k14s.io/association":"v1.548c88a6d9ced2cdcb32d8dd8662ac7c","micropets/kind":"backend"},"name":"cats-golang","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"cats-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-cats-golang"}}}}'
         kapp.k14s.io/original-diff-md5: 58e0494c51d30eb3494f7c9198986bb9
       labels:
         app.kubernetes.io/component: run
@@ -36,12 +36,12 @@ spec:
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: cats-golang
-        kapp.k14s.io/app: "1678891769056412488"
+        kapp.k14s.io/app: "1679037856281320846"
         kapp.k14s.io/association: v1.548c88a6d9ced2cdcb32d8dd8662ac7c
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-int@sha256:cde05a3606a7157ede25c1ca111f13bedd43a3c0142b772256f4ee74ce181af3
+      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-int@sha256:2b8a44bade91c8a8b50a9830e0632c4f2d11a2f1549bb83637f5ddf4d339c9cd
         name: workload
         resources: {}
         securityContext:
