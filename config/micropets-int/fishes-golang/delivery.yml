@@ -41,7 +41,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/fishes-golang-micropets-int@sha256:2a1411dcab304ba32fa549a62dfd2715a20ba3311b3ef2d1434645fb3e7a6dac
+      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/fishes-golang-micropets-int@sha256:af84b4dad201d600c4004044457ee2e6a01e7c2677c6e6922a8b70c1511672bc
         name: workload
         resources: {}
         securityContext:
