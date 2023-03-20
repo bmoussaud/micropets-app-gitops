@@ -1,0 +1,49 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: gui-angular-js-2
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: gui
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: gui-angular-js-2
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/gui:latest@sha256:3f26c68af85843b724dc0eb95515ac4fa1598292e335e91d9b4481780a75b7b2
+        developer.conventions/target-containers: workload
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: gui
+        app.kubernetes.io/part-of: micropets
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: gui-angular-js-2
+    spec:
+      containers:
+      - env:
+        - name: SERVICE_BINDING_ROOT
+          value: /workspace/dist/assets
+        - name: PETS_SERVICE
+          value: http://pets-golang.micropets-dev/pets
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-2-micropets-dev@sha256:8bdebf88d2b37f17c49b5ffb9c21d2831ba6c15bae6ad4f4fb8b30f11607cd88
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
