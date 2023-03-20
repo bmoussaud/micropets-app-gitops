@@ -20,11 +20,11 @@ spec:
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-          appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/pets:latest@sha256:42450e8f9a8c309e6919c310b6eeae1602256d3baaf12499c0cbee02a0dd40ac
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/pets:latest@sha256:2e059df29168e2ef5ba1a746cf7ba4c1358d1806a0c66ecfcb1788ed4fec799b
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -35,10 +35,10 @@ spec:
         carto.run/workload-name: pets-golang
     spec:
       containers:
-      - image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-dev@sha256:b9caa51d3a128b9da9c44cab0a7b10b31ec17e5e4bd7915461857b65598a641b
+      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-dev@sha256:ded4c2a017f534954e605c537df9de9f24789ab1d55c1aca0924fb0904c50adb
         name: workload
         resources: {}
         securityContext:
-          runAsUser: 1000
+          runAsUser: 1002
       serviceAccountName: default
 
