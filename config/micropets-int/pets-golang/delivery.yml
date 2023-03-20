@@ -39,7 +39,7 @@ spec:
         kapp.k14s.io/association: v1.5adac551f24934e9384a762f2977452c
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-int@sha256:fcbdf502be6150675530aa85be3b4d736b91b8fa883e7fcfa34c58fff96ab55b
+      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-int@sha256:2d8f7e9a5d807afddb7288e5fb2e6d271b1ea7a58f36cc2475924e6cefca5a1d
         name: workload
         resources: {}
         securityContext:
