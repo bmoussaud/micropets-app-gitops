@@ -20,11 +20,11 @@ spec:
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-          appliveview-sample/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/gui:latest@sha256:27b6fb1a30069cda79fd0160b2e0789551ecc147399ebfb75a959dc10f8aa765
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/gui:latest@sha256:d9f5fbf16437b71ab769d568cc2b531be3eaefb7d456ba183d6a36609cdcad0f
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -40,7 +40,7 @@ spec:
           value: /workspace/dist/assets
         - name: PETS_SERVICE
           value: http://pets-golang.micropets-dev/pets
-        image: akseutap4registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:62297dc20acbc0a572f16d7f37cdf31392929a4603f3f3a199ff9dc02aa31e8e
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:1e96b02cd7044d0ce1b5c0600261cdd6133686d1c39b36ffb23df0dcae8a4877
         name: workload
         resources: {}
         securityContext:
