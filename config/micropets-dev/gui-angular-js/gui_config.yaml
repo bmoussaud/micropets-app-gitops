@@ -11,7 +11,7 @@ stringData:
   config.json: |-
     {  
       "petServiceUrl": "https://NotUSEDANYMORE.pets-golang.dev-tap.tap4.eu.aks.mytanzu.xyz",
-      "stage": "Demo Dev",
+      "stage": "DEV",
       "debug": "False",
       "stage_color": "green",
       "load_one_by_one": "True"
