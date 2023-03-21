@@ -34,7 +34,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-tap-birdogss-sources:latest@sha256:e8fd9f46602862922fb5ec421ea243f04829074d530c4820a9d0755c9915fc21
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-tap-birdogss-sources:latest@sha256:062905def917233038d66c7ce4f5cdcd3974b6930e2cfa34b882a002fd365e90
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -58,7 +58,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/birdogss-micropets-dev@sha256:1b0036da1f7d37fa794296b1983ae843277e10ad693bd7230a5e50d574c8f270
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/birdogss-micropets-dev@sha256:3e462243ed89207db4663bc54380dd62f81a30d9b88b7bbce2b4abb66ce3a8eb
         name: workload
         ports:
         - containerPort: 8080
