@@ -18,12 +18,14 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 2.5.14
+        boot.spring.io/version: 3.0.4
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/debug-convention
           developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
@@ -31,10 +33,11 @@ spec:
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/spring-boot-actuator-probes
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-tap-birdogss-sources:latest@sha256:062905def917233038d66c7ce4f5cdcd3974b6930e2cfa34b882a002fd365e90
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-tap-birdogss-sources:latest@sha256:0e44902205fa50d6ace1771f56e3dce42230dc664c686bf58c967d172886cb5c
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -54,15 +57,27 @@ spec:
     spec:
       containers:
       - env:
-        - name: SPRING_PROFILES_ACTIVE
-          value: postgres
+        - name: BPL_DEBUG_ENABLED
+          value: "true"
+        - name: BPL_DEBUG_PORT
+          value: "9005"
         - name: JAVA_TOOL_OPTIONS
-          value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/birdogss-micropets-dev@sha256:3e462243ed89207db4663bc54380dd62f81a30d9b88b7bbce2b4abb66ce3a8eb
+          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/birdogss-micropets-dev@sha256:3b9bbd62f6ef9eb455fa6ab7eef0f5b6ca5fb6186fde3bb25de15766188ab784
+        livenessProbe:
+          httpGet:
+            path: /livez
+            port: 8080
+            scheme: HTTP
         name: workload
         ports:
         - containerPort: 8080
           protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
         resources: {}
         securityContext:
           runAsUser: 1002
