@@ -10,7 +10,7 @@ spec:
   params:
   - default: default
     name: serviceAccount
-  - default: 1002
+  - default: 1000
     name: userId
   ytt: |
     #@ load("@ytt:data", "data")
