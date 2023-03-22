@@ -44,6 +44,6 @@ spec:
         name: workload
         resources: {}
         securityContext:
-          runAsUser: 1002
+          runAsUser: 1003
       serviceAccountName: default
 
