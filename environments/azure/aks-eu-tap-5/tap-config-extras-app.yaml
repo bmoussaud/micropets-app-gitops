@@ -18,5 +18,6 @@ spec:
         paths:
           - applications/supplychains/current
           - applications/workloads/main/micropets
+          - applications/mongodb-operator/0.7.6
   deploy:
     - kapp: {}
