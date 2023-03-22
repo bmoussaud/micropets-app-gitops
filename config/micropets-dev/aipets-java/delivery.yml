@@ -74,6 +74,6 @@ spec:
             scheme: HTTP
         resources: {}
         securityContext:
-          runAsUser: 1002
+          runAsUser: 1000
       serviceAccountName: default
 
