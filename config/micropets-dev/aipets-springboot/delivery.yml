@@ -35,7 +35,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:2026ad141f06e0523d534aba99d8f6479a41b0134f824437e2e77705964830ed
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:d055d69d08e6da91707a8e7355ebafda111866ac2832b226ff1877288acd0d68
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -59,7 +59,7 @@ spec:
           value: "true"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:d0c4922b4077f5c0074aeaf202d58d5b3b47f3183dfd22c500446084432f9bd1
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:477db80f1039f658e2bff22804cd62e1242e2ff16437a13823da71e32aa4bbf5
         livenessProbe:
           httpGet:
             path: /livez
