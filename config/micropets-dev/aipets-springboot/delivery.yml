@@ -55,6 +55,8 @@ spec:
     spec:
       containers:
       - env:
+        - name: org.springframework.cloud.bindings.boot.enable
+          value: "true"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
         image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:6226ee6447dea868a529a02ecc4cdca960502a4d721de22c1eb53c5136035ba9
