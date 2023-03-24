@@ -18,14 +18,12 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/version: 3.0.4
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
-          developer-conventions/debug-convention
           developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
@@ -37,7 +35,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap4registry.azurecr.io/library/vs-extension-sources:latest@sha256:a88b8f7052c32ea29b47c73c1d2000d577657b643e982d9e50c8e1837a7dd40f
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:13649f49c57f17e0b9dc17516d5183eb4216fa9e69f79a635ca770a55497e86a
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -57,13 +55,9 @@ spec:
     spec:
       containers:
       - env:
-        - name: BPL_DEBUG_ENABLED
-          value: "true"
-        - name: BPL_DEBUG_PORT
-          value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:9cc648272ac04722a8a69491b71541a2c245832fcc29fe7b0d5238b78e3ae53f
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:c37d44631813d2ec7c03fcdc35740d00dd7d4befe3da93d1ce67a0a5b6bfa46f
         livenessProbe:
           httpGet:
             path: /livez
