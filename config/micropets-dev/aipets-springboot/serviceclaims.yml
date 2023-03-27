@@ -38,4 +38,30 @@ spec:
     apiVersion: serving.knative.dev/v1
     kind: Service
     name: aipets-springboot
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: aipets-springboot-app-aipets-config
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: aipets
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: aipets-springboot
+spec:
+  name: app-aipets-config
+  service:
+    apiVersion: v1
+    kind: Secret
+    name: app-aipets-config
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: aipets-springboot
 
