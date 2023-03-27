@@ -36,5 +36,5 @@ spec:
     - name: scanning_image_policy
       value: scan-policy-angular
     - name: userId
-      value: 1002
+      value: 1001
 
