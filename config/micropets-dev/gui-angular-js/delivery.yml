@@ -39,7 +39,7 @@ spec:
         - name: SERVICE_BINDING_ROOT
           value: /workspace/dist/assets
         - name: PETS_SERVICE
-          value: http://pets-golang.micropets-dev/pets
+          value: http://micropets-gateway.tap5.eu.aks.mytanzu.xyz/dev/pets
         image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:3993b3474cbbf4cfc6bab4b58d93d5f58ea955d24f1763676895a4f042553b83
         name: workload
         resources: {}
