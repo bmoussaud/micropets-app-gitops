@@ -1,0 +1,82 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: secret-agent-java
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/part-of: secret-agent-java
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: secret-agent-java
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
+        autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/actuator: http://:8081/actuator
+        boot.spring.io/version: 2.7.5
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/live-update-convention
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-graceful-shutdown
+          spring-boot-convention/spring-boot-web
+          spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/spring-boot-actuator-probes
+          spring-boot-convention/app-live-view-appflavour-check
+          spring-boot-convention/app-live-view-connector-boot
+          spring-boot-convention/app-live-view-appflavours-boot
+          spring-boot-convention/service-intent-postgres
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/secret-agent-java-source:latest@sha256:e52995dcd067679928ce0f003bfb04d2f5a3e9bd0443d1977e487cf7113f5770
+        developer.conventions/target-containers: workload
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/part-of":"secret-agent-java","apps.tanzu.vmware.com/auto-configure-actuators":"true","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web"},"name":"secret-agent-java","namespace":"secret-agent"},"spec":{"build":{"env":[{"name":"BP_JVM_VERSION","value":"17"}]},"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"skip-test"}}],"source":{"git":{"ref":{"branch":"main"},"url":"\u003chttps URL for your generated project's Git repository\u003e"}}}}
+        services.conventions.carto.run/postgres: postgresql/42.3.7
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: secret-agent-java
+        apps.tanzu.vmware.com/auto-configure-actuators: "true"
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: secret-agent-java
+        conventions.carto.run/framework: spring-boot
+        services.conventions.carto.run/postgres: workload
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.actuator.path: actuator
+        tanzu.app.live.view.application.actuator.port: "8081"
+        tanzu.app.live.view.application.flavours: spring-boot
+        tanzu.app.live.view.application.name: secret-agent-java
+    spec:
+      containers:
+      - env:
+        - name: JAVA_TOOL_OPTIONS
+          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/secret-agent-java-secret-agent@sha256:ccfa29f44d00e703539a2d36dda923066d8046dc9732e608a25e5485cb04197b
+        livenessProbe:
+          httpGet:
+            path: /livez
+            port: 8080
+            scheme: HTTP
+        name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
