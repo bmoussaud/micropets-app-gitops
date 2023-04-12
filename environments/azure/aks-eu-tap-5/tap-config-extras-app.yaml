@@ -20,5 +20,6 @@ spec:
           - applications/workloads/main/micropets
           - applications/mongodb-operator/0.7.6
           - applications/spring-cloud-gateway/2.0.0-tap.3
+          - applications/application-configuration-service/2.0.0
   deploy:
     - kapp: {}
