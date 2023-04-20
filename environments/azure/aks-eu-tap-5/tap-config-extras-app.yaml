@@ -19,7 +19,7 @@ spec:
           - applications/supplychains/current
           - applications/workloads/main/micropets
           - applications/mongodb-operator/0.7.6
-          - applications/spring-cloud-gateway/2.0.0-tap.3
+          - applications/spring-cloud-gateway/2.0.0-tap.4
           - applications/application-configuration-service/2.0.0
   deploy:
     - kapp: {}

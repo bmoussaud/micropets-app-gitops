@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: micropets-gateway
+  description: My Micropets APIs gateway
+  annotations:
+    "backstage.io/kubernetes-label-selector": "app.kubernetes.io/part-of=micropets-gateway"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default-team

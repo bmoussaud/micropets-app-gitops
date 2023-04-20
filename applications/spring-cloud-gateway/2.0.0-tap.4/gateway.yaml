@@ -1,0 +1,47 @@
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGateway
+metadata:
+  name: micropets-gateway
+  labels:
+    tanzu.app.live.view: "true"
+    tanzu.app.live.view.application.actuator.port: "8090"
+    tanzu.app.live.view.application.flavours: spring-boot_spring-cloud-gateway    
+spec:
+  count: 1
+  api:
+    title: My Micropets APIs
+    description: Lots of new exciting APIs for you to use for the micropets application.
+    version: 0.1.0
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: micropets-gateway-ingress
+  annotations:
+    kubernetes.io/ingress.class: contour
+spec:
+  rules:
+    - host: gateway.dev.tap5.eu.aks.mytanzu.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: micropets-gateway
+                port:
+                  number: 80
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: micropets-gateway-httpproxy
+spec:
+  virtualhost:
+    fqdn: secured.dev.tap5.eu.aks.mytanzu.xyz
+    tls:
+      passthrough: true
+  tcpproxy:
+    services:
+      - name: micropets-gateway
+        port: 443
