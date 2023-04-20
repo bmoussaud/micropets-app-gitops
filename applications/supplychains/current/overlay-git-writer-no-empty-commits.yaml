@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: git-writer-no-empty-commits
+  namespace: tap-install
+stringData:
+  patch.yml: |
+    #@ load("@ytt:overlay", "overlay")
+    #@overlay/match by=overlay.subset({"kind":"ClusterTask", "metadata": {"name": "git-writer"}}),expects="1+"
+    ---
+    spec:
+      steps:
+      #@overlay/match by="name", expects="1+"
+      - name: git-clone-and-push
+        #@overlay/replace via=lambda left, right: right
+        script: |
+          #!/usr/bin/env bash
+
+          set -o errexit
+          set -o xtrace
+
+          ssh_config_file=$(mktemp)
+
+          echo "
+          UserKnownHostsFile /tekton/creds/.ssh/known_hosts
+          Include $(credentials.path)/.ssh/config
+          " > $ssh_config_file
+
+          export GIT_SSH_COMMAND="ssh -F $ssh_config_file"
+
+          cd `mktemp -d`
+
+          if git clone --depth 1 -b "$(params.git_branch)" "$(params.git_repository)" ./repo; then
+            cd ./repo
+          else
+            git clone --depth 1 "$(params.git_repository)" ./repo
+            cd ./repo
+            git checkout -b "$(params.git_branch)"
+          fi
+
+          git config user.email "$(params.git_user_email)"
+          git config user.name "$(params.git_user_name)"
+
+          mkdir -p $(params.sub_path) && rm -rf $(params.sub_path)/*
+          cd $(params.sub_path)
+
+          echo '$(params.git_files)' | base64 --decode > files.json
+          eval "$(cat files.json | jq -r 'to_entries | .[] | @sh "mkdir -p $(dirname \(.key)) && echo \(.value) > \(.key) && git add \(.key)"')"
+
+          if git diff --cached --exit-code; then
+            echo "no changes to commit"
+            exit 0
+          fi
+
+          git commit -m "$(params.git_commit_message)"
+
+          set +o errexit
+          git push origin $(params.git_branch) && exit 0
+
+          echo "git push failed, retrying with exponential backoff"
+          PUSH_ATTEMPTS=0
+
+          MAX_RANDOM_VAL=32767
+          OFFSET_SEED=$(perl -e "print $RANDOM / $MAX_RANDOM_VAL + 2")
+          while [ $PUSH_ATTEMPTS -le 5 ]; do
+            SLEEP_LENGTH=$(perl -e "print $OFFSET_SEED ** $PUSH_ATTEMPTS * 15")
+            sleep $SLEEP_LENGTH
+            git remote prune origin
+            git gc --prune=now
+            git fetch origin
+            git rebase "origin/$(params.git_branch)"
+            git push origin $(params.git_branch) && exit 0
+            (( PUSH_ATTEMPTS++ ))
+          done
+
+          echo "git push failed after $PUSH_ATTEMPTS attempts"
+          exit 1
