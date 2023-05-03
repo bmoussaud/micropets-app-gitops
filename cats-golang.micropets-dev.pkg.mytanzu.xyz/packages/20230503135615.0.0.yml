@@ -1,0 +1,25 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: cats-golang.micropets-dev.pkg.mytanzu.xyz.20230503135615.0.0
+spec:
+  refName: cats-golang.micropets-dev.pkg.mytanzu.xyz
+  version: 20230503135615.0.0
+  releaseNotes: |
+    Release v20230503135615.0.0 of package cats-golang.micropets-dev.pkg.mytanzu.xyz
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev-bundle@sha256:fcf1420dccabcd00ed01ae14fb75d6da512a3d0877c9514da17657fee63154bc
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+
