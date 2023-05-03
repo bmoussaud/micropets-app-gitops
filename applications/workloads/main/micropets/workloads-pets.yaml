@@ -27,4 +27,4 @@ spec:
       value:
         apps.tanzu.vmware.com/pipeline: test-golang
     - name: gitops_commit_message
-      value: pets-golang supplychain@cluster.local
+      value: pets supplychain@cluster.local
