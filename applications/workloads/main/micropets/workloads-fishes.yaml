@@ -28,4 +28,4 @@ spec:
       value:
         apps.tanzu.vmware.com/pipeline: test-golang
     - name: gitops_commit_message
-      value: fishes supplychain@cluster.local
+      value: fishes int supplychain@cluster.local

@@ -38,5 +38,5 @@ spec:
     - name: userId
       value: 1001
     - name: gitops_commit_message
-      value: gui supplychain@cluster.local
+      value: gui int supplychain@cluster.local
 
