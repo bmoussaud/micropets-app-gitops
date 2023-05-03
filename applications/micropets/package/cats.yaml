@@ -1,0 +1,23 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: cats-golang-app
+  namespace: micropets-package
+spec:
+  fetch:
+    - git:
+        url: http://github.com/bmoussaud/micropets-app-gitops.git
+        ref: origin/main
+        subPath: cats-golang.micropets-dev.pkg.mytanzu.xyz/packages
+    - git:
+        url: http://github.com/bmoussaud/micropets-app-gitops.git
+        ref: origin/main
+        subPath: cats-golang.micropets-dev.pkg.mytanzu.xyz/staging
+
+  template:
+    - ytt: {}
+
+  deploy:
+    - kapp:
+        intoNs: micropets-package
+        rawOptions: ["--dangerous-allow-empty-list-of-resources=true"]
