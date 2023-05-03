@@ -5,7 +5,7 @@ metadata:
   namespace: tap-install
 spec:
   packageRef:
-    refName: spring-cloud-gateway
+    refName: spring-cloud-gateway.tanzu.vmware.com
     versionSelection:
       constraints: 2.0.0-tap.5
   serviceAccountName: tap-install-sa
