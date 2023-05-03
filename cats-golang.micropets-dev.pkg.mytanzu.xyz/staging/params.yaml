@@ -5,5 +5,5 @@ metadata:
 stringData:
   values.yaml: |
     ---
-    replicas: 3
+    replicas: 1
     hostname: app.mycompany.com
