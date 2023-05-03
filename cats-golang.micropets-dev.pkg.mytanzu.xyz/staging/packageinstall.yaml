@@ -1,0 +1,13 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+ name: app
+spec:
+ serviceAccountName: tap-default
+ packageRef:
+   refName: cats-golang.micropets-dev.pkg.mytanzu.xyz # name of the Package
+   versionSelection:
+     constraints: 20230503092028.0.0 # version of the Package
+ values:
+ - secretRef:
+     name: cats-app-values # Secret created in previous step
