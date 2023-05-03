@@ -4,6 +4,8 @@ metadata:
   name: cats-golang-app
   namespace: micropets-package
 spec:
+  serviceAccountName: tap-default
+  syncPeriod: 30s
   fetch:
     - git:
         url: http://github.com/bmoussaud/micropets-app-gitops.git
