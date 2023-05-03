@@ -7,5 +7,5 @@ spec:
   packageRef:
     refName: spring-cloud-gateway
     versionSelection:
-      constraints: 2.0.0-tap.4
+      constraints: 2.0.0-tap.5
   serviceAccountName: tap-install-sa
