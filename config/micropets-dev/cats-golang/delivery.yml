@@ -34,12 +34,12 @@ spec:
         app.kubernetes.io/part-of: micropets
         apps.tanzu.vmware.com/carvel-package-workflow: "true"
         apps.tanzu.vmware.com/has-tests: "true"
-        apps.tanzu.vmware.com/workload-type: web
+        apps.tanzu.vmware.com/workload-type: server
         carto.run/workload-name: cats-golang
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev@sha256:6f20a30d956c548db22c2e588a9704471a2371f5dd2b3e398ccf5bbcf338a4a4
+      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev@sha256:e187e1ed0f8ada05abe5d820c488ad844780eb539c3f83f5f1200dc987e7df2b
         name: workload
         resources: {}
         securityContext:
