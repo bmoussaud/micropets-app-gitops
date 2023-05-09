@@ -5,32 +5,31 @@ metadata:
   labels:
     tanzu.app.live.view: "true"
     tanzu.app.live.view.application.actuator.port: "8090"
-    tanzu.app.live.view.application.flavours: spring-boot_spring-cloud-gateway    
+    tanzu.app.live.view.application.flavours: spring-boot_spring-cloud-gateway
 spec:
   count: 1
   api:
     title: My Micropets APIs
     description: Lots of new exciting APIs for you to use for the micropets application.
     version: 0.1.0
+  server:
+    tls:
+      - hosts:
+          - gateway.dev.tap5.eu.aks.mytanzu.xyz
+        secretName: micropets-gateway-tls
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: cert-manager.io/v1
+kind: Certificate
 metadata:
-  name: micropets-gateway-ingress
-  annotations:
-    kubernetes.io/ingress.class: contour
+  name: micropets-gateway
 spec:
-  rules:
-    - host: gateway.dev.tap5.eu.aks.mytanzu.xyz
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: micropets-gateway
-                port:
-                  number: 80
+  commonName: gateway.dev.tap5.eu.aks.mytanzu.xyz
+  dnsNames:
+    - gateway.dev.tap5.eu.aks.mytanzu.xyz
+  issuerRef:
+    name: tap-ingress-selfsigned
+    kind: ClusterIssuer
+  secretName: micropets-gateway-tls
 ---
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
@@ -38,7 +37,7 @@ metadata:
   name: micropets-gateway-httpproxy
 spec:
   virtualhost:
-    fqdn: secured.dev.tap5.eu.aks.mytanzu.xyz
+    fqdn: gateway.dev.tap5.eu.aks.mytanzu.xyz
     tls:
       passthrough: true
   tcpproxy:

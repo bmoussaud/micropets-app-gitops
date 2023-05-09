@@ -11,6 +11,7 @@ spec:
         - Path=/pets/**
       #filters:
       #  - StripPrefix=1
+
 ---
 apiVersion: "tanzu.vmware.com/v1"
 kind: SpringCloudGatewayMapping
