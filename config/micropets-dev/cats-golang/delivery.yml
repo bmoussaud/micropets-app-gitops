@@ -34,7 +34,7 @@ spec:
         app.kubernetes.io/part-of: micropets
         apps.tanzu.vmware.com/carvel-package-workflow: "true"
         apps.tanzu.vmware.com/has-tests: "true"
-        apps.tanzu.vmware.com/workload-type: server
+        apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: cats-golang
         micropets/kind: backend
     spec:
