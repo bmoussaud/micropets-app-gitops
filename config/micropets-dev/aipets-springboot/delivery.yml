@@ -21,7 +21,7 @@ spec:
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 3.0.4
+        boot.spring.io/version: 3.0.6
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           developer-conventions/live-update-convention
@@ -36,7 +36,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:00e05f242564494ab1f016997ba4b539514f2554c0c1da337d6b7731a62a91d8
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:4a845893b4dd1d9a0b4a3ed639c7b52b6591107f883f05ae5bb11270bbcc0bae
         developer.conventions/target-containers: workload
         services.conventions.carto.run/postgres: postgresql/42.5.4
       labels:
@@ -62,7 +62,7 @@ spec:
           value: "true"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:a7a61f4d6ba48a736f252ef64b79c4f00e03210001bd0123cd4f375f02fe63e8
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:e30f2f41ea29ad65dfb371e0262dedfb02f28ccd1fd95a21a6c5e0b1e00c4967
         livenessProbe:
           httpGet:
             path: /livez
