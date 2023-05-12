@@ -36,7 +36,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:4f4e7cc86b1a21cc1b8b5fd2bded55ac892a3f4e82d3b58d5585af0b96a63c32
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-aipets-springboot-sources:latest@sha256:c525ef17846fd7c693e6ff3eb7be7af4c645f0c7e4a1ba58fe9135713c2b9e19
         developer.conventions/target-containers: workload
         services.conventions.carto.run/postgres: postgresql/42.5.4
       labels:
@@ -62,7 +62,7 @@ spec:
           value: "true"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:47db642fafff81431eb0a628ec7db35977792c17b083daf79078328bfcc3da7a
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:2d2faa44bb5c7c1914a42b0635e3f8a473c89b9f4183395b34390b812ac7e42c
         livenessProbe:
           httpGet:
             path: /livez
