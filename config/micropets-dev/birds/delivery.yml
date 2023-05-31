@@ -22,7 +22,7 @@ spec:
         autoscaling.knative.dev/max-scale: "2"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 2.5.14
+        boot.spring.io/version: 3.0.6
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
           developer-conventions/live-update-convention
@@ -32,13 +32,14 @@ spec:
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/spring-boot-actuator-probes
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-tap-birds-sources:latest@sha256:9ab05ced5e7af5c34b90b4c81e59c51df84d9f19fcc4bd1d0f5bbd83da7894da
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/micropet-tap-birds-sources:latest@sha256:232f9c7126a8578460d933cbfe8122ee126c4e8510e4c9bfc9a57e83fff1fb3d
         developer.conventions/target-containers: workload
-        services.conventions.carto.run/postgres: postgresql/42.2.25
+        services.conventions.carto.run/postgres: postgresql/42.5.4
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: birds
@@ -61,12 +62,22 @@ spec:
         - name: SPRING_PROFILES_ACTIVE
           value: postgres
         - name: JAVA_TOOL_OPTIONS
-          value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/birds-micropets-dev@sha256:577392debde0808abe000a4c5b420dc9d050171c7393f762fda93db7dd1a6ed3
+          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/birds-micropets-dev@sha256:87c0e4415cbfd407788b832acc5393c23871d00208ba81947ddc73e2db935292
+        livenessProbe:
+          httpGet:
+            path: /livez
+            port: 8080
+            scheme: HTTP
         name: workload
         ports:
         - containerPort: 8080
           protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
         resources: {}
         securityContext:
           runAsUser: 1000
