@@ -1,0 +1,24 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: zipkin
+  labels:
+    app.kubernetes.io/name: zipkin
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: zipkin
+    spec:
+      containers:
+        - image: openzipkin/zipkin
+          ports:
+            - containerPort: 9411
+          name: workload
+          resources: {}
+          securityContext:
+            runAsUser: 1000
+      serviceAccountName: default

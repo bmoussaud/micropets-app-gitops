@@ -8,10 +8,9 @@ spec:
     name: pets-golang
   routes:
     - predicates:
-        - Path=/pets/**
-      #filters:
-      #  - StripPrefix=1
-
+        - Path=/api/public/**
+      filters:
+        - StripPrefix=2
 ---
 apiVersion: "tanzu.vmware.com/v1"
 kind: SpringCloudGatewayMapping
