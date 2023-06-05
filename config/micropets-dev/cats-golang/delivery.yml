@@ -26,7 +26,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/cats:latest@sha256:e76735f2da9a7681eff7a07c399e977267c885904906f62479aac71dd51c28ac
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/cats-source:latest@sha256:42722e8fb0d56660913b3291ccb79c9896714ef2afd7f9b0bf83d6d0adfdc8ed
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -38,7 +38,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev@sha256:e187e1ed0f8ada05abe5d820c488ad844780eb539c3f83f5f1200dc987e7df2b
+      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev@sha256:62a8c1e2ccc78f48b087954f7a89339a7c8c2162b9d1eef6f492aa8c72e2b142
         name: workload
         resources: {}
         securityContext:
