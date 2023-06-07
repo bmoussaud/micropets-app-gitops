@@ -26,4 +26,6 @@ spec:
       name: MP_OBSERVABILITY.ENABLE
     - key: aria.ops.for.apps.token
       name: MP_OBSERVABILITY.TOKEN
+    - key: aria.ops.for.apps.url
+      name: MP_OBSERVABILITY.SERVER
 
