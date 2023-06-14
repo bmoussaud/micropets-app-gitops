@@ -17,3 +17,9 @@ namespaces:
     - nodejs
   databases:
     - postgres
+- name: micropets-package
+  languages:
+    - java
+    - golang
+    - angular
+    - nodejs
