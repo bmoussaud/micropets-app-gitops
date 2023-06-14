@@ -17,16 +17,3 @@ namespaces:
     - nodejs
   databases:
     - postgres
-- name: micropets-package
-  languages:
-    - java
-    - golang
-    - angular
-    - nodejs
-- name: secret-agent
-  languages:
-    - angular
-    - java
-    - nodejs
-  databases:
-    - postgres
