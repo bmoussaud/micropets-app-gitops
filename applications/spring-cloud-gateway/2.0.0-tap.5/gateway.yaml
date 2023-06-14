@@ -2,6 +2,7 @@ apiVersion: "tanzu.vmware.com/v1"
 kind: SpringCloudGateway
 metadata:
   name: micropets-gateway
+  namespace: micropets-dev
   labels:
     tanzu.app.live.view: "true"
     tanzu.app.live.view.application.actuator.port: "8090"
@@ -22,6 +23,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: micropets-gateway
+  namespace: micropets-dev
 spec:
   commonName: gateway.dev.tap5.eu.aks.mytanzu.xyz
   dnsNames:
@@ -35,6 +37,7 @@ apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
   name: micropets-gateway-httpproxy
+  namespace: micropets-dev
 spec:
   virtualhost:
     fqdn: gateway.dev.tap5.eu.aks.mytanzu.xyz
