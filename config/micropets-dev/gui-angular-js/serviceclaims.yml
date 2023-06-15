@@ -21,6 +21,7 @@ metadata:
     autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
+    apis.apps.tanzu.vmware.com/register-api: "false"
     app.kubernetes.io/name: gui
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
