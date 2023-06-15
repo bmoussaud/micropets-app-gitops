@@ -42,7 +42,7 @@ spec:
           value: /workspace/dist/assets
         - name: PETS_SERVICE
           value: https://micropets-gateway.micropets-dev/api/public/pets
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:992637d8fe3423dd37adca86f45e2d2fb94e122a768cfeb431370d17e8052f97
+        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:80c362c6786e11858d052dd4f96bf1b0554c6db781708c860c327ec0d8818fc9
         name: workload
         resources: {}
         securityContext:
