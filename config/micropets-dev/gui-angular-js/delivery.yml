@@ -28,6 +28,7 @@ spec:
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/gui:latest@sha256:3451a8efc2ab78f2b8eb875bce222c105dfb62ea0c0ed81d1313d5f1e69af477
         developer.conventions/target-containers: workload
       labels:
+        apis.apps.tanzu.vmware.com/register-api: "false"
         app.kubernetes.io/component: run
         app.kubernetes.io/name: gui
         app.kubernetes.io/part-of: micropets
