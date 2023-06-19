@@ -7,6 +7,7 @@ metadata:
   annotations:
     kapp.k14s.io/versioned: ""
   name: vegeta-config
+  namespace: micropets-dev
   labels:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
@@ -22,6 +23,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vegeta
+  namespace: micropets-dev
   labels:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
