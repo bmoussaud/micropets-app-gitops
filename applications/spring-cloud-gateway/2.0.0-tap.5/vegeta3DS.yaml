@@ -12,12 +12,12 @@ metadata:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
     app.kubernetes.io/version: "005"
-data:  
-  rate: "2"
-  duration: "0"  
+data:
+  rate: "5"
+  duration: "0"
   targets.txt: |
     GET https://pets-golang.micropets-dev.tap5.eu.aks.mytanzu.xyz
-    GET https://gui-angular-js.micropets-dev.tap5.eu.aks.mytanzu.xyz/    
+    GET https://gui-angular-js.micropets-dev.tap5.eu.aks.mytanzu.xyz/
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,6 +28,7 @@ metadata:
     app.kubernetes.io/component: loader
     app.kubernetes.io/part-of: vegeta
     app.kubernetes.io/version: "raw"
+    patch: 1
 spec:
   replicas: 1
   selector:
@@ -39,29 +40,33 @@ spec:
         app: vegeta
     spec:
       volumes:
-      - name: config-volume
-        configMap:
-          name: vegeta-config
-          items:
-          - key: targets.txt
-            path: targets.txt
-      containers:
-      - name: vegeta
-        image: peterevans/vegeta:6.9.1        
-        command: ["sh","-c","/bin/vegeta attack -targets=/config/targets.txt -insecure -name=vegeta -rate=$(V_RATE) -duration=$(V_DURATION) | tee results.bin | vegeta report"]
-        volumeMounts:
         - name: config-volume
-          mountPath: /config/
-        env:
-        - name: V_RATE          
-          valueFrom:
-            configMapKeyRef:              
-              name: vegeta-config              
-              key: rate
-        - name: V_DURATION          
-          valueFrom:
-            configMapKeyRef:              
-              name: vegeta-config              
-              key: duration
+          configMap:
+            name: vegeta-config
+            items:
+              - key: targets.txt
+                path: targets.txt
+      containers:
+        - name: vegeta
+          image: peterevans/vegeta:6.9.1
+          command:
+            [
+              "sh",
+              "-c",
+              "/bin/vegeta attack -targets=/config/targets.txt -insecure -name=vegeta -rate=$(V_RATE_2) -duration=$(V_DURATION) | tee results.bin | vegeta report",
+            ]
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config/
+          env:
+            - name: V_RATE_2
+              valueFrom:
+                configMapKeyRef:
+                  name: vegeta-config
+                  key: rate_2
+            - name: V_DURATION
+              valueFrom:
+                configMapKeyRef:
+                  name: vegeta-config
+                  key: duration
       restartPolicy: Always
-
