@@ -1,0 +1,65 @@
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+waitRules:
+- conditionMatchers:
+  - type: ServiceAvailable
+    status: "False"
+    failure: true
+  - type: ServiceAvailable
+    status: "True"
+    success: true
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: servicebinding.io/v1alpha3
+      kind: ServiceBinding
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: cats-golang-app-config
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: cats
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: cats-golang
+spec:
+  name: app-config
+  service:
+    apiVersion: v1
+    kind: Secret
+    name: cats-config
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: cats-golang
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: cats-golang-app-config-aria
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: cats
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: cats-golang
+spec:
+  name: app-config-aria
+  service:
+    apiVersion: v1
+    kind: Secret
+    name: aria-credentials
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: cats-golang
+
