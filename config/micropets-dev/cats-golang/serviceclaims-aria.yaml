@@ -21,6 +21,6 @@ spec:
   env:
     - key: observability.enable
       name: MP_OBSERVABILITY.ENABLE
-    - key: aria.ops.for.apps.token
+    - key: observability.token
       name: MP_OBSERVABILITY.TOKEN
 
