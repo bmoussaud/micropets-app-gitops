@@ -1,12 +1,12 @@
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
-  name: dogs-golang-aria-credentials
-  annotations:
+  name: cats-golang-aria-credentials
+  annotations:    
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
-    app.kubernetes.io/name: dogs
-    app.kubernetes.io/part-of: micropets
+    app.kubernetes.io/name: cats
+    app.kubernetes.io/part-of: micropets    
     app.kubernetes.io/component: run
 spec:
   name: app-config-aria
@@ -17,9 +17,10 @@ spec:
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
-    name: dogs-golang
+    name: cats-golang
   env:
     - key: observability.enable
       name: MP_OBSERVABILITY.ENABLE
     - key: aria.ops.for.apps.token
       name: MP_OBSERVABILITY.TOKEN
+

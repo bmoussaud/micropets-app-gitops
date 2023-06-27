@@ -3,13 +3,10 @@ kind: ServiceBinding
 metadata:
   name: fishes-golang-aria-credentials
   annotations:
-    autoscaling.knative.dev/minScale: "1"
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: fishes
     app.kubernetes.io/part-of: micropets
-    apps.tanzu.vmware.com/has-tests: "true"
-    apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/component: run
 spec:
   name: app-config-aria
