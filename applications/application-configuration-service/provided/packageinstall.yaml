@@ -1,0 +1,11 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: application-configuration-service
+  namespace: tap-install
+spec:
+  packageRef:
+    refName: application-configuration-service.tanzu.vmware.com    
+     #! ==> Use the version included in the TAP PackageRepository
+    versionSelection: {}
+  serviceAccountName: tap-install-sa

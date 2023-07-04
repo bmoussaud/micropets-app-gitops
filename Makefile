@@ -8,7 +8,7 @@ workloads:
 	kapp deploy --into-ns dev-tap -c -a workloads -f <(ytt -f generators/workloads --data-value environment=azure/aks-eu-tap-2)
 
 deploy-tap-config-extras:
-	kapp deploy -n dev-tap -c -a tap-config-extras -f environments/azure/aks-eu-tap-5
+	kapp deploy -n tap-install -c -a tap-config-extras -f environments/azure/aks-eu-tap-6
 
 kapp-deliverables: namespace
 	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy -y -c -a micropet-deliverables --into-ns $(NAMESPACE)  -f-
