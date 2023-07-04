@@ -20,7 +20,6 @@ spec:
           - applications/supplychains/current
           - applications/workloads/main/micropets                          
           - applications/application-configuration-service/provided
-          #- applications/spring-cloud-gateway/provided
-          
+          - applications/spring-cloud-gateway/provided          
   deploy:
     - kapp: {}
