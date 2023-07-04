@@ -1,0 +1,25 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: tap-config-extras
+  namespace: tap-config-extras
+  annotations:
+    kapp.k14s.io/change-group: tap-config/app
+    kapp.k14s.io/change-rule: "upsert after upserting tap-config/rbac"
+spec:
+  serviceAccountName: tap-config-extras-sa
+  syncPeriod: 30s
+  fetch:
+    - git:
+        url: http://github.com/bmoussaud/micropets-app-gitops.git
+        ref: origin/main
+  template:
+    - ytt:
+        paths:
+          - applications/namespaces/new 
+          #- applications/supplychains/current
+          #- applications/workloads/main/micropets                          
+          #- applications/application-configuration-service/2.0.0
+          #- applications/spring-cloud-gateway/2.0.0-tap.5
+  deploy:
+    - kapp: {}
