@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1686744459966234840"
+    kapp.k14s.io/app: "1688466492763313082"
     kapp.k14s.io/association: v1.1fbca94fd534a323086d73e8158af0df
     micropets/kind: backend
     app.kubernetes.io/component: run
@@ -27,7 +27,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;micropets-int/carto.run/Workload/dogs-golang;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"dogs","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1686744459966234840","kapp.k14s.io/association":"v1.1fbca94fd534a323086d73e8158af0df","micropets/kind":"backend"},"name":"dogs-golang","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}},{"name":"gitops_commit_message","value":"dogs int supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"dogs-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-dogs-golang/"}}}}'
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"dogs","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1688466492763313082","kapp.k14s.io/association":"v1.1fbca94fd534a323086d73e8158af0df","micropets/kind":"backend"},"name":"dogs-golang","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}},{"name":"gitops_commit_message","value":"dogs int supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"dogs-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-dogs-golang/"}}}}'
         kapp.k14s.io/original-diff-md5: 58e0494c51d30eb3494f7c9198986bb9
       labels:
         app.kubernetes.io/component: run
@@ -36,12 +36,12 @@ spec:
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: dogs-golang
-        kapp.k14s.io/app: "1686744459966234840"
+        kapp.k14s.io/app: "1688466492763313082"
         kapp.k14s.io/association: v1.1fbca94fd534a323086d73e8158af0df
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/dogs-golang-micropets-int@sha256:f75b35c398283a6a8f8181d423554321a737b3bfbf146862c4dca648b5238ef5
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/dogs-golang-micropets-int@sha256:04adf3f984372b6d4189e899be7e2cdba32420fed3181db428702b5e8c40032e
         name: workload
         resources: {}
         securityContext:
