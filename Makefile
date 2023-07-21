@@ -10,6 +10,9 @@ workloads:
 deploy-tap-config-extras:
 	kapp deploy -n tap-install -c -a tap-config-extras -f environments/azure/aks-eu-tap-6
 
+undeploy-tap-config-extras:
+	kapp delete -n tap-install -c -a tap-config-extras 
+
 kapp-deliverables: namespace
 	ytt --ignore-unknown-comments  -f deliverables --data-values-env MICROPETS | kapp deploy -y -c -a micropet-deliverables --into-ns $(NAMESPACE)  -f-
 
