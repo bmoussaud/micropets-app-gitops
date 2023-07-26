@@ -9,7 +9,6 @@ metadata:
   labels:
     app.kubernetes.io/name: dogs
     app.kubernetes.io/part-of: micropets
-    apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
     micropets/kind: backend
     app.kubernetes.io/component: run
@@ -18,7 +17,6 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
@@ -26,19 +24,18 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/dogs:latest@sha256:70e3597b284d09101e7fde15e7c7d49168e98234594058a3599faf80500a4fc1
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/dogs:latest@sha256:df455a5f5cfcba9253d579ab5a735e6a74c6d1b9dc2666ac27cb60138564b60d
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: dogs
         app.kubernetes.io/part-of: micropets
-        apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: dogs-golang
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/dogs-golang-micropets-dev@sha256:7e5629396d013452bd8ca6fed9cb33e0323570b97c820dd3f9ec72bfe9a4ff5c
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/dogs-golang-micropets-dev@sha256:834578aa289452b8b065df4fbf611c94887368eae0423f75d10c26d36caf36f9
         name: workload
         resources: {}
         securityContext:
