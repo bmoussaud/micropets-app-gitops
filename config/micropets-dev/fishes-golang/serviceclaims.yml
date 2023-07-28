@@ -19,6 +19,7 @@ metadata:
   name: fishes-golang-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-golang@sha256:afe5914fd00513bc314b05c511b0c1c272d17e117eb953eb21b1bb32b5760ece
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: fishes
