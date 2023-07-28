@@ -17,7 +17,6 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
@@ -25,7 +24,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/pets:latest@sha256:58ace82f48357e6ab1b8a004a9d4d86cf9224fe647239a8826998f3f04417330
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/pets:latest@sha256:3c7a5db2ac2361a9bc7531f35ca2d6b7394a95e9cd81d7f0f7dd7cf9e32afd93
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -36,7 +35,7 @@ spec:
         carto.run/workload-name: pets-golang
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-dev@sha256:fa7e7dfe6c7057428f7fa8c036f3f3efe37882eb371dbdfd400fc039b57f4642
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-dev@sha256:61ccb7fab06ad469fc9d1c0a565897c8a4c1127156ff393e192236782fac3c37
         name: workload
         resources: {}
         securityContext:
