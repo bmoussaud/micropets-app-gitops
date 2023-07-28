@@ -27,7 +27,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:df0ff3e6abd2242158d7abbe81b0559ea0db8f658954901c3f92ffce6dd033b7
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:df0ff3e6abd2242158d7abbe81b0559ea0db8f658954901c3f92ffce6dd033b7
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:e0f0516ae2e0634349a006efa846dfc84c58e77efb3807cc704f9338f5f9ea84
       labels:
         apis.apps.tanzu.vmware.com/register-api: "false"
         app.kubernetes.io/component: run
@@ -47,6 +47,6 @@ spec:
         name: workload
         resources: {}
         securityContext:
-          runAsUser: 1001
+          runAsUser: 1000
       serviceAccountName: default
 
