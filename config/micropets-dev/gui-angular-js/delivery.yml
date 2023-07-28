@@ -25,7 +25,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:df0ff3e6abd2242158d7abbe81b0559ea0db8f658954901c3f92ffce6dd033b7
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:e0f0516ae2e0634349a006efa846dfc84c58e77efb3807cc704f9338f5f9ea84
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:e0f0516ae2e0634349a006efa846dfc84c58e77efb3807cc704f9338f5f9ea84
       labels:
@@ -43,7 +43,7 @@ spec:
           value: /workspace/dist/assets
         - name: PETS_SERVICE
           value: http://pets-golang.micropets-dev/pets
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:892cf126c3c9981b2794d7b87bd8b8d8c2b900b9428b19e7fef9075b16669625
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:fe9b68fcac59b446c2cff42192d3c82f30aaa20822a6547c4822e70b6e97c389
         name: workload
         resources: {}
         securityContext:
