@@ -18,6 +18,7 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/max-scale: "2"
         autoscaling.knative.dev/maxScale: "1"
@@ -25,6 +26,7 @@ spec:
         boot.spring.io/version: 3.1.2
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/debug-convention
           developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
@@ -37,7 +39,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/micropet-tap-snakes-sources:latest@sha256:082368ae0fd61f0535fe917b939719545a622df36bf14db169a48caba27b0e9b
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/library/vs-extension-sources:latest@sha256:cddffbeef37863c4ea3df1a66eaaa99eece96884b9deec889ee3042ec9103954
         developer.conventions/target-containers: workload
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
@@ -61,9 +63,13 @@ spec:
       - env:
         - name: SPRING_PROFILES_ACTIVE
           value: postgres
+        - name: BPL_DEBUG_ENABLED
+          value: "true"
+        - name: BPL_DEBUG_PORT
+          value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/snakes-java-micropets-dev@sha256:bbaac25a40c0a7baf1f81c2991803ad1a43dec474ad4d6968ae2e7538fc1df1a
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/snakes-java-micropets-dev@sha256:1947e24ce1fa0fbeeac98ae40501cd01bc81906c20424328c62fe914cd306442
         livenessProbe:
           httpGet:
             path: /livez
