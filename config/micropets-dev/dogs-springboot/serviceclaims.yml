@@ -20,6 +20,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:b97c24c6153d72fbabbf679d6a2e41b27d6e2799f52a481772dc0f21f04f40da
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
@@ -47,6 +48,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:b97c24c6153d72fbabbf679d6a2e41b27d6e2799f52a481772dc0f21f04f40da
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
