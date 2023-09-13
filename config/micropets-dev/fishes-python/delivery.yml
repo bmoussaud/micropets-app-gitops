@@ -18,6 +18,7 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
@@ -27,7 +28,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:7d3c814cd8b3e7a02709af25acc4000b57b01565edfbffd3747279517d7808c8
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:7d3c814cd8b3e7a02709af25acc4000b57b01565edfbffd3747279517d7808c8
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:4c4493b7f8d64cd0136017b6a19a5ae65505e1948b2e35247e83b6ca8c774c26
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: fishes
