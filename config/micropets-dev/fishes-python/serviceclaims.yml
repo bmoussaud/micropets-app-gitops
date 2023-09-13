@@ -19,7 +19,7 @@ metadata:
   name: fishes-python-fishes-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:49bc2e56b9d0731cc04f18acb5c50649a4b5f3ee77699f5e70abed45a024d8e3
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:c4b06d1414f54c24e4259f9cac46f9cec33759e3cc3b0896166d4a4cd4ca12da
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: fishes
