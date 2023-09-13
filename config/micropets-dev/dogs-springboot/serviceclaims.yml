@@ -20,7 +20,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:d129019df80ac2d075b2265064bea348298c9cddcbd8be10ea1ee48e323894b9
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:af4ed701f8d1a42a02691cef36c1ff46d9b70fd6991f985bcb05bb280ad173b9
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
@@ -34,8 +34,8 @@ spec:
   name: dogs-database
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
-    kind: ResourceClaim
-    name: micropets-dev-tanzu-postgresql-database
+    kind: ClassClaim
+    name: dogs-pgsql
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
@@ -48,7 +48,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:d129019df80ac2d075b2265064bea348298c9cddcbd8be10ea1ee48e323894b9
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:af4ed701f8d1a42a02691cef36c1ff46d9b70fd6991f985bcb05bb280ad173b9
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
@@ -76,7 +76,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:d129019df80ac2d075b2265064bea348298c9cddcbd8be10ea1ee48e323894b9
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:af4ed701f8d1a42a02691cef36c1ff46d9b70fd6991f985bcb05bb280ad173b9
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
