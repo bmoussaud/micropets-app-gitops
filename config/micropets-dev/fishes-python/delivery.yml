@@ -26,7 +26,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:92801734e56145f739df4acc675d86c36dab1ad0b044f4b162098871958c597a
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:35be38ab81bc994fdacc93622fff747f0ce40c3c463226f970b89b6d85916401
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:35be38ab81bc994fdacc93622fff747f0ce40c3c463226f970b89b6d85916401
       labels:
@@ -39,7 +39,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/fishes-python-micropets-dev@sha256:73747e4c2536fc188b52f3a906ce559e153d8f68a6cdb2d4d0c2b87aa93a0904
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/fishes-python-micropets-dev@sha256:67ed8cf5ca8d757527ee2a5dbe65e7f91fb4012fadccf97d2991008960a82b11
         name: workload
         resources: {}
         securityContext:
