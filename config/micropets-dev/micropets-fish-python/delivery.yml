@@ -1,0 +1,48 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: micropets-fish-python
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: fishes
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: micropets-fish-python
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-micropets-fish-python@sha256:34a4c96245d6d0bdb629f017d6a39b8afb4396090d35df46c0866c68d895d766
+        developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-micropets-fish-python@sha256:34a4c96245d6d0bdb629f017d6a39b8afb4396090d35df46c0866c68d895d766
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: fishes
+        app.kubernetes.io/part-of: micropets
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: micropets-fish-python
+        micropets/kind: backend
+    spec:
+      containers:
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/micropets-fish-python-micropets-dev@sha256:f3c7cbd50b1fd96848762042628876ac6b21e809565c1780cf3011c88301b766
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
