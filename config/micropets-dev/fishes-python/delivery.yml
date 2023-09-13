@@ -27,7 +27,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:27580240fcb39877a55e59fa317bda5a14f93b009a0ca585b21cc6f497d1b2b2
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:27580240fcb39877a55e59fa317bda5a14f93b009a0ca585b21cc6f497d1b2b2
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-fishes-python@sha256:7d3c814cd8b3e7a02709af25acc4000b57b01565edfbffd3747279517d7808c8
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: fishes
