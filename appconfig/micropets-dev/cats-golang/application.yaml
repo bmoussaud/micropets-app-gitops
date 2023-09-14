@@ -6,7 +6,7 @@ service:
   delay:
     period: 200
     amplitude: 0.3
-  from: Cat Kawaii Shop
+  from: Greate Cat Kawaii Shop
 observability:
   enable: true
   application: micropets
