@@ -19,6 +19,7 @@ metadata:
   name: cats-golang-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-cats-golang@sha256:e374a8ac2b30df67610b2fd810c48195a4c4093575e81885a15691cf52af7668
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: cats
@@ -30,32 +31,6 @@ metadata:
     carto.run/workload-name: cats-golang
 spec:
   name: app-config
-  service:
-    apiVersion: v1
-    kind: Secret
-    name: cats-config
-  workload:
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    name: cats-golang
----
-apiVersion: servicebinding.io/v1alpha3
-kind: ServiceBinding
-metadata:
-  name: cats-golang-from-config
-  annotations:
-    autoscaling.knative.dev/minScale: "1"
-    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
-  labels:
-    app.kubernetes.io/name: cats
-    app.kubernetes.io/part-of: micropets
-    apps.tanzu.vmware.com/has-tests: "true"
-    apps.tanzu.vmware.com/workload-type: web
-    micropets/kind: backend
-    app.kubernetes.io/component: run
-    carto.run/workload-name: cats-golang
-spec:
-  name: from-config
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ResourceClaim
