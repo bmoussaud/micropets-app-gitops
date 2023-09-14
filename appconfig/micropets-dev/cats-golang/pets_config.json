@@ -1,0 +1,23 @@
+{
+	"service": {
+		"port": ":8181",
+		"listen": "true",
+		"mode": "RANDOM_NUMBER",
+		"frequencyError": 10,
+		"delay": {
+			"period": 200,
+			"amplitude": 0.3
+		},
+		"from": "Café Kawaii Cat Shop"
+	},
+	"observability": {
+		"enable": true,
+		"application": "micropets",
+		"service": "cats",
+		"cluster": "us-west",
+		"shard": "primary",
+		"server": "https://binz.wavefront.com",
+		"token": "x-y-z-y"
+	}
+}
+
