@@ -27,7 +27,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:492c0f74117c367bfd5c227dcfebad1904c8a125e204271e9d85180b0e6bfdbe
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:492c0f74117c367bfd5c227dcfebad1904c8a125e204271e9d85180b0e6bfdbe
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:46e2888140d8da6db127c8c2d8caf875e8e7e2868c8fcc091d891b896aefad58
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: pets
