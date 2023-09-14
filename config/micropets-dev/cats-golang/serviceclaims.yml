@@ -19,7 +19,6 @@ metadata:
   name: cats-golang-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-cats-golang@sha256:17fec4dc2358755d9f31ea6927f007b6a28d94aa064446e4be3aac123e074623
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: cats
