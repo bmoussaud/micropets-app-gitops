@@ -1,2 +1,5 @@
 micropets:
   from: Xerox Shop
+TITLE: Micropets NodeJS App with Tanzu Application Platform
+PORT: "8080"
+ENV: TAP/1.4
