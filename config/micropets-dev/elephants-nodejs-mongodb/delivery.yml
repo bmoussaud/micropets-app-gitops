@@ -27,7 +27,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/library/vs-extension-sources:latest@sha256:712f1a8937548ad8199640523f122fcb472be0889762e6c00e50c9f226ea4eda
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/library/vs-extension-sources:latest@sha256:a62eeab38df89d04e2af086866e8ce90e1d187d7a2e8f3909dee5124cbf3a7da
         developer.conventions/target-containers: workload
         not.used.serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
@@ -41,7 +41,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-dev@sha256:fc6a6da4f69abaaf4c2212876b3e1f303b40ec08be525351686d3696bd40affb
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-dev@sha256:dd4ed032d17bd77d4d6ea47be0b117a484c3cdb33430b5a1feef99d203473ba5
         name: workload
         resources: {}
         securityContext:
