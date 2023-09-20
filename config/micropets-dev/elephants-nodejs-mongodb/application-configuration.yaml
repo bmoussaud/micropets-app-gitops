@@ -5,10 +5,10 @@ metadata:
 spec:
   backends:
     - type: git
-      uri: https://github.com/bmoussaud/microelephants-app-gitops.git
+      uri: https://github.com/bmoussaud/micropets-app-gitops.git
       defaultLabel: main
       searchPaths:
-        - appconfig/microelephants-dev/elephants-golang
+        - appconfig/micropets-dev/elephants-golang
 ---
 apiVersion: config.apps.tanzu.vmware.com/v1alpha4
 kind: ConfigurationSlice
