@@ -44,7 +44,7 @@ spec:
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
-  name: elephants-nodejs-mongodb-mongodb-database
+  name: elephants-nodejs-mongodb-elephants-db
   annotations:
     autoscaling.knative.dev/minScale: "1"
     not.used.serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
@@ -59,9 +59,9 @@ metadata:
     app.kubernetes.io/component: run
     carto.run/workload-name: elephants-nodejs-mongodb
 spec:
-  name: mongodb-database
+  name: elephants-db
   service:
-    apiVersion: services.apps.tanzu.vmware.com/v1alpha1:ClassClaim:elephants-mongodb
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ClassClaim
     name: elephants-mongodb
   workload:
