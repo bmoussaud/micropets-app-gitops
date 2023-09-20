@@ -19,6 +19,7 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
@@ -26,7 +27,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap5registry.azurecr.io/elephants:latest@sha256:1b65e3cc26f7f0bc7947b6ae4a4b77f591061e6c2c559962f403503a34fe3b88
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/library/vs-extension-sources:latest@sha256:712f1a8937548ad8199640523f122fcb472be0889762e6c00e50c9f226ea4eda
         developer.conventions/target-containers: workload
         serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
@@ -40,10 +41,10 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-dev@sha256:bbf7c71f9290dc3087069e501be0e1d356216e3d62122e5dd83ffcece51527f9
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-dev@sha256:fc6a6da4f69abaaf4c2212876b3e1f303b40ec08be525351686d3696bd40affb
         name: workload
         resources: {}
         securityContext:
-          runAsUser: 1001
+          runAsUser: 1000
       serviceAccountName: default
 
