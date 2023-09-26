@@ -19,7 +19,7 @@ metadata:
   name: elephants-nodejs-mongodb-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:fba93e06e949846c760070cc6892880da20d522fe99343e7add4a28d97ef4ab2
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:68a4e98534b9ae5611add36a0fa85959b4bf70a53fbdb17938f7c8e8638cc471
     not.used.serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
@@ -48,7 +48,7 @@ metadata:
   name: elephants-nodejs-mongodb-database
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:fba93e06e949846c760070cc6892880da20d522fe99343e7add4a28d97ef4ab2
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:68a4e98534b9ae5611add36a0fa85959b4bf70a53fbdb17938f7c8e8638cc471
     not.used.serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
