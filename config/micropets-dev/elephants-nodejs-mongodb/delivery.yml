@@ -29,7 +29,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:0b9e1240f9a0c4b187627822eb82fe8631af4c8a408d91b5b0a77d07f3ddd3cd
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:0b9e1240f9a0c4b187627822eb82fe8631af4c8a408d91b5b0a77d07f3ddd3cd
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:fba93e06e949846c760070cc6892880da20d522fe99343e7add4a28d97ef4ab2
         not.used.serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
         app.kubernetes.io/component: run
@@ -47,5 +47,5 @@ spec:
         resources: {}
         securityContext:
           runAsUser: 1000
-      serviceAccountName: default
+      serviceAccountName: tap-default
 
