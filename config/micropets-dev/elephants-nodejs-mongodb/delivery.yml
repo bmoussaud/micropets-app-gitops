@@ -29,7 +29,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:68a4e98534b9ae5611add36a0fa85959b4bf70a53fbdb17938f7c8e8638cc471
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:68a4e98534b9ae5611add36a0fa85959b4bf70a53fbdb17938f7c8e8638cc471
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-elephants-nodejs-mongodb@sha256:405e5620e92abdf69475e033d64b28d8ec60bf231ff5b867551c45e2a3a3d681
         not.used.serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"mongodb-database-not-used":{"namespace":"mongodb"}}}}'
       labels:
         app.kubernetes.io/component: run
