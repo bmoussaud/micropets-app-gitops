@@ -19,7 +19,7 @@ metadata:
   name: pets-golang-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:f87b6af534af0a44177d0870f2578fac8d01e906e941f04669e6db5352b92b7e
+    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:b2970dd76bc17522324fb06bd8c1ed0353aec6c20362bb0158f99870d3ee12e1
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: pets
@@ -31,8 +31,8 @@ metadata:
 spec:
   name: app-config
   service:
-    apiVersion: v1
-    kind: Secret
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
     name: pets-config
   workload:
     apiVersion: serving.knative.dev/v1
