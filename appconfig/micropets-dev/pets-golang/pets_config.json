@@ -1,0 +1,16 @@
+{
+	"service": {
+		"port": ":8080",
+		"listen": "true"        
+	},
+	"backends": {},
+	"observability": {
+		"enable": false,
+		"application": "micropets",
+		"service": "pets",
+		"cluster": "us-west",
+		"shard": "primary",
+		"server": "https://binz.wavefront.xxx",
+		"token": "xxxx-xxx-yyyy-zzzz"        
+	}
+}
