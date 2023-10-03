@@ -1,0 +1,31 @@
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSource
+metadata:
+  name: pets-config
+spec:
+  backends:
+    - type: git
+      uri: https://github.com/bmoussaud/micropets-app-gitops.git
+      defaultLabel: main
+      searchPaths:
+        - appconfig/micropets-dev/pets-golang
+---
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSlice
+metadata:
+  name: pets-config
+spec:
+  interval: 1s
+  configurationSource: pets-config
+  plainTextContent:
+    - pets_config.json
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaim
+metadata:
+  name: pets-config
+spec:
+  ref:
+    apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+    kind: ConfigurationSlice
+    name: pets-config
