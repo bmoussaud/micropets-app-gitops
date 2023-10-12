@@ -39,9 +39,9 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:8f4750b1c8f7849a5abdd90c7da003ed82f55526c22e9cd082b9675432f46b41
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:957f4f44711f71d823a8cda6324a9a8e291df4bcdacf48091d09bcd6e0912018
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:35ba89baff3a404b6c477f5085ef7cb39df84bce2b1e95be2d970fb37164a780
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:3bc7e48cf6291765facb4dfbbbd53ec82080f70191f9019ae25ef92b26b5fb1b
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
@@ -67,7 +67,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-springboot-service-musicstore-dev@sha256:09da86ed96322d98f2b8cb5608ebcacba206828c8c9af542994a00dcc9a3c6a6
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-springboot-service-musicstore-dev@sha256:d53008502c30b91a0dbda891315b6d4b33a24522c76ee1dd5b57161ad56a1f4f
         livenessProbe:
           httpGet:
             path: /livez
