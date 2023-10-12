@@ -41,7 +41,7 @@ spec:
           spring-boot-convention/service-intent-postgres
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:a1ba7f4ba551aa662141b2f88af4f981b4c75a77c674bc9bf0414d5a572f4081
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:fb32af1e7bc26c2862bdf397741d27ac1af44d666af3730ebc302b54e276b69d
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:35205bf1d556b496da0702b7bf59a261d78c0f6371e81e6f03504389d1032b21
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
