@@ -40,7 +40,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:23b0de2348b60684d1edc59aa144da8f2d9ce26895ddad44af60bada2fe4c054
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:44790b763c558e2f084d409a67ec362c3cf7c3b0d97a03083d7c2d29ed997919
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:a1ba7f4ba551aa662141b2f88af4f981b4c75a77c674bc9bf0414d5a572f4081
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: playlist-springboot-service
