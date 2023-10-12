@@ -38,9 +38,11 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:23b0de2348b60684d1edc59aa144da8f2d9ce26895ddad44af60bada2fe4c054
+          spring-boot-convention/service-intent-postgres
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:a1ba7f4ba551aa662141b2f88af4f981b4c75a77c674bc9bf0414d5a572f4081
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-springboot-service@sha256:a1ba7f4ba551aa662141b2f88af4f981b4c75a77c674bc9bf0414d5a572f4081
+        services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: playlist-springboot-service
@@ -50,6 +52,7 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: playlist-springboot-service
         conventions.carto.run/framework: spring-boot
+        services.conventions.carto.run/postgres: workload
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -64,7 +67,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-springboot-service-musicstore-dev@sha256:2f449b53542d7d6853e4000458952840f0be6c3e44f32b6b59881d301ec5e716
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-springboot-service-musicstore-dev@sha256:ed7c7a490ea4533b694bcef633ce92e73af360d860f68e98661fd9d9070401e8
         livenessProbe:
           httpGet:
             path: /livez
