@@ -1,0 +1,46 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: playlist-angular-frontend
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: playlist-angular-frontend
+    app.kubernetes.io/part-of: musicstore
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/component: run
+    carto.run/workload-name: playlist-angular-frontend
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/minScale: "1"
+        conventions.carto.run/applied-conventions: |-
+          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/add-source-image-label
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-angular-frontend@sha256:fef0fb967843f88aa95ec62462f0cf46980c864179aa5ca3f5d2fbcaef853d15
+        developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-angular-frontend@sha256:7ec38d28afb79eecf88c000cc69d7b2deab72ab887a9a6e153a6daa0d76be0f2
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: playlist-angular-frontend
+        app.kubernetes.io/part-of: musicstore
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: playlist-angular-frontend
+    spec:
+      containers:
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-angular-frontend-musicstore-dev@sha256:a296fb70c027e6f780f2fe8d740e126891ea62a282efc1f8d47b5f9fd393db20
+        name: workload
+        resources: {}
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
