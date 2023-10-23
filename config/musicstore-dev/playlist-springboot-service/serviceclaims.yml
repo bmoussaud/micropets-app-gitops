@@ -31,9 +31,9 @@ metadata:
 spec:
   name: database
   service:
-    apiVersion: v1
-    kind: Secret
-    name: benoidb-psql-bindable
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ClassClaim
+    name: musicstore-classclaim-pgsql
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
