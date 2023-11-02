@@ -42,7 +42,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-dev@sha256:04b4159f97699a97dfaf8a9afa554875b635af9d57e644282c737d75b4ec608c
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/elephants-nodejs-mongodb-micropets-dev@sha256:a2f5af16d8eabcb61b07988467541f3bd84fe07abbd487a14a5f4cf6d05d2f7d
         name: workload
         resources: {}
         securityContext:
