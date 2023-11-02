@@ -72,7 +72,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:7d9fd0bed5457976523aa8492d5fb66ecc42ec2204108c4508059e46a7a20602
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:1ee191e7627cdd4b9e232882df5e15151aee842632828495aaeca79c2dbea9d9
         livenessProbe:
           httpGet:
             path: /livez
