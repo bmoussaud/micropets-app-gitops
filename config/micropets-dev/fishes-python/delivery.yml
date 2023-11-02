@@ -39,7 +39,7 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/fishes-python-micropets-dev@sha256:dce4aa85149f14bfeb8aad50578b3474dbf4dbde742f171b1d91f826177f31e1
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/fishes-python-micropets-dev@sha256:f76f1b753065cb439c07ee3673d20d977db21e2a4ee9e1a34fd327a7b475801f
         name: workload
         resources: {}
         securityContext:
