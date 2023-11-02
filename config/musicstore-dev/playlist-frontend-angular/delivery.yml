@@ -37,7 +37,7 @@ spec:
         carto.run/workload-name: playlist-frontend-angular
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-frontend-angular-musicstore-dev@sha256:a2b9128ab6bcb9ce61e1855d0958a1fa5799e3209b0cbeb411ac4fd91407bc2b
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-frontend-angular-musicstore-dev@sha256:ba58fb7b07094c5d79f66359fe898030c868fcd20f14b902ab1c7aa4b26a6591
         name: workload
         resources: {}
         securityContext:
