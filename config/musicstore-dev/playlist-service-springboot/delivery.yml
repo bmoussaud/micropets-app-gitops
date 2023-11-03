@@ -39,7 +39,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/library/vs-extension-sources:latest@sha256:4caa2074c928116012de9f2ba8a334492365cdce5ee2c819af3313a1c76f674a
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/library/vs-extension-sources:latest@sha256:a7640157beafd3b21c4f7f0cedce3bda4006dd110f54284f1fc936e7d78208d8
         developer.conventions/target-containers: workload
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
@@ -68,7 +68,7 @@ spec:
           value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-service-springboot-musicstore-dev@sha256:9ab56d4333559eefd42022a8630637ede985fff59ab4febfac6fc82bcf0e0aee
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-service-springboot-musicstore-dev@sha256:ee5008ed3a4055c6cdbc6e77c3dfd1cb940bc25642252d7df42f24bbd7b34480
         livenessProbe:
           httpGet:
             path: /livez
