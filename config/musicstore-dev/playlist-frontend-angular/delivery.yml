@@ -25,7 +25,7 @@ spec:
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-frontend-angular@sha256:805199d0fd33243f19320321a36449ebf4fc74e359623160de03bf3637eb3705
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-frontend-angular@sha256:2cc8b08b066c12f65a43e337ee7551ff1c23f18224ecc6113fdc768f575030b1
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-frontend-angular@sha256:2cc8b08b066c12f65a43e337ee7551ff1c23f18224ecc6113fdc768f575030b1
       labels:
@@ -37,7 +37,7 @@ spec:
         carto.run/workload-name: playlist-frontend-angular
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-frontend-angular-musicstore-dev@sha256:7fb1769a92491cbc549067c21387d217d43e5bb76f3e1a63b3e9342d7fa3ddbb
+      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-frontend-angular-musicstore-dev@sha256:a816ad5e86bd03811e23c3ccf276a90de0099630dae7046c204c8abff05e5920
         name: workload
         resources: {}
         securityContext:
