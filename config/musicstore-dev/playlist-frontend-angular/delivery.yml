@@ -27,7 +27,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-frontend-angular@sha256:805199d0fd33243f19320321a36449ebf4fc74e359623160de03bf3637eb3705
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-frontend-angular@sha256:805199d0fd33243f19320321a36449ebf4fc74e359623160de03bf3637eb3705
+        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-frontend-angular@sha256:2cc8b08b066c12f65a43e337ee7551ff1c23f18224ecc6113fdc768f575030b1
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: playlist-frontend-angular
