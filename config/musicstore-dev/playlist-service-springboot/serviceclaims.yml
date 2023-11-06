@@ -33,7 +33,7 @@ spec:
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
     kind: ClassClaim
-    name: musicstore-pgsql-crossplane
+    name: musicstore-pgsql-bitnami
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
