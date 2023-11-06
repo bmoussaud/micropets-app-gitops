@@ -2,7 +2,7 @@
 apiVersion: services.apps.tanzu.vmware.com/v1alpha1
 kind: ClassClaim
 metadata:
-  name: musicstore-classclaim-pgsql
+  name: musicstore-pgsql-bitnami
   namespace: musicstore-dev
 spec:
   classRef:
