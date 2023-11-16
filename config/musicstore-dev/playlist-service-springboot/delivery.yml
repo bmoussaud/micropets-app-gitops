@@ -37,7 +37,7 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-service-springboot@sha256:af78f4a22e156e8c0cd4f43e6807f7b9ad7552d6c57d37ea3f4c1e889b690de3
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-service-springboot@sha256:de284e645d30a74560e8a2f5b4c8c050a7705ceedc8c72f50b4809b74d76998a
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-service-springboot@sha256:de284e645d30a74560e8a2f5b4c8c050a7705ceedc8c72f50b4809b74d76998a
         services.conventions.carto.run/postgres: postgresql/42.6.0
@@ -63,7 +63,7 @@ spec:
           value: postgres
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-service-springboot-musicstore-dev@sha256:71bd7341c84e5e148d9720d853f5ccc2ae3adcae2f25515a50d8de550aaed82b
+        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/playlist-service-springboot-musicstore-dev@sha256:56941dd658530f4a8b8ca4bcf17351897491c61043fd5002733e9489e13b0d19
         livenessProbe:
           httpGet:
             path: /livez
