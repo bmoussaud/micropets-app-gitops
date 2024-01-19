@@ -1,0 +1,31 @@
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSource
+metadata:
+  name: dogs-config
+spec:
+  backends:
+  - type: git
+    uri: https://github.com/bmoussaud/micropets-app-gitops
+    defaultLabel: main
+    searchPaths:
+    - appconfig/micropets-int/dogs-springboot
+---
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSlice
+metadata:
+  name: dogs-config
+spec:
+  interval: 1s
+  configurationSource: dogs-config
+  content:
+  - application/default
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaim
+metadata:
+  name: dogs-config
+spec:
+  ref:
+    apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+    kind: ConfigurationSlice
+    name: dogs-config
