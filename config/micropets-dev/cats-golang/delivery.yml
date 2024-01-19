@@ -18,17 +18,14 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/debug: "true"
-        apps.tanzu.vmware.com/live-update: "true"
-        autoscaling.knative.dev/minScale: "1"
+        apps.tanzu.vmware.com/correlationid: https://github.com/bmoussaud/micropets-cats-golang.git?sub_path=/
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
-          developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-cats-golang@sha256:b760767535ff32f2e5ac531e9d45343176ae9db833b4edab94e798a40a175869
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-cats-golang@sha256:b760767535ff32f2e5ac531e9d45343176ae9db833b4edab94e798a40a175869
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"cats","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"cats-golang","namespace":"micropets-dev"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}},{"name":"gitops_commit_message","value":"cats dev supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"cats-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-cats-golang.git"}}}}
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: cats
@@ -39,10 +36,17 @@ spec:
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev@sha256:72de1835293d0a3daa52cc65668e8a7dd4d764a455c831eb82d452deb42de39e
+      - image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-dev@sha256:2f9fd99da5f286f2742ae36f9d1d39794699bd3e8c3db6bccb100fb1a41b93fc
         name: workload
         resources: {}
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
       serviceAccountName: default
 
