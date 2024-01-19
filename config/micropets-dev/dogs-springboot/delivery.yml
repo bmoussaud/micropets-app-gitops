@@ -18,18 +18,17 @@ spec:
   template:
     metadata:
       annotations:
-        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/correlationid: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot?sub_path=/
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/max-scale: "2"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/version: 3.1.2
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
-          developer-conventions/debug-convention
           developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
@@ -39,9 +38,9 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:d52894aafb72bb022ddd4b0f9c44a0660cf5943ed1d5f6c918a3db06b29577b3
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:06c1b596fef9b4c8a0aa5c32b7fe860af14272eaab7156a29c25f286934d6863
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:d52894aafb72bb022ddd4b0f9c44a0660cf5943ed1d5f6c918a3db06b29577b3
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:06c1b596fef9b4c8a0aa5c32b7fe860af14272eaab7156a29c25f286934d6863
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
@@ -66,13 +65,9 @@ spec:
           value: postgres
         - name: SPRING_CONFIG_IMPORT
           value: optional:configtree:${SERVICE_BINDING_ROOT}/dogs-config/
-        - name: BPL_DEBUG_ENABLED
-          value: "true"
-        - name: BPL_DEBUG_PORT
-          value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:1ee191e7627cdd4b9e232882df5e15151aee842632828495aaeca79c2dbea9d9
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:98a3be8111fe097a7585ada8351bc59934a7fb0ce882209933d52f3c48fa8732
         livenessProbe:
           httpGet:
             path: /livez
@@ -89,6 +84,18 @@ spec:
             scheme: HTTP
         resources: {}
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+        startupProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
       serviceAccountName: default
 
