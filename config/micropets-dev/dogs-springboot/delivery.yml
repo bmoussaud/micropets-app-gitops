@@ -40,7 +40,7 @@ spec:
           spring-boot-convention/service-intent-postgres
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:06c1b596fef9b4c8a0aa5c32b7fe860af14272eaab7156a29c25f286934d6863
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:06c1b596fef9b4c8a0aa5c32b7fe860af14272eaab7156a29c25f286934d6863
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:f0a82beb5145e58abc5ec60d8452613b6a30f642e6d8bf305633f009b8cfba1e
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         app.kubernetes.io/component: run
