@@ -11,7 +11,7 @@ stringData:
   config.json: |-
     {  
       "petServiceUrl": "https://NotUSEDANYMORE.pets-golang.dev-tap.tap4.eu.aks.mytanzu.xyz",
-      "stage": "Integration",
+      "stage": "INT",
       "debug": "False",
       "stage_color": "blue",
       "load_one_by_one": "True"
