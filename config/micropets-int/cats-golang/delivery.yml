@@ -9,11 +9,8 @@ metadata:
   labels:
     app.kubernetes.io/name: cats
     app.kubernetes.io/part-of: micropets
-    apps.tanzu.vmware.com/carvel-package-workflow: "true"
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1688466492763313082"
-    kapp.k14s.io/association: v1.548c88a6d9ced2cdcb32d8dd8662ac7c
     micropets/kind: backend
     app.kubernetes.io/component: run
     carto.run/workload-name: cats-golang
@@ -21,32 +18,35 @@ spec:
   template:
     metadata:
       annotations:
-        autoscaling.knative.dev/minScale: "1"
+        apps.tanzu.vmware.com/correlationid: https://github.com/bmoussaud/micropets-cats-golang.git?sub_path=/
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
-        kapp.k14s.io/identity: v1;micropets-int/carto.run/Workload/cats-golang;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"cats","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/carvel-package-workflow":"true","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1688466492763313082","kapp.k14s.io/association":"v1.548c88a6d9ced2cdcb32d8dd8662ac7c","micropets/kind":"backend"},"name":"cats-golang","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}},{"name":"gitops_commit_message","value":"cats int supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"cats-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-cats-golang"}}}}'
-        kapp.k14s.io/original-diff-md5: 58e0494c51d30eb3494f7c9198986bb9
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"cats","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"cats-golang","namespace":"micropets-int"},"spec":{"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"test-golang"}},{"name":"gitops_commit_message","value":"cats int supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"cats-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-cats-golang.git"}}}}
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: cats
         app.kubernetes.io/part-of: micropets
-        apps.tanzu.vmware.com/carvel-package-workflow: "true"
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: cats-golang
-        kapp.k14s.io/app: "1688466492763313082"
-        kapp.k14s.io/association: v1.548c88a6d9ced2cdcb32d8dd8662ac7c
         micropets/kind: backend
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-int@sha256:c3334135dec2466a2768ef0ab3dbed10a1e774c608639c66a27d1a71a9fd06d1
+      - image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/cats-golang-micropets-int@sha256:9f83c698f77e456be0e2085fb3e1746500c14b7b036836e9fae6a09443a55f10
         name: workload
         resources: {}
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
       serviceAccountName: default
 
