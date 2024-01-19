@@ -1,0 +1,69 @@
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+waitRules:
+- conditionMatchers:
+  - type: ServiceAvailable
+    status: "False"
+    failure: true
+  - type: ServiceAvailable
+    status: "True"
+    success: true
+  resourceMatchers:
+  - apiVersionKindMatcher:
+      apiVersion: servicebinding.io/v1alpha3
+      kind: ServiceBinding
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: dogs-springboot-dogs-database
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"dogs","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"dogs-springboot","namespace":"micropets-int"},"spec":{"build":{"env":[{"name":"BP_JVM_VERSION","value":"17"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"},{"name":"SPRING_CONFIG_IMPORT","value":"optional:configtree:${SERVICE_BINDING_ROOT}/dogs-config/"}],"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"skip-test"}},{"name":"scanning_source_policy","value":"scan-policy-java"},{"name":"scanning_image_policy","value":"scan-policy-java"},{"name":"gitops_commit_message","value":"dogs int supplychain@cluster.local"}],"serviceClaims":[{"name":"dogs-database","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"micropets-int-tanzu-postgresql-database"}},{"name":"dogs-config","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"dogs-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-dogs-springboot"}}}}
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: dogs
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: dogs-springboot
+spec:
+  name: dogs-database
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: micropets-int-tanzu-postgresql-database
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: dogs-springboot
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
+  name: dogs-springboot-dogs-config
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"dogs","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","micropets/kind":"backend"},"name":"dogs-springboot","namespace":"micropets-int"},"spec":{"build":{"env":[{"name":"BP_JVM_VERSION","value":"17"}]},"env":[{"name":"SPRING_PROFILES_ACTIVE","value":"postgres"},{"name":"SPRING_CONFIG_IMPORT","value":"optional:configtree:${SERVICE_BINDING_ROOT}/dogs-config/"}],"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"skip-test"}},{"name":"scanning_source_policy","value":"scan-policy-java"},{"name":"scanning_image_policy","value":"scan-policy-java"},{"name":"gitops_commit_message","value":"dogs int supplychain@cluster.local"}],"serviceClaims":[{"name":"dogs-database","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"micropets-int-tanzu-postgresql-database"}},{"name":"dogs-config","ref":{"apiVersion":"services.apps.tanzu.vmware.com/v1alpha1","kind":"ResourceClaim","name":"dogs-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-dogs-springboot"}}}}
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: dogs
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: dogs-springboot
+spec:
+  name: dogs-config
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: dogs-config
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: dogs-springboot
+
