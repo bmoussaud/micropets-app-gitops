@@ -7,36 +7,33 @@ metadata:
     ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
     kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
   labels:
+    apis.apps.tanzu.vmware.com/register-api: "false"
     app.kubernetes.io/name: gui
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1686744459966234840"
-    kapp.k14s.io/association: v1.40809c06c1b8dab8e8f8fa45fb8787bb
     app.kubernetes.io/component: run
     carto.run/workload-name: gui-angular-js
 spec:
   template:
     metadata:
       annotations:
-        autoscaling.knative.dev/minScale: "1"
+        apps.tanzu.vmware.com/correlationid: https://github.com/bmoussaud/micropets-gui-angular-js/?sub_path=/
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
-        kapp.k14s.io/identity: v1;micropets-int/carto.run/Workload/gui-angular-js;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{"autoscaling.knative.dev/minScale":"1"},"labels":{"app.kubernetes.io/name":"gui","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1686744459966234840","kapp.k14s.io/association":"v1.40809c06c1b8dab8e8f8fa45fb8787bb"},"name":"gui-angular-js","namespace":"micropets-int"},"spec":{"env":[{"name":"SERVICE_BINDING_ROOT","value":"/workspace/dist/assets"},{"name":"PETS_SERVICE","value":"http://pets-golang.micropets-int/pets"}],"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"skip-test"}},{"name":"scanning_source_policy","value":"scan-policy-angular"},{"name":"scanning_image_policy","value":"scan-policy-angular"},{"name":"userId","value":1001},{"name":"gitops_commit_message","value":"gui int supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"gui-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-gui-angular-js/"}}}}'
-        kapp.k14s.io/original-diff-md5: 58e0494c51d30eb3494f7c9198986bb9
+        kubectl.kubernetes.io/last-applied-configuration: |
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"apis.apps.tanzu.vmware.com/register-api":"false","app.kubernetes.io/name":"gui","app.kubernetes.io/part-of":"micropets","apps.tanzu.vmware.com/has-tests":"true","apps.tanzu.vmware.com/workload-type":"web"},"name":"gui-angular-js","namespace":"micropets-int"},"spec":{"build":{"env":[{"name":"BP_NODE_VERSION","value":"v18.19.0"},{"name":"BP_LOG_LEVEL","value":"DEBUG"}]},"env":[{"name":"SERVICE_BINDING_ROOT","value":"/workspace/dist/assets"},{"name":"PETS_SERVICE","value":"http://pets-golang.micropets-int/pets"}],"params":[{"name":"testing_pipeline_matching_labels","value":{"apps.tanzu.vmware.com/pipeline":"skip-test"}},{"name":"scanning_source_policy","value":"scan-policy-angular"},{"name":"scanning_image_policy","value":"scan-policy-angular"},{"name":"gitops_commit_message","value":"gui int supplychain@cluster.local"}],"serviceClaims":[{"name":"app-config","ref":{"apiVersion":"v1","kind":"Secret","name":"gui-config"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/bmoussaud/micropets-gui-angular-js/"}}}}
       labels:
+        apis.apps.tanzu.vmware.com/register-api: "false"
         app.kubernetes.io/component: run
         app.kubernetes.io/name: gui
         app.kubernetes.io/part-of: micropets
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: gui-angular-js
-        kapp.k14s.io/app: "1686744459966234840"
-        kapp.k14s.io/association: v1.40809c06c1b8dab8e8f8fa45fb8787bb
     spec:
       containers:
       - env:
@@ -44,10 +41,17 @@ spec:
           value: /workspace/dist/assets
         - name: PETS_SERVICE
           value: http://pets-golang.micropets-int/pets
-        image: akseutap5registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-int@sha256:ff6ea6e92645e5c8d9bc2ad4b4c641d8f6dd8973bba772722e8dbec7073d703d
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-int@sha256:2a62982cc6c8ade777a23d2eb53f028d8f75810c74dba065283ae06d395b730a
         name: workload
         resources: {}
         securityContext:
-          runAsUser: 1001
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
       serviceAccountName: default
 
