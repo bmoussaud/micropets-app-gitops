@@ -17,17 +17,20 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/correlationid: akseutap8registry.azurecr.io/lsp:micropets-dev-pets-golang?sub_path=/
         apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         conventions.carto.run/applied-conventions: |-
-          appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:33f7af2e3ed60346de017f27dc6b576ee3e804d53e60d9070cbf56308f6087de
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:9b7bb934837da8262f60dccfcb7107faee5d37247f199e6ce0f070f3b496726e
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:33f7af2e3ed60346de017f27dc6b576ee3e804d53e60d9070cbf56308f6087de
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-pets-golang@sha256:9b7bb934837da8262f60dccfcb7107faee5d37247f199e6ce0f070f3b496726e
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/name: pets
@@ -37,10 +40,17 @@ spec:
         carto.run/workload-name: pets-golang
     spec:
       containers:
-      - image: akseutap6registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-dev@sha256:c5d53bafbd9837177f43feec09c2df82464a20b06b7853815091c65c7548fe4d
+      - image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/pets-golang-micropets-dev@sha256:ec5fbd2318ae72ee4987d8eeabd056b9cf9807d458f3a07ff61be2e490653b8c
         name: workload
         resources: {}
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
       serviceAccountName: default
 
