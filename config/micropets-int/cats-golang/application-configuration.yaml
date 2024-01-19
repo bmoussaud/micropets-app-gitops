@@ -1,0 +1,32 @@
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSource
+metadata:
+  name: cats-config
+spec:
+  backends:
+    - type: git
+      uri: https://github.com/bmoussaud/micropets-app-gitops.git
+      defaultLabel: main
+      searchPaths:
+        - appconfig/micropets-int/cats-golang
+---
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSlice
+metadata:
+  name: cats-config
+spec:
+  interval: 1s
+  configurationSource: cats-config
+  configMapStrategy: applicationProperties
+  content:
+    - application/default
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaim
+metadata:
+  name: cats-config
+spec:
+  ref:
+    apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+    kind: ConfigurationSlice
+    name: cats-config
