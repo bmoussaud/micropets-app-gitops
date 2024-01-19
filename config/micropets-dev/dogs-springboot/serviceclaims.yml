@@ -20,7 +20,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:06c1b596fef9b4c8a0aa5c32b7fe860af14272eaab7156a29c25f286934d6863
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:f0a82beb5145e58abc5ec60d8452613b6a30f642e6d8bf305633f009b8cfba1e
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
@@ -34,8 +34,8 @@ spec:
   name: dogs-database
   service:
     apiVersion: services.apps.tanzu.vmware.com/v1alpha1
-    kind: ClassClaim
-    name: dogs-pgsql
+    kind: ResourceClaim
+    name: micropets-dev-tanzu-postgresql-database
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
@@ -48,7 +48,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:06c1b596fef9b4c8a0aa5c32b7fe860af14272eaab7156a29c25f286934d6863
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:f0a82beb5145e58abc5ec60d8452613b6a30f642e6d8bf305633f009b8cfba1e
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: dogs
