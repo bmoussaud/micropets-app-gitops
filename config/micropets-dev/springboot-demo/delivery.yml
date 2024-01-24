@@ -24,7 +24,7 @@ spec:
           spring-boot-convention/is-native-app-check
           spring-boot-convention/app-live-view-appflavour-check
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:35227d036ef1c6d6d8719bdcae4280000f100bb333ba55642355c4a5cdf14e1f
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:e13610400128a22ba5b3ded1fb64b7718f376294632344b294500594479b54b4
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: springboot-demo
