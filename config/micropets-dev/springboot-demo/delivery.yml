@@ -45,7 +45,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:7b8f51d8aa17892006e58ac6b7fd205a47c6afe859837957ffa2d288ef8a3fa6
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:e8a0f7752851aac612b018411af932e025c60e65a3b5fe0c809da2b39175ed49
         name: workload
         ports:
         - containerPort: 8080
