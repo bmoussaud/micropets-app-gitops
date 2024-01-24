@@ -30,7 +30,7 @@ spec:
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
           spring-boot-convention/app-live-view-appflavour-check
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:e0784553799843992e8809624850aabc3104d9cf93b565d66c8e38d6118ceba7
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:d31910d6b2750fbc54c467031b5c7c38afe64fd77a79e58d391946e4450916ac
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:d31910d6b2750fbc54c467031b5c7c38afe64fd77a79e58d391946e4450916ac
       labels:
@@ -45,7 +45,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:7642cc626cf7245b781164818bed31244d83fba9be13c2b032c1bcc7bc1f72e2
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:11ab8198e67288e32ec9e3a66ea8a222197a82cd520cf78e0a004a20b9512937
         name: workload
         ports:
         - containerPort: 8080
