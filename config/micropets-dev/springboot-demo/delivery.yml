@@ -32,7 +32,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:b303bf3c265cc559e7867c192a4a0cf6ab835f2b988cccaa4103efd80de69863
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:b303bf3c265cc559e7867c192a4a0cf6ab835f2b988cccaa4103efd80de69863
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:e0784553799843992e8809624850aabc3104d9cf93b565d66c8e38d6118ceba7
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: springboot-demo
