@@ -45,7 +45,7 @@ spec:
           value: /workspace/dist/assets
         - name: PETS_SERVICE
           value: http://pets-golang.micropets-dev/pets
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:a3787c595b391341d28b283fb53708e8436b8944c61dba0843fd42d0b7155c0f
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/gui-angular-js-micropets-dev@sha256:1dc776d276bfb5a27c96fa5404f8b0df8918196312b73fa6a1495a9cfd699af1
         name: workload
         resources: {}
         securityContext:
