@@ -61,7 +61,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/dogs-config/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-int@sha256:2e69a8bd379cc176660eee90fbdd6e49692c8d6c992ccc0b20466f9973b322cb
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-int@sha256:c9caf6f562ba7b32d268540c35aa3bdb11c7cd6fb595d8d0f0524988b707ebf3
         livenessProbe:
           httpGet:
             path: /livez
