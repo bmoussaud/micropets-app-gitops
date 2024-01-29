@@ -33,7 +33,7 @@ spec:
         carto.run/workload-name: springboot-demo
     spec:
       containers:
-      - image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:66b18f3b9698dd49434b157f7af5f749fa8949fbb111987d047b817ac055671b
+      - image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:ad1424f1ed4db71e7feda3fdabd4d1b5feee931420c7ac17ab7914b3ce7c2419
         name: workload
         resources: {}
         securityContext:
