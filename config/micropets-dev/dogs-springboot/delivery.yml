@@ -7,6 +7,7 @@ metadata:
     ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
     kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
   labels:
+    apis.apps.tanzu.vmware.com/register-api: "true"
     app.kubernetes.io/name: dogs
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
@@ -38,11 +39,12 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:f0a82beb5145e58abc5ec60d8452613b6a30f642e6d8bf305633f009b8cfba1e
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:bc21ea9ec134f581f8923433366ff73426ea1a2c4937dba092d997b935ea947f
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:f0a82beb5145e58abc5ec60d8452613b6a30f642e6d8bf305633f009b8cfba1e
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:bc21ea9ec134f581f8923433366ff73426ea1a2c4937dba092d997b935ea947f
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
+        apis.apps.tanzu.vmware.com/register-api: "true"
         app.kubernetes.io/component: run
         app.kubernetes.io/name: dogs
         app.kubernetes.io/part-of: micropets
@@ -67,7 +69,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/dogs-config/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:f904de3b3ec157f9f70d6ffdacf331d81e1168e9582edb070f7eaf34fef9f5e3
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:69fe2e4bb31f79cb81cbe0b360693b077666cf7d95e84ebb2d244be57c266dda
         livenessProbe:
           httpGet:
             path: /livez

@@ -1,0 +1,31 @@
+apiVersion: apis.apps.tanzu.vmware.com/v1alpha1
+kind: APIDescriptor
+metadata:
+  name: dogs-springboot
+  annotations:
+    autoscaling.knative.dev/max-scale: "2"
+    autoscaling.knative.dev/minScale: "1"
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:155cbffde3044ea38ac4f0d6120b373c54838219f9910d7c4b2f8dfe466f2122
+  labels:
+    apis.apps.tanzu.vmware.com/register-api: "true"
+    app.kubernetes.io/name: dogs
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: dogs-springboot
+spec:
+  type: openapi
+  description: A set of API endpoints.
+  system: dev
+  owner: team-a
+  location:
+    apiSpec:
+      path: /v3/api-docs
+    server:
+      ref:
+        apiVersion: serving.knative.dev/v1
+        kind: Service
+        name: dogs-springboot
+
