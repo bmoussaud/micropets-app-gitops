@@ -36,7 +36,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:9cc068961951b70ce5cc1977d4e0050d3e576c21de04986f07f26d92f1a30fb3
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:f2a9aa4d9b4c6e3b0e2e493d8fd139b939083782bd48b624ac30f991e6a56698
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:f2a9aa4d9b4c6e3b0e2e493d8fd139b939083782bd48b624ac30f991e6a56698
       labels:
@@ -57,7 +57,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/my-app-micropets-sign@sha256:e08e08e2279b722acd2268c2b40061d71fdb5642d9c589f2e41a646c9e859eb3
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/my-app-micropets-sign@sha256:cc91bfb7fa718e965381fa4611cb31d298ec2880d22fdd90748cb8ef7fb75ba2
         livenessProbe:
           httpGet:
             path: /livez
