@@ -36,9 +36,9 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:e814586b2e886514c76965bee3c763841d5485dc66f41c8c359bf2d96ba27b5f
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:fe26b1b3522322dd2358779ef8186534080ef15d13f60f7f0cb1d7c7299ca63a
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:e814586b2e886514c76965bee3c763841d5485dc66f41c8c359bf2d96ba27b5f
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-sign-my-app@sha256:fe26b1b3522322dd2358779ef8186534080ef15d13f60f7f0cb1d7c7299ca63a
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: my-app
@@ -57,7 +57,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/my-app-micropets-sign@sha256:b750930cb0d5e8b3cb2373c116b397bf82afe0a27897ab5a0c863af94b714798
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/my-app-micropets-sign@sha256:3983c5ede883a8233a9ce591b7c1cb4cbce1a2a5be1a02b56431a54e25c97da3
         livenessProbe:
           httpGet:
             path: /livez
