@@ -38,7 +38,7 @@ spec:
           spring-boot-convention/app-live-view-appflavours-boot
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-sign-my-signed-application@sha256:077a98b4308ab25c7bc2652e0a89dadcbf2630c51c0be3f487ce27d58bb57e4c
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-sign-my-signed-application@sha256:077a98b4308ab25c7bc2652e0a89dadcbf2630c51c0be3f487ce27d58bb57e4c
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-sign-my-signed-application@sha256:f2e64137a1d31ab9da85cc657031041f30319b5ea68e9f125699d3d183754305
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: my-signed-application
