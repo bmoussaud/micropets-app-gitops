@@ -39,9 +39,9 @@ spec:
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
           spring-boot-convention/service-intent-postgres
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:96ecf98f8db873f0adb660aca51c602ffb7d0ceb659c78252d50a65040eb7bb6
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:0920873a6f1d17b3dac65f7bc0aef8b222cb7e2c3ae5d568575a7fac552cb0ea
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:96ecf98f8db873f0adb660aca51c602ffb7d0ceb659c78252d50a65040eb7bb6
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:0920873a6f1d17b3dac65f7bc0aef8b222cb7e2c3ae5d568575a7fac552cb0ea
         services.conventions.carto.run/postgres: postgresql/42.6.0
       labels:
         apis.apps.tanzu.vmware.com/register-api: "true"
@@ -69,7 +69,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/dogs-config/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:ba96043f341bc4f9053bf24138be94c8f0310bef7274a424415acf36c7f8b29d
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/dogs-springboot-micropets-dev@sha256:4e761e45d26b37b68afe76c48bdae838937ba867544beaed6a26b8146b39f3dc
         livenessProbe:
           httpGet:
             path: /livez

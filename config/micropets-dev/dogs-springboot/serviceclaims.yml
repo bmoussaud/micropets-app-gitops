@@ -20,7 +20,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:96ecf98f8db873f0adb660aca51c602ffb7d0ceb659c78252d50a65040eb7bb6
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:0920873a6f1d17b3dac65f7bc0aef8b222cb7e2c3ae5d568575a7fac552cb0ea
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     apis.apps.tanzu.vmware.com/register-api: "true"
@@ -49,7 +49,7 @@ metadata:
   annotations:
     autoscaling.knative.dev/max-scale: "2"
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:96ecf98f8db873f0adb660aca51c602ffb7d0ceb659c78252d50a65040eb7bb6
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-dogs-springboot@sha256:0920873a6f1d17b3dac65f7bc0aef8b222cb7e2c3ae5d568575a7fac552cb0ea
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     apis.apps.tanzu.vmware.com/register-api: "true"
