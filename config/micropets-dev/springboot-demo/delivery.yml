@@ -18,23 +18,38 @@ spec:
       annotations:
         apps.tanzu.vmware.com/correlationid: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo?sub_path=/
         apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
+        autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/version: 3.1.8
         conventions.carto.run/applied-conventions: |-
+          developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/is-native-app-check
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-graceful-shutdown
+          spring-boot-convention/spring-boot-web
           spring-boot-convention/app-live-view-appflavour-check
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:6402afc17590d6b8dd015866ce2a888541e374c23ec884d6afa2c1a323964fb9
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:c6bcfdd2c0f7586873c0b030ef54cd7b8ce31e5e9fe81dba8d76336cdfae69a3
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-springboot-demo@sha256:6402afc17590d6b8dd015866ce2a888541e374c23ec884d6afa2c1a323964fb9
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: springboot-demo
         apps.tanzu.vmware.com/has-tests: "true"
         apps.tanzu.vmware.com/workload-type: springweb
         carto.run/workload-name: springboot-demo
+        conventions.carto.run/framework: spring-boot
     spec:
       containers:
-      - image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:ad1424f1ed4db71e7feda3fdabd4d1b5feee931420c7ac17ab7914b3ce7c2419
+      - env:
+        - name: JAVA_TOOL_OPTIONS
+          value: -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/springboot-demo-micropets-dev@sha256:93f44bf1c1ebd6c7cfcde74a0a424230d9aeb72ca70f9eaa5f8fef92b35bc401
         name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
         resources: {}
         securityContext:
           allowPrivilegeEscalation: false
