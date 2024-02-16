@@ -43,7 +43,7 @@ spec:
           spring-boot-convention/service-intent-redis
         developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:cf17fe482d2b27688353541329ece9518bee7d701d2c1e16030342b68edcc77c
         developer.conventions/target-containers: workload
-        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:cf17fe482d2b27688353541329ece9518bee7d701d2c1e16030342b68edcc77c
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:2c7686099328986f683305b74c527904954b2a3161a757e50f0cbc0f3c93fa2c
         services.conventions.carto.run/postgres: postgresql/42.6.0
         services.conventions.carto.run/rabbitmq: amqp-client/5.19.0
         services.conventions.carto.run/redis: jedis/5.0.2
