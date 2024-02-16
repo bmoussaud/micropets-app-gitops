@@ -19,14 +19,14 @@ metadata:
   name: aipets-springboot-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:2b5803264d01dd644387e49b9b5e09f8674e0c1bff0b58e377bd42e3e750193c
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:cf17fe482d2b27688353541329ece9518bee7d701d2c1e16030342b68edcc77c
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    micropets/kind: backend
+    micropets/kind: notbackendanymore
     app.kubernetes.io/component: run
     carto.run/workload-name: aipets-springboot
 spec:
@@ -46,14 +46,14 @@ metadata:
   name: aipets-springboot-app-aipets-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:2b5803264d01dd644387e49b9b5e09f8674e0c1bff0b58e377bd42e3e750193c
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:cf17fe482d2b27688353541329ece9518bee7d701d2c1e16030342b68edcc77c
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
     app.kubernetes.io/part-of: micropets
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: web
-    micropets/kind: backend
+    micropets/kind: notbackendanymore
     app.kubernetes.io/component: run
     carto.run/workload-name: aipets-springboot
 spec:
