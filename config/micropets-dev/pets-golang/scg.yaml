@@ -2,7 +2,6 @@ apiVersion: "tanzu.vmware.com/v1"
 kind: SpringCloudGatewayRouteConfig
 metadata:
   name: micropets-pets-routes
-  namespace: micropets-dev
 spec:
   service:
     name: pets-golang
