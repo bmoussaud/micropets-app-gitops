@@ -19,7 +19,7 @@ metadata:
   name: gui-angular-js-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:dfe342bd7d38e27b747c9bd18708e418c72f7b93e5fb471e3d3ad6554bfe968f
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-gui-angular-js@sha256:0b847676bf41086b236b2efda212fe7749febd86af5926436375699c5632b4eb
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     apis.apps.tanzu.vmware.com/register-api: "false"
