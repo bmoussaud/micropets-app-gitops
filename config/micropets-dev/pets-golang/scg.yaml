@@ -1,0 +1,23 @@
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: micropets-pets-routes
+  namespace: micropets-dev
+spec:
+  service:
+    name: pets-golang
+  routes:
+    - predicates:
+        - Path=/micropets/pets/**
+      filters:
+        - StripPrefix=1
+---
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGatewayMapping
+metadata:
+  name: micropets-pets-routes-gateway-mapping
+spec:
+  gatewayRef:
+    name: micropets-gateway
+  routeConfigRef:
+    name: micropets-pets-routes
