@@ -1,0 +1,31 @@
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSource
+metadata:
+  name: aipets-config
+spec:
+  backends:
+  - type: git
+    uri: https://github.com/bmoussaud/micropets-app-gitops
+    defaultLabel: main
+    searchPaths:
+    - appconfig/micropets-dev/aipets-springboot
+---
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSlice
+metadata:
+  name: aipets-config
+spec:
+  interval: 1s
+  configurationSource: aipets-config
+  content:
+  - application/default
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaim
+metadata:
+  name: aipets-config
+spec:
+  ref:
+    apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+    kind: ConfigurationSlice
+    name: aipets-config
