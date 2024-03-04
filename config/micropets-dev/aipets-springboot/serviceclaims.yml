@@ -16,10 +16,37 @@ waitRules:
 apiVersion: servicebinding.io/v1alpha3
 kind: ServiceBinding
 metadata:
+  name: aipets-springboot-aipets-config
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:feeaf852824bebe7a2045b7de18495aba5cfdee92264ebd2630e580dce563df4
+    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: aipets
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: aipets-springboot
+spec:
+  name: aipets-config
+  service:
+    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+    kind: ResourceClaim
+    name: aipets-config
+  workload:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: aipets-springboot
+---
+apiVersion: servicebinding.io/v1alpha3
+kind: ServiceBinding
+metadata:
   name: aipets-springboot-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:71506aa9c33061f44164d51706980bedeac2077ee436b1494fca5eb7049a7265
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:feeaf852824bebe7a2045b7de18495aba5cfdee92264ebd2630e580dce563df4
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -46,7 +73,7 @@ metadata:
   name: aipets-springboot-app-aipets-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:71506aa9c33061f44164d51706980bedeac2077ee436b1494fca5eb7049a7265
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:feeaf852824bebe7a2045b7de18495aba5cfdee92264ebd2630e580dce563df4
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -73,7 +100,7 @@ metadata:
   name: aipets-springboot-rabbitmq-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:71506aa9c33061f44164d51706980bedeac2077ee436b1494fca5eb7049a7265
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:feeaf852824bebe7a2045b7de18495aba5cfdee92264ebd2630e580dce563df4
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -100,7 +127,7 @@ metadata:
   name: aipets-springboot-pgsql-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:71506aa9c33061f44164d51706980bedeac2077ee436b1494fca5eb7049a7265
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:feeaf852824bebe7a2045b7de18495aba5cfdee92264ebd2630e580dce563df4
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -116,33 +143,6 @@ spec:
     apiVersion: sql.tanzu.vmware.com/v1
     kind: Postgres
     name: micropets-dev-database
-  workload:
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    name: aipets-springboot
----
-apiVersion: servicebinding.io/v1alpha3
-kind: ServiceBinding
-metadata:
-  name: aipets-springboot-aipets-config
-  annotations:
-    autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:71506aa9c33061f44164d51706980bedeac2077ee436b1494fca5eb7049a7265
-    kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
-  labels:
-    app.kubernetes.io/name: aipets
-    app.kubernetes.io/part-of: micropets
-    apps.tanzu.vmware.com/has-tests: "true"
-    apps.tanzu.vmware.com/workload-type: web
-    micropets/kind: backend
-    app.kubernetes.io/component: run
-    carto.run/workload-name: aipets-springboot
-spec:
-  name: aipets-config
-  service:
-    apiVersion: services.apps.tanzu.vmware.com/v1alpha1
-    kind: ResourceClaim
-    name: aipets-config
   workload:
     apiVersion: serving.knative.dev/v1
     kind: Service
