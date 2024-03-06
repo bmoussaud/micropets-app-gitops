@@ -19,7 +19,7 @@ metadata:
   name: playlist-service-springboot-database
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap6registry.azurecr.io/lsp:musicstore-dev-playlist-service-springboot@sha256:de284e645d30a74560e8a2f5b4c8c050a7705ceedc8c72f50b4809b74d76998a
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:musicstore-dev-playlist-service-springboot@sha256:de284e645d30a74560e8a2f5b4c8c050a7705ceedc8c72f50b4809b74d76998a
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: playlist-service-springboot
