@@ -22,7 +22,7 @@ spec:
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
-        boot.spring.io/version: 3.2.2
+        boot.spring.io/version: 3.2.1
         conventions.carto.run/applied-conventions: |-
           developer-conventions/live-update-convention
           developer-conventions/add-source-image-label
@@ -39,7 +39,7 @@ spec:
           spring-boot-convention/service-intent-postgres
           spring-boot-convention/service-intent-rabbitmq
           spring-boot-convention/service-intent-redis
-        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:6fd5f613a40930b017dbd0ef38f71e6c296c0e9134d3057677623f5886e01074
+        developer.apps.tanzu.vmware.com/image-source-digest: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:cd7e653e226ce359bf3193b371952cb57344a906d36a21033800e551e00c4072
         developer.conventions/target-containers: workload
         local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:cd7e653e226ce359bf3193b371952cb57344a906d36a21033800e551e00c4072
         services.conventions.carto.run/postgres: postgresql/42.6.0
@@ -72,7 +72,7 @@ spec:
           value: optional:configtree:${SERVICE_BINDING_ROOT}/spring-properties/
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:82901e63e68b7b90ce8da29bfd66c4e2c82d74678c16e027d80a6d9f8c1ad330
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:92b5c3a3eb3d6f06e0929d26bd2b944dd7d250b8f2975b45ef7b29012623c5f0
         livenessProbe:
           httpGet:
             path: /livez
