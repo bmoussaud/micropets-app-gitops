@@ -19,7 +19,7 @@ metadata:
   name: aipets-springboot-aipets-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:15dfd2d5f6ac747d90475b7f3f809d0d11e4e9eac290bea00c8b658fbc22d866
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:6a86f6deaabcdd0095150708e36e8f242751cb11f29e5e9571d38b1d93d5aa55
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -46,7 +46,7 @@ metadata:
   name: aipets-springboot-app-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:15dfd2d5f6ac747d90475b7f3f809d0d11e4e9eac290bea00c8b658fbc22d866
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:6a86f6deaabcdd0095150708e36e8f242751cb11f29e5e9571d38b1d93d5aa55
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -73,7 +73,7 @@ metadata:
   name: aipets-springboot-app-aipets-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:15dfd2d5f6ac747d90475b7f3f809d0d11e4e9eac290bea00c8b658fbc22d866
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:6a86f6deaabcdd0095150708e36e8f242751cb11f29e5e9571d38b1d93d5aa55
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -100,7 +100,7 @@ metadata:
   name: aipets-springboot-rabbitmq-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:15dfd2d5f6ac747d90475b7f3f809d0d11e4e9eac290bea00c8b658fbc22d866
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:6a86f6deaabcdd0095150708e36e8f242751cb11f29e5e9571d38b1d93d5aa55
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
@@ -127,7 +127,7 @@ metadata:
   name: aipets-springboot-pgsql-config
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:15dfd2d5f6ac747d90475b7f3f809d0d11e4e9eac290bea00c8b658fbc22d866
+    local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:6a86f6deaabcdd0095150708e36e8f242751cb11f29e5e9571d38b1d93d5aa55
     kapp.k14s.io/change-group: servicebinding.io/ServiceBindings
   labels:
     app.kubernetes.io/name: aipets
