@@ -1,0 +1,101 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: aipets-springboot
+  annotations:
+    ootb.apps.tanzu.vmware.com/servicebinding-workload: "true"
+    ootb.apps.tanzu.vmware.com/apidescriptor-ref: "true"
+    kapp.k14s.io/change-rule: upsert after upserting servicebinding.io/ServiceBindings
+  labels:
+    app.kubernetes.io/name: aipets
+    app.kubernetes.io/part-of: micropets
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+    micropets/kind: backend
+    app.kubernetes.io/component: run
+    carto.run/workload-name: aipets-springboot
+spec:
+  template:
+    metadata:
+      annotations:
+        apps.tanzu.vmware.com/correlationid: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot?sub_path=/
+        autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/version: 3.2.2
+        conventions.carto.run/applied-conventions: |-
+          spring-boot-convention/auto-configure-actuators-check
+          spring-boot-convention/is-native-app-check
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-graceful-shutdown
+          spring-boot-convention/spring-boot-web
+          spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/spring-boot-actuator-probes
+          spring-boot-convention/app-live-view-appflavour-check
+          spring-boot-convention/app-live-view-connector-boot
+          spring-boot-convention/app-live-view-appflavours-boot
+          spring-boot-convention/service-intent-postgres
+          spring-boot-convention/service-intent-rabbitmq
+          spring-boot-convention/service-intent-redis
+        developer.conventions/target-containers: workload
+        local-source-proxy.apps.tanzu.vmware.com: akseutap8registry.azurecr.io/lsp:micropets-dev-aipets-springboot@sha256:15dfd2d5f6ac747d90475b7f3f809d0d11e4e9eac290bea00c8b658fbc22d866
+        services.conventions.carto.run/postgres: postgresql/42.6.0
+        services.conventions.carto.run/rabbitmq: amqp-client/5.19.0
+        services.conventions.carto.run/redis: jedis/5.0.2
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/name: aipets
+        app.kubernetes.io/part-of: micropets
+        apps.tanzu.vmware.com/auto-configure-actuators: "false"
+        apps.tanzu.vmware.com/has-tests: "true"
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: aipets-springboot
+        conventions.carto.run/framework: spring-boot
+        micropets/kind: backend
+        services.conventions.carto.run/postgres: workload
+        services.conventions.carto.run/rabbitmq: workload
+        services.conventions.carto.run/redis: workload
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.actuator.path: actuator
+        tanzu.app.live.view.application.actuator.port: "8080"
+        tanzu.app.live.view.application.flavours: spring-boot
+        tanzu.app.live.view.application.name: aipets-springboot
+    spec:
+      containers:
+      - env:
+        - name: org.springframework.cloud.bindings.boot.enable
+          value: "true"
+        - name: SPRING_CONFIG_IMPORT
+          value: optional:configtree:${SERVICE_BINDING_ROOT}/spring-properties/
+        - name: JAVA_TOOL_OPTIONS
+          value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
+        image: akseutap8registry.azurecr.io/library/tanzu-supply-chain/aipets-springboot-micropets-dev@sha256:6e4864fda8adf7e40a939791e791a638e2dd6669ee4d506cba682539e3679d6d
+        livenessProbe:
+          httpGet:
+            path: /livez
+            port: 8080
+            scheme: HTTP
+        name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+        startupProbe:
+          httpGet:
+            path: /readyz
+            port: 8080
+            scheme: HTTP
+      serviceAccountName: default
+
