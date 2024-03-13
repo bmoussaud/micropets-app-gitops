@@ -18,7 +18,6 @@ spec:
     metadata:
       annotations:
         apps.tanzu.vmware.com/correlationid: akseutap8registry.azurecr.io/lsp:micropets-dev-pets-golang?sub_path=/
-        apps.tanzu.vmware.com/debug: "true"
         apps.tanzu.vmware.com/live-update: "true"
         autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
